@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://nnueicww5rg2"]
+
+[ext_resource type="Texture2D" uid="uid://4psntfig8y7e" path="res://pixilart-sprite_14.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bt0j51oyd1x5j" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqtel"]
+_data = {
+&"RESET": SubResource("Animation_onrkg"),
+&"idle": SubResource("Animation_i3pqv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 21.213203
+
+[node name="player" type="CharacterBody2D" unique_id=1998293610]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178245844]
+shape = SubResource("CapsuleShape2D_i3pqv")
+
+[node name="visuals" type="Node2D" parent="." unique_id=1938267543]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=470380336]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_hqtel")
+autoplay = &"idle"
+speed_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="visuals" unique_id=1653459555]
+texture = ExtResource("1_4flbx")
+hframes = 22
+
+[node name="Area2D" type="Area2D" parent="." unique_id=849362830]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77003911]
+shape = SubResource("CircleShape2D_4flbx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1519667095]
+visible = false
+offset_left = -19.0
+offset_top = -34.0
+offset_right = 21.0
+offset_bottom = -26.0
+color = Color(1, 0, 0, 1)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

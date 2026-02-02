@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dxhnhopvg2bct"]
+
+[ext_resource type="Script" uid="uid://t8tpjgo4lfvc" path="res://gpu_particles_2d.gd" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://nnueicww5rg2" path="res://player.tscn" id="2_vonw3"]
+
+[sub_resource type="Gradient" id="Gradient_vonw3"]
+offsets = PackedFloat32Array(0, 0.6084337)
+colors = PackedColorArray(0, 0, 1, 1, 0.56078434, 0.7058824, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oi3di"]
+gradient = SubResource("Gradient_vonw3")
+width = 4
+height = 4
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0b4ue"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 40, 0)
+tangential_accel_min = -100.0
+tangential_accel_max = 99.99999
+
+[sub_resource type="Gradient" id="Gradient_5xgho"]
+offsets = PackedFloat32Array(0, 0.6807229)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u52ul"]
+gradient = SubResource("Gradient_5xgho")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Environment" id="Environment_vonw3"]
+glow_enabled = true
+
+[node name="level" type="Node2D" unique_id=808644169]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=488106784]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1181762275]
+amount = 16
+texture = SubResource("GradientTexture2D_oi3di")
+process_material = SubResource("ParticleProcessMaterial_0b4ue")
+script = ExtResource("1_u52ul")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499138003]
+texture = SubResource("GradientTexture2D_u52ul")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=247620855]
+environment = SubResource("Environment_vonw3")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="WorldEnvironment" unique_id=2025103190]
+
+[node name="player" parent="." unique_id=1998293610 instance=ExtResource("2_vonw3")]
+position = Vector2(-20, -10)

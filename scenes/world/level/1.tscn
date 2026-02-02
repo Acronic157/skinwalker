@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b57c7rfor71vr"]
+
+[ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_f6x0h"]
+[ext_resource type="Texture2D" uid="uid://cba01bqi7wb13" path="res://icon.svg" id="2_rncmc"]
+[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_thn3b"]
+
+[node name="1" unique_id=315252252 instance=ExtResource("1_f6x0h")]
+
+[node name="Icon" type="Sprite2D" parent="." index="0" unique_id=1196584836]
+position = Vector2(3, 5)
+texture = ExtResource("2_rncmc")
+
+[node name="CanvasLayer" parent="ui" parent_id_path=PackedInt32Array(1944775680) index="0" unique_id=173146111]
+visible = false
+
+[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_thn3b")]
+position = Vector2(157, 51)
+
+[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=350025643 instance=ExtResource("2_thn3b")]
+position = Vector2(-114, -13)

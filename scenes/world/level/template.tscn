@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://ctdq0fvbn07dq"]
+
+[ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="1_5tbc7"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_n2qea"]
+[ext_resource type="Shader" uid="uid://fm1kuqqm5m5h" path="res://scripts/menus/transition_shader.gdshader" id="1_q2w1t"]
+[ext_resource type="Script" uid="uid://5bym4v5l7owq" path="res://scripts/world/level.gd" id="1_ubx2m"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_5tbc7"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_h87xw"]
+[ext_resource type="PackedScene" uid="uid://dlg7d572k6q78" path="res://scenes/world/level/game_over.tscn" id="3_v24f1"]
+
+[sub_resource type="Environment" id="Environment_h87xw"]
+tonemap_mode = 4
+glow_enabled = true
+adjustment_brightness = 0.71
+adjustment_saturation = 1.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubx2m"]
+shader = ExtResource("1_q2w1t")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(8, 8)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(10, 0)
+
+[sub_resource type="Animation" id="Animation_q2w1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ubx2m"]
+resource_name = "enter_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/transition:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 9.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v24f1"]
+resource_name = "exit_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [9.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvv5a"]
+_data = {
+&"RESET": SubResource("Animation_q2w1t"),
+&"enter_level": SubResource("Animation_ubx2m"),
+&"exit_level": SubResource("Animation_v24f1")
+}
+
+[sub_resource type="TileSet" id="TileSet_ul342"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+
+[sub_resource type="Resource" id="Resource_q2w1t"]
+script = ExtResource("2_5tbc7")
+
+[node name="Template" type="Node2D" unique_id=315252252]
+script = ExtResource("1_ubx2m")
+
+[node name="world_environment" type="Node2D" parent="." unique_id=2131832568]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world_environment" unique_id=1424828357]
+environment = SubResource("Environment_h87xw")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="world_environment/WorldEnvironment" unique_id=472210911]
+color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+
+[node name="ui" type="Node2D" parent="." unique_id=1944775680]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ui" unique_id=173146111]
+
+[node name="transition" type="ColorRect" parent="ui/CanvasLayer" unique_id=1020619553]
+process_mode = 3
+material = SubResource("ShaderMaterial_ubx2m")
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui" unique_id=799564908]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_xvv5a")
+autoplay = &"enter_level"
+
+[node name="GameOver" parent="ui" unique_id=1272790776 instance=ExtResource("3_v24f1")]
+visible = false
+
+[node name="tilemaps" type="Node2D" parent="." unique_id=605557829]
+
+[node name="ground" type="TileMapLayer" parent="tilemaps" unique_id=989808598]
+tile_set = SubResource("TileSet_ul342")
+
+[node name="walls" type="TileMapLayer" parent="tilemaps" unique_id=323050180]
+
+[node name="barriers" type="Node2D" parent="." unique_id=507976491]
+
+[node name="player" type="Node2D" parent="." unique_id=1072154393]
+
+[node name="player" parent="player" unique_id=1096445309 instance=ExtResource("1_5tbc7")]
+
+[node name="entities" type="Node2D" parent="." unique_id=2045071420]
+
+[node name="camera" type="Node2D" parent="." unique_id=138761699]
+
+[node name="Camera2D" type="Camera2D" parent="camera" unique_id=159240649]
+top_level = true
+zoom = Vector2(0.5, 0.5)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="camera/Camera2D" unique_id=1107344072]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_h87xw")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="camera" unique_id=1496083742]
+physics_interpolation_mode = 1
+script = ExtResource("1_n2qea")
+priority = 1
+zoom = Vector2(0.5, 0.5)
+snap_to_pixel = true
+tween_resource = SubResource("Resource_q2w1t")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="animation_finished" from="ui/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

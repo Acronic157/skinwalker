@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://bjfvx7a5di8nk"]
+
+[ext_resource type="Script" uid="uid://ooapkf5cjbe1" path="res://scripts/entities/enemies/enemy.gd" id="1_yfmsl"]
+[ext_resource type="Script" uid="uid://dehnuae2vroov" path="res://scripts/entities/enemies/states/state_machine.gd" id="2_essrt"]
+[ext_resource type="Script" uid="uid://bg2dr6ygymarb" path="res://scripts/entities/enemies/states/idle.gd" id="3_pm80n"]
+[ext_resource type="Texture2D" uid="uid://crit4jb5n1081" path="res://assets/entities/enemies/pixil-frame-0_1.png" id="4_gflvi"]
+[ext_resource type="Script" uid="uid://rxfctv1dq0rr" path="res://scripts/entities/enemies/states/posessed.gd" id="4_j3iiu"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_20lqd"]
+[ext_resource type="Script" uid="uid://b01yesh44e8ml" path="res://scripts/entities/enemies/states/dying.gd" id="5_wyqsp"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_j3iiu"]
+[ext_resource type="Script" uid="uid://g4jka2s1ia1r" path="res://scripts/entities/enemies/states/wandering.gd" id="6_w6k81"]
+[ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="9_w6k81"]
+[ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="10_fu215"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20lqd"]
+
+[sub_resource type="Animation" id="Animation_j3iiu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bii57"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu37f"]
+_data = {
+&"RESET": SubResource("Animation_j3iiu"),
+&"idle": SubResource("Animation_bii57")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3iiu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bii57"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_uu37f"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_j3iiu")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bii57")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu37f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyqsp"]
+bg_color = Color(0.003921569, 0.59607846, 1, 1)
+
+[sub_resource type="Theme" id="Theme_w6k81"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_uu37f")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wyqsp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pm80n"]
+radius = 21.587032
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_27tcs"]
+
+[sub_resource type="Resource" id="Resource_bii57"]
+script = ExtResource("6_j3iiu")
+transition = 1
+
+[node name="enemy" type="CharacterBody2D" unique_id=1364067840]
+collision_layer = 0
+script = ExtResource("1_yfmsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241668343]
+shape = SubResource("CapsuleShape2D_20lqd")
+
+[node name="state_machine" type="Node" parent="." unique_id=874204940 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_essrt")
+initial_state = NodePath("wandering")
+
+[node name="idle" type="Node" parent="state_machine" unique_id=1103282772 node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_pm80n")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bg2dr6ygymarb"
+
+[node name="posessed" type="Node" parent="state_machine" unique_id=460350671 node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_j3iiu")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://rxfctv1dq0rr"
+
+[node name="dying" type="Node" parent="state_machine" unique_id=2011812243 node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_wyqsp")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://b01yesh44e8ml"
+
+[node name="wandering" type="Node" parent="state_machine" unique_id=729735774 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_w6k81")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://g4jka2s1ia1r"
+
+[node name="visuals" type="Node2D" parent="." unique_id=1488476576]
+
+[node name="animation" type="Sprite2D" parent="visuals" unique_id=85223138]
+texture = ExtResource("4_gflvi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=2000535181]
+libraries/ = SubResource("AnimationLibrary_uu37f")
+speed_scale = 0.4
+
+[node name="lifebar" type="ProgressBar" parent="visuals" unique_id=611345573]
+visible = false
+offset_left = -17.0
+offset_top = -29.0
+offset_right = 17.0
+offset_bottom = -23.0
+theme = SubResource("Theme_uu37f")
+value = 1.0
+rounded = true
+show_percentage = false
+
+[node name="posess_cooldown_bar" type="ProgressBar" parent="visuals" unique_id=892625071]
+visible = false
+offset_left = -17.0
+offset_top = -38.0
+offset_right = 17.0
+offset_bottom = -32.0
+theme = SubResource("Theme_w6k81")
+rounded = true
+show_percentage = false
+
+[node name="hitbox" type="Node2D" parent="." unique_id=503361873]
+
+[node name="cursor_hitbox" type="Area2D" parent="hitbox" unique_id=1540133588]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/cursor_hitbox" unique_id=652546109]
+shape = SubResource("CircleShape2D_pm80n")
+
+[node name="enemy_hitbox" type="Area2D" parent="hitbox" unique_id=2374039]
+collision_layer = 18
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/enemy_hitbox" unique_id=1316249083]
+shape = SubResource("CapsuleShape2D_27tcs")
+
+[node name="camera" type="Node2D" parent="." unique_id=1093122588]
+
+[node name="PhantomCamera2D" type="Node2D" parent="camera" unique_id=415157210 node_paths=PackedStringArray("follow_target")]
+physics_interpolation_mode = 1
+top_level = true
+script = ExtResource("5_20lqd")
+follow_mode = 5
+follow_target = NodePath("../..")
+zoom = Vector2(0.75, 0.75)
+snap_to_pixel = true
+tween_resource = SubResource("Resource_bii57")
+follow_damping = true
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="timer" type="Node2D" parent="." unique_id=1726808757]
+
+[node name="drain_life_timer" type="Timer" parent="timer" unique_id=1501155153]
+one_shot = true
+
+[node name="posess_cooldown_timer" type="Timer" parent="timer" unique_id=750247667]
+wait_time = 3.0
+one_shot = true
+
+[node name="delete_node_timer" type="Timer" parent="timer" unique_id=1999338946]
+wait_time = 5.0
+one_shot = true
+
+[node name="wander_timer" type="Timer" parent="timer" unique_id=88191743]
+
+[node name="navigation" type="Node2D" parent="." unique_id=839525353]
+
+[node name="Marker2D" type="Marker2D" parent="navigation" unique_id=145877369]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation/Marker2D" unique_id=1937308786]
+
+[node name="cones" type="Node2D" parent="." unique_id=1381131483]
+
+[node name="VisionCone2D" type="Node2D" parent="cones" unique_id=1031917810 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
+script = ExtResource("9_w6k81")
+angle_deg = 30
+ray_count = 10
+max_distance = 100.0
+collision_layer_mask = 1
+write_collision_polygon = NodePath("VisionConeArea/VisionConeCollider")
+write_polygon2d = NodePath("VisionConeRenderer")
+
+[node name="VisionConeRenderer" type="Polygon2D" parent="cones/VisionCone2D" unique_id=972815872]
+color = Color(0.9869788, 0.75987047, 0, 0.28627452)
+
+[node name="VisionConeArea" type="Area2D" parent="cones/VisionCone2D" unique_id=287699495]
+collision_layer = 4
+collision_mask = 16
+
+[node name="VisionConeCollider" type="CollisionPolygon2D" parent="cones/VisionCone2D/VisionConeArea" unique_id=1042350354]
+
+[node name="DebugDraw" type="Node2D" parent="cones/VisionCone2D" unique_id=1073092814]
+script = ExtResource("10_fu215")
+
+[node name="raycasts" type="Node2D" parent="." unique_id=650296243]
+
+[node name="wall_raycast" type="RayCast2D" parent="raycasts" unique_id=999276893]
+position = Vector2(0, -12)
+target_position = Vector2(0, -7)
+
+[node name="wall_raycast2" type="RayCast2D" parent="raycasts" unique_id=1976456407]
+position = Vector2(0, 12)
+target_position = Vector2(0, 7)
+
+[connection signal="EnemyTransitioned" from="state_machine/dying" to="state_machine/dying" method="_on_enemy_transitioned"]
+[connection signal="input_event" from="hitbox/cursor_hitbox" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="hitbox/enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="timeout" from="timer/drain_life_timer" to="." method="_on_drain_life_timer_timeout"]
+[connection signal="timeout" from="timer/posess_cooldown_timer" to="." method="_on_posess_cooldown_timer_timeout"]
+[connection signal="timeout" from="timer/delete_node_timer" to="state_machine/dying" method="_on_delete_node_timer_timeout"]

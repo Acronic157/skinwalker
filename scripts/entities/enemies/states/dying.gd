@@ -10,6 +10,7 @@ func Enter():
 	enemy.vision_cone_area.monitoring = false
 	enemy.vision_cone_area.monitorable = false
 	enemy.vision_cone_collider.disabled = true
+	Globals.player_health += 20
 func Exit():
 	pass
 

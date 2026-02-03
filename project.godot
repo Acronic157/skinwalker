@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Skinwalker"
-run/main_scene="uid://b57c7rfor71vr"
+run/main_scene="uid://s44ccn8xpxhi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -36,6 +36,8 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addon
 
 enemies=""
 trap=""
+interest_area=""
+vision_cone=""
 
 [input]
 
@@ -74,6 +76,7 @@ move_right={
 2d_physics/layer_5="vision cone hitbox mask"
 2d_physics/layer_6="trap layer"
 2d_physics/layer_7="trap hitbox layer"
+2d_physics/layer_8="interest area"
 
 [physics]
 
@@ -84,3 +87,4 @@ move_right={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

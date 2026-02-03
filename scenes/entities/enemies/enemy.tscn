@@ -14,7 +14,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20lqd"]
 radius = 8.0
-height = 28.0
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_j3iiu"]
 length = 0.001
@@ -91,21 +91,22 @@ radius = 21.587032
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6k81"]
 radius = 7.0
-height = 26.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6k81"]
+radius = 229.00218
 
 [sub_resource type="Resource" id="Resource_bii57"]
 script = ExtResource("6_j3iiu")
 transition = 1
 
-[node name="enemy" type="CharacterBody2D" unique_id=1364067840]
+[node name="enemy" type="CharacterBody2D" unique_id=1364067840 groups=["enemies"]]
 z_index = 10
-collision_layer = 0
 collision_mask = 33
 script = ExtResource("1_yfmsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241668343]
-visible = false
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_20lqd")
 
 [node name="state_machine" type="Node" parent="." unique_id=874204940 node_paths=PackedStringArray("initial_state")]
@@ -183,12 +184,20 @@ shape = SubResource("CircleShape2D_pm80n")
 
 [node name="enemy_hitbox" type="Area2D" parent="hitbox" unique_id=2374039]
 collision_layer = 0
-collision_mask = 68
+collision_mask = 196
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/enemy_hitbox" unique_id=1316249083]
-visible = false
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_w6k81")
+
+[node name="interest_area" type="Area2D" parent="hitbox" unique_id=1215529429 groups=["interest_area"]]
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+
+[node name="interest_area_shape" type="CollisionShape2D" parent="hitbox/interest_area" unique_id=1867438526]
+shape = SubResource("CircleShape2D_w6k81")
+disabled = true
 
 [node name="camera" type="Node2D" parent="." unique_id=1093122588]
 
@@ -215,7 +224,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="delete_node_timer" type="Timer" parent="timer" unique_id=1999338946]
-wait_time = 5.0
 one_shot = true
 
 [node name="wander_timer" type="Timer" parent="timer" unique_id=88191743]
@@ -240,7 +248,7 @@ write_polygon2d = NodePath("VisionConeRenderer")
 [node name="VisionConeRenderer" type="Polygon2D" parent="cones/VisionCone2D" unique_id=972815872]
 color = Color(0.9869788, 0.75987047, 0, 0.28627452)
 
-[node name="VisionConeArea" type="Area2D" parent="cones/VisionCone2D" unique_id=287699495]
+[node name="VisionConeArea" type="Area2D" parent="cones/VisionCone2D" unique_id=287699495 groups=["vision_cone"]]
 collision_layer = 4
 collision_mask = 16
 
@@ -263,6 +271,7 @@ target_position = Vector2(0, 7)
 [connection signal="EnemyTransitioned" from="state_machine/dying" to="state_machine/dying" method="_on_enemy_transitioned"]
 [connection signal="input_event" from="hitbox/cursor_hitbox" to="." method="_on_area_2d_input_event"]
 [connection signal="area_entered" from="hitbox/enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="area_exited" from="hitbox/enemy_hitbox" to="." method="_on_enemy_hitbox_area_exited"]
 [connection signal="timeout" from="timer/drain_life_timer" to="." method="_on_drain_life_timer_timeout"]
 [connection signal="timeout" from="timer/posess_cooldown_timer" to="." method="_on_posess_cooldown_timer_timeout"]
 [connection signal="timeout" from="timer/delete_node_timer" to="state_machine/dying" method="_on_delete_node_timer_timeout"]

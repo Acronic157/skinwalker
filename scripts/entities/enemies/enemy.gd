@@ -28,6 +28,8 @@ class_name Enemy
 # Hitbox
 @onready var enemy_hitbox: Area2D = $hitbox/enemy_hitbox
 @onready var hitbox_shape: CollisionShape2D = $hitbox/enemy_hitbox/CollisionShape2D
+@onready var interest_area: Area2D = $hitbox/interest_area
+@onready var interest_area_shape: CollisionShape2D = $hitbox/interest_area/interest_area_shape
 
 
 # Raycasts
@@ -49,6 +51,8 @@ class_name Enemy
 @export var wander_speed: float = 30.0
 @export var min_wander_time: float = 1.0
 @export var max_wander_time: float = 3.0
+@onready var is_interested := false
+@onready var interest_target_position: Vector2 = Vector2.ZERO
 
 
 func _ready():
@@ -66,6 +70,8 @@ func _physics_process(delta: float) -> void:
 	posess_cooldown_bar.value = posess_cooldown_timer.time_left
 	lifebar.value = drain_life_timer.time_left
 	
+	if Globals.game_over:
+		lifebar.visible = false
 	
 	# Debug
 	#print(lifebar.value)
@@ -89,6 +95,7 @@ func enter_posession():
 		lifebar.visible = true
 		vision_cone_collider.disabled = true
 		set_collision_mask_value(6, false)
+		interest_area_shape.disabled = false
 		
 		if drain_life_timer.time_left == 0.0 and not is_dead:
 			drain_life_timer.start()
@@ -108,6 +115,7 @@ func exit_posession():
 	is_posessed = false
 	lifebar.visible = false
 	can_be_posessed = false
+	interest_area_shape.disabled = true
 	if not is_dead:
 		posess_cooldown_timer.start()
 		drain_life_timer.paused = true
@@ -116,7 +124,8 @@ func exit_posession():
 		set_collision_mask_value(6, true)
 
 func _on_drain_life_timer_timeout() -> void:
-	is_dead = true
+	if not Globals.game_over:
+		is_dead = true
 
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -124,15 +133,18 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 		
 		subtract_time(3.0)
 	
-	
+	if area.is_in_group("interest_area") and is_posessed:
+		is_interested = true
 	
 	var cone_owner = area.get_parent().get_parent()
 	if cone_owner == self:
 		return
-	elif is_posessed and not area.is_in_group("trap"):
-		print("TRAP")
+	elif is_posessed and area.is_in_group("vision_cone"):
 		Globals.game_over = true
 		
+func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
+	if area.is_in_group("interest_area"):
+		is_interested = false
 		
 func subtract_time(amount: float):
 	var new_time = drain_life_timer.time_left - amount

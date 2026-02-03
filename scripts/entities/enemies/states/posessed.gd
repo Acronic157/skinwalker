@@ -38,5 +38,5 @@ func Physics_Update(delta: float):
 	# State Transitions
 	if enemy.is_dead:
 		EnemyTransitioned.emit(self, "dying")
-	if not enemy.is_posessed:
+	if not enemy.is_posessed or Globals.game_over:
 		EnemyTransitioned.emit(self, "wandering")

@@ -41,10 +41,25 @@ func Physics_Update(delta: float):
 		EnemyTransitioned.emit(self, "posessed")
 
 func pick_new_direction():
-	# Zufälligen Vektor erstellen
+	var random_dir: Vector2
+	var target_dir: Vector2
+	
+	# --- Zufallsrichtung ---
 	var rx = randf_range(-1.0, 1.0)
 	var ry = randf_range(-1.0, 1.0)
-	wander_direction = Vector2(rx, ry).normalized()
+	random_dir = Vector2(rx, ry).normalized()
 	
-	# Zufällige Dauer für die nächste Phase
+	# --- Wenn interessiert → Richtung zum Ziel berechnen ---
+	if enemy.is_interested:
+		target_dir = (enemy.interest_target_position - enemy.global_position).normalized()
+		
+		# Gewichtung (0.0 = ignorieren, 1.0 = volle Verfolgung)
+		var interest_strength = 0.65
+		
+		# Mischung aus Zufall und Ziel
+		wander_direction = (random_dir * (1.0 - interest_strength) + target_dir * interest_strength).normalized()
+	else:
+		wander_direction = random_dir
+	
+	# --- Zeit bis neue Richtungswahl ---
 	wander_timer = randf_range(enemy.min_wander_time, enemy.max_wander_time)

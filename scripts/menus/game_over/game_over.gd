@@ -2,8 +2,7 @@ extends Control
 
 
 
-signal restart_level
-signal enter_main_menu
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,10 +16,10 @@ func _process(delta: float) -> void:
 
 func _on_restart_level_pressed() -> void:
 	Globals.game_paused = false
-	restart_level.emit()
+	Globals.restart_level.emit()
 
 
 
 func _on_main_menu_pressed() -> void:
-	enter_main_menu.emit()
+	Globals.enter_main_menu.emit()
 	

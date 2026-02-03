@@ -3,16 +3,18 @@
 [ext_resource type="Script" uid="uid://ooapkf5cjbe1" path="res://scripts/entities/enemies/enemy.gd" id="1_yfmsl"]
 [ext_resource type="Script" uid="uid://dehnuae2vroov" path="res://scripts/entities/enemies/states/state_machine.gd" id="2_essrt"]
 [ext_resource type="Script" uid="uid://bg2dr6ygymarb" path="res://scripts/entities/enemies/states/idle.gd" id="3_pm80n"]
-[ext_resource type="Texture2D" uid="uid://crit4jb5n1081" path="res://assets/entities/enemies/pixil-frame-0_1.png" id="4_gflvi"]
 [ext_resource type="Script" uid="uid://rxfctv1dq0rr" path="res://scripts/entities/enemies/states/posessed.gd" id="4_j3iiu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_20lqd"]
 [ext_resource type="Script" uid="uid://b01yesh44e8ml" path="res://scripts/entities/enemies/states/dying.gd" id="5_wyqsp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_j3iiu"]
 [ext_resource type="Script" uid="uid://g4jka2s1ia1r" path="res://scripts/entities/enemies/states/wandering.gd" id="6_w6k81"]
+[ext_resource type="Texture2D" uid="uid://bs1y2pllcxcl3" path="res://assets/entities/enemies/pixil-layer-1.png" id="7_w6k81"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="9_w6k81"]
 [ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="10_fu215"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20lqd"]
+radius = 8.0
+height = 28.0
 
 [sub_resource type="Animation" id="Animation_j3iiu"]
 length = 0.001
@@ -71,20 +73,39 @@ bg_color = Color(0.003921569, 0.59607846, 1, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_uu37f")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_wyqsp")
 
+[sub_resource type="Gradient" id="Gradient_e33qf"]
+offsets = PackedFloat32Array(0, 0.63829786)
+colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w6k81"]
+gradient = SubResource("Gradient_e33qf")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w6k81"]
+polygon = PackedVector2Array(0, 0, -4, 0, -4, 3, 4, 3, 4, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm80n"]
 radius = 21.587032
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_27tcs"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6k81"]
+radius = 7.0
+height = 26.0
 
 [sub_resource type="Resource" id="Resource_bii57"]
 script = ExtResource("6_j3iiu")
 transition = 1
 
 [node name="enemy" type="CharacterBody2D" unique_id=1364067840]
+z_index = 10
 collision_layer = 0
+collision_mask = 33
 script = ExtResource("1_yfmsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241668343]
+visible = false
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_20lqd")
 
 [node name="state_machine" type="Node" parent="." unique_id=874204940 node_paths=PackedStringArray("initial_state")]
@@ -114,7 +135,7 @@ metadata/_custom_type_script = "uid://g4jka2s1ia1r"
 [node name="visuals" type="Node2D" parent="." unique_id=1488476576]
 
 [node name="animation" type="Sprite2D" parent="visuals" unique_id=85223138]
-texture = ExtResource("4_gflvi")
+texture = ExtResource("7_w6k81")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=2000535181]
 libraries/ = SubResource("AnimationLibrary_uu37f")
@@ -141,19 +162,33 @@ theme = SubResource("Theme_w6k81")
 rounded = true
 show_percentage = false
 
+[node name="PointLight2D" type="PointLight2D" parent="visuals" unique_id=158944309]
+self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(1.2871405, 1.2871405)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_w6k81")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="visuals" unique_id=1506378588]
+position = Vector2(0, 12)
+occluder = SubResource("OccluderPolygon2D_w6k81")
+
 [node name="hitbox" type="Node2D" parent="." unique_id=503361873]
 
 [node name="cursor_hitbox" type="Area2D" parent="hitbox" unique_id=1540133588]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/cursor_hitbox" unique_id=652546109]
+visible = false
 shape = SubResource("CircleShape2D_pm80n")
 
 [node name="enemy_hitbox" type="Area2D" parent="hitbox" unique_id=2374039]
-collision_layer = 18
-collision_mask = 12
+collision_layer = 0
+collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/enemy_hitbox" unique_id=1316249083]
-shape = SubResource("CapsuleShape2D_27tcs")
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_w6k81")
 
 [node name="camera" type="Node2D" parent="." unique_id=1093122588]
 
@@ -215,9 +250,10 @@ collision_mask = 16
 script = ExtResource("10_fu215")
 
 [node name="raycasts" type="Node2D" parent="." unique_id=650296243]
+visible = false
 
 [node name="wall_raycast" type="RayCast2D" parent="raycasts" unique_id=999276893]
-position = Vector2(0, -12)
+position = Vector2(0, 9)
 target_position = Vector2(0, -7)
 
 [node name="wall_raycast2" type="RayCast2D" parent="raycasts" unique_id=1976456407]

@@ -7,6 +7,9 @@ func Enter():
 	enemy.animation_player.play("idle")
 	enemy.delete_node_timer.start()
 	enemy.exit_posession()
+	enemy.vision_cone_area.monitoring = false
+	enemy.vision_cone_area.monitorable = false
+	enemy.vision_cone_collider.disabled = true
 func Exit():
 	pass
 

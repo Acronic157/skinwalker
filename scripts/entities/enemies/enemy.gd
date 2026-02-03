@@ -21,10 +21,13 @@ class_name Enemy
 
 # Vision Cone
 @onready var vision_cone: VisionCone2D = $cones/VisionCone2D
+@onready var vision_cone_area: Area2D = $cones/VisionCone2D/VisionConeArea
+@onready var vision_cone_collider: CollisionPolygon2D = $cones/VisionCone2D/VisionConeArea/VisionConeCollider
 
 
 # Hitbox
 @onready var enemy_hitbox: Area2D = $hitbox/enemy_hitbox
+@onready var hitbox_shape: CollisionShape2D = $hitbox/enemy_hitbox/CollisionShape2D
 
 
 # Raycasts
@@ -74,16 +77,18 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			on_click_action()
+			enter_posession()
 			
 			
 			
 			
-func on_click_action():
+func enter_posession():
 	if can_be_posessed and not Globals.player_posessing:
 		Globals.player_posessing = true
 		is_posessed = true
 		lifebar.visible = true
+		vision_cone_collider.disabled = true
+		set_collision_mask_value(6, false)
 		
 		if drain_life_timer.time_left == 0.0 and not is_dead:
 			drain_life_timer.start()
@@ -107,11 +112,35 @@ func exit_posession():
 		posess_cooldown_timer.start()
 		drain_life_timer.paused = true
 		posess_cooldown_bar.visible = true
+		vision_cone_collider.disabled = false
+		set_collision_mask_value(6, true)
 
 func _on_drain_life_timer_timeout() -> void:
 	is_dead = true
 
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
-	if is_posessed:
+	if area.is_in_group("trap"):
+		
+		subtract_time(3.0)
+	
+	
+	
+	var cone_owner = area.get_parent().get_parent()
+	if cone_owner == self:
+		return
+	elif is_posessed and not area.is_in_group("trap"):
+		print("TRAP")
 		Globals.game_over = true
+		
+		
+func subtract_time(amount: float):
+	var new_time = drain_life_timer.time_left - amount
+
+	if new_time <= 0:
+		# Falls die Zeit abgelaufen ist, stoppen und Timeout auslösen
+		drain_life_timer.stop()
+		_on_drain_life_timer_timeout() 
+	else:
+		# Timer mit der verbleibenden Zeit neu starten
+		drain_life_timer.start(new_time)

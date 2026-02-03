@@ -6,6 +6,8 @@ extends Node
 
 @onready var current_level := 0
 
+@onready var game_paused := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

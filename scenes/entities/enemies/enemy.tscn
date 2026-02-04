@@ -696,7 +696,6 @@ max_distance = 80.0
 collision_layer_mask = 1
 write_collision_polygon = NodePath("screaming_cone_area/VisionConeCollider")
 write_polygon2d = NodePath("VisionConeRenderer")
-debug_shape = true
 
 [node name="VisionConeRenderer" type="Polygon2D" parent="cones/screaming_cone" unique_id=2130816239]
 color = Color(0.972549, 0.3764706, 0.6313726, 0)

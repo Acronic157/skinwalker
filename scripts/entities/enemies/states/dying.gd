@@ -5,6 +5,7 @@ class_name EnemyDying
 
 func Enter():
 	enemy.animation_player.play("dying")
+	enemy.set_collision_mask_value(6, false)
 	enemy.dying_sound.playing = true
 	enemy.delete_node_timer.start()
 	enemy.exit_posession()

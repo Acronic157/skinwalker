@@ -59,7 +59,7 @@ class_name Enemy
 @onready var is_dead := false
 
 # Wandering / Patrolling
-@export var wander_speed: float = 45.0
+@export var wander_speed: float = 40.0
 @export var min_wander_time: float = 1.0
 @export var max_wander_time: float = 3.0
 @onready var is_interested := false

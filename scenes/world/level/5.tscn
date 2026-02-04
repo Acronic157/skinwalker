@@ -5,16 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="3_c6tgw"]
 [ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="4_yen7x"]
 
-[sub_resource type="Gradient" id="Gradient_rncmc"]
-offsets = PackedFloat32Array(0, 0.63829786)
-colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pv8ck"]
-gradient = SubResource("Gradient_rncmc")
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="Template" unique_id=315252252 instance=ExtResource("1_7hrtb")]
 
 [node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
@@ -32,21 +22,8 @@ position = Vector2(2, -72)
 [node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=740210008 instance=ExtResource("2_c6tgw")]
 position = Vector2(-56, 40)
 
-[node name="PointLight2D2" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="0" unique_id=137281088]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(63, 33)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_pv8ck")
-
-[node name="PointLight2D3" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="1" unique_id=2053879597]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(-63, -33)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_pv8ck")
+[node name="Camera2D" parent="camera" parent_id_path=PackedInt32Array(138761699) index="0" unique_id=159240649]
+physics_interpolation_mode = 1
 
 [node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
 position = Vector2(34, -106)

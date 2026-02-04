@@ -7,10 +7,12 @@ class_name EnemyFollowScream
 func Enter():
 	enemy.navigation_agent_2d.target_position = enemy.interest_target_position
 	follow_scream_timer.start()
+	enemy.set_collision_mask_value(6, false)
 	
 func Exit():
 	follow_scream_timer.stop()
 	enemy.following_scream = false
+	enemy.set_collision_mask_value(6, true)
 
 func Update(_delta: float):
 	pass

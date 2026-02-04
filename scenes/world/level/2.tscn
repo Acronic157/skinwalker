@@ -4,16 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bu4m6ktdawuf6" path="res://scenes/world/misc/trap_1.tscn" id="2_nehya"]
 [ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="3_po3dr"]
 
-[sub_resource type="Gradient" id="Gradient_rncmc"]
-offsets = PackedFloat32Array(0, 0.63829786)
-colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8l7pl"]
-gradient = SubResource("Gradient_rncmc")
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="2" unique_id=315252252 instance=ExtResource("1_cjx6g")]
 
 [node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
@@ -37,37 +27,8 @@ position = Vector2(138, 85)
 [node name="enemy9" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="4" unique_id=766796705 instance=ExtResource("3_po3dr")]
 position = Vector2(-132, 86)
 
-[node name="PointLight2D2" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="0" unique_id=1102387612]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(156, -141)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8l7pl")
-
-[node name="PointLight2D3" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="1" unique_id=544716436]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(157, 109.000015)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8l7pl")
-
-[node name="PointLight2D4" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="2" unique_id=1851199112]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(-155, 109)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8l7pl")
-
-[node name="PointLight2D5" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="3" unique_id=959874694]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(-153, -138)
-scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_8l7pl")
+[node name="Camera2D" parent="camera" parent_id_path=PackedInt32Array(138761699) index="0" unique_id=159240649]
+physics_interpolation_mode = 1
 
 [node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=503389551 instance=ExtResource("2_nehya")]
 position = Vector2(-23, -24)

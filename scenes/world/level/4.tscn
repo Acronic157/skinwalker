@@ -4,16 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_nrcs6"]
 [ext_resource type="PackedScene" uid="uid://bu4m6ktdawuf6" path="res://scenes/world/misc/trap_1.tscn" id="3_e3lw7"]
 
-[sub_resource type="Gradient" id="Gradient_ymgrb"]
-offsets = PackedFloat32Array(0, 0.63829786)
-colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rulv6"]
-gradient = SubResource("Gradient_ymgrb")
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="4" unique_id=315252252 instance=ExtResource("1_apa6x")]
 
 [node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
@@ -23,22 +13,16 @@ tile_map_data = PackedByteArray("AAD8//z/AQAGAAgAAAD8//3/AQAGAAkAAAD8//7/AQAGAAo
 visible = false
 
 [node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_nrcs6")]
-position = Vector2(-97, -37)
+position = Vector2(-99, -39)
 
-[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=656474519 instance=ExtResource("2_nrcs6")]
-position = Vector2(97, 31)
+[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1027292428 instance=ExtResource("2_nrcs6")]
+position = Vector2(31, -100)
 
-[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=2130613078 instance=ExtResource("2_nrcs6")]
-position = Vector2(32, -97)
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=829441975 instance=ExtResource("2_nrcs6")]
+position = Vector2(96, 28)
 
-[node name="enemy7" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=1252316994 instance=ExtResource("2_nrcs6")]
-position = Vector2(-33, 94)
-
-[node name="PointLight2D2" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="0" unique_id=1205930587]
-self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-scale = Vector2(3.7834268, 3.7834268)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_rulv6")
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=166730315 instance=ExtResource("2_nrcs6")]
+position = Vector2(33, 93)
 
 [node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=503389551 instance=ExtResource("3_e3lw7")]
 position = Vector2(-8, -8)

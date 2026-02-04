@@ -87,6 +87,7 @@ lmb={
 2d_physics/layer_8="interest area"
 2d_physics/layer_9="interact area"
 2d_physics/layer_10="scream area"
+2d_physics/layer_11="enemy body"
 
 [physics]
 

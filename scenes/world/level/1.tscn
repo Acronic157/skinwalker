@@ -109,9 +109,6 @@ position = Vector2(36, -69)
 [node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=2142463152 instance=ExtResource("2_thn3b")]
 position = Vector2(-56, 58)
 
-[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=1335775164 instance=ExtResource("2_thn3b")]
-position = Vector2(33, 46)
-
 [node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=503389551 instance=ExtResource("3_rncmc")]
 position = Vector2(-40, 56)
 

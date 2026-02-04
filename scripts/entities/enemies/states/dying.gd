@@ -4,7 +4,8 @@ class_name EnemyDying
 @export var enemy: CharacterBody2D
 
 func Enter():
-	enemy.animation_player.play("idle")
+	enemy.animation_player.play("dying")
+	enemy.dying_sound.playing = true
 	enemy.delete_node_timer.start()
 	enemy.exit_posession()
 	enemy.vision_cone_area.monitoring = false

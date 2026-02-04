@@ -53,7 +53,6 @@ func _process(delta: float) -> void:
 		next_level_menu.visible = true
 		Globals.level_complete = true
 
-	print(Levelmanager.current_level)
 	# Tutorial Level Mechanic
 	if Levelmanager.current_level == 1:
 		if Globals.player_health < 50:

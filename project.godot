@@ -39,6 +39,7 @@ enemies=""
 trap=""
 interest_area=""
 vision_cone=""
+chandelier=""
 
 [input]
 
@@ -83,6 +84,7 @@ lmb={
 2d_physics/layer_6="trap layer"
 2d_physics/layer_7="trap hitbox layer"
 2d_physics/layer_8="interest area"
+2d_physics/layer_9="interact area"
 
 [physics]
 

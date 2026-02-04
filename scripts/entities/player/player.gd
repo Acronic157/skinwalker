@@ -3,6 +3,7 @@ extends Node2D
 @onready var mouse_trail: GPUParticles2D = $mouse_trail
 @onready var white_trail: GPUParticles2D = $ghost/white_trail
 
+@onready var ghost_laughter: AudioStreamPlayer2D = $ghost_laughter
 
 @onready var ghost: Sprite2D = $ghost
 @export var ghost_speed := 1.0
@@ -31,11 +32,13 @@ func _process(delta: float) -> void:
 func _on_enter_enemy():
 	animation_player.play("enter")
 	local_player_posessing = true
+	ghost_laughter.playing = true
 
 
 
 func _on_exit_enemy():
 	animation_player.play("exit")
+	ghost_laughter.playing = true
 	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -50,17 +53,28 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func update_ghost_animation(dir: Vector2):
 	if local_player_posessing:
 		return
-	if dir.length() > 0.1:
-		if abs(dir.x) > abs(dir.y) * 1.4:
-			if dir.x > 0:
-				animation_player.play("right")
+
+	# Wir nutzen zwei verschiedene Schwellenwerte
+	var stop_threshold = 0.15  # Ab hier geht er in Idle
+	var move_threshold = 0.3   # Erst ab hier wechselt er von Idle zurück in Bewegung
+
+	# Aktuelle Animation merken, um unnötige Neustarts zu vermeiden
+	var current_anim = animation_player.current_animation
+
+	if dir.length() > stop_threshold:
+		# Nur wenn wir uns schnell genug bewegen ODER schon eine Lauf-Animation spielt
+		if dir.length() > move_threshold or current_anim != "idle":
+			if abs(dir.x) > abs(dir.y) * 1.4:
+				if dir.x > 0:
+					animation_player.play("right")
+				else:
+					animation_player.play("left")
 			else:
-				animation_player.play("left")
-		else:
-			if dir.y > 0:
-				animation_player.play("down")
-			else:
-				animation_player.play("up")
+				if dir.y > 0:
+					animation_player.play("down")
+				else:
+					animation_player.play("up")
 	else:
-		if animation_player.has_animation("idle"):
-				animation_player.play("idle")
+		# Er ist langsam genug für Idle
+		if animation_player.has_animation("idle") and current_anim != "idle":
+			animation_player.play("idle")

@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://c5dovmuftsev8" path="res://scripts/entities/player/player.gd" id="1_635qg"]
 [ext_resource type="Texture2D" uid="uid://d2x1k3i2e3bcg" path="res://assets/entities/player/ghost_idle.png" id="2_bjvvg"]
 [ext_resource type="Texture2D" uid="uid://nxti1lnc5ix0" path="res://assets/entities/player/ghost_directions.png" id="3_8akj5"]
-[ext_resource type="AudioStream" uid="uid://dsgox1owbg80g" path="res://assets/sfx/ghost/Catacombs_Ghost_Laughs.mp3" id="3_58kc7"]
 [ext_resource type="Texture2D" uid="uid://cd7yrercntq35" path="res://assets/entities/player/ghhost_spawn.png" id="4_bj7e2"]
+[ext_resource type="AudioStream" uid="uid://cc555clsp4153" path="res://assets/sfx/ghost/Ghost Laugh_1.mp3" id="5_1murt"]
+[ext_resource type="AudioStream" uid="uid://p6dwslfl8md8" path="res://assets/sfx/ghost/Ghost Laugh_2.mp3" id="6_5sj0x"]
+[ext_resource type="AudioStream" uid="uid://l81trn1i4g77" path="res://assets/sfx/ghost/Ghost Laugh_3.mp3" id="7_ovg4i"]
+[ext_resource type="AudioStream" uid="uid://dydgccybm4663" path="res://assets/sfx/ghost/Ghost Laugh_4.mp3" id="8_7wli1"]
 
 [sub_resource type="Gradient" id="Gradient_1murt"]
 offsets = PackedFloat32Array(0.20481928, 1)
@@ -58,7 +61,7 @@ curve = SubResource("Curve_bjvvg")
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(10, 1, 1)
+emission_box_extents = Vector3(10, 5, 1)
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_ovg4i")
 
@@ -428,6 +431,13 @@ _data = {
 &"up": SubResource("Animation_yywfu")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j0oqr"]
+streams_count = 4
+stream_0/stream = ExtResource("5_1murt")
+stream_1/stream = ExtResource("6_5sj0x")
+stream_2/stream = ExtResource("7_ovg4i")
+stream_3/stream = ExtResource("8_7wli1")
+
 [node name="player" type="Node2D" unique_id=1096445309]
 z_index = 5
 script = ExtResource("1_635qg")
@@ -453,7 +463,7 @@ hframes = 8
 [node name="white_trail" type="GPUParticles2D" parent="ghost" unique_id=1939536956]
 self_modulate = Color(1.6197081, 1.6197081, 1.6197081, 1)
 z_index = 4
-position = Vector2(-1.5, 9)
+position = Vector2(0, 7)
 amount = 32
 texture = SubResource("GradientTexture2D_nh4ur")
 lifetime = 2.0
@@ -465,6 +475,6 @@ libraries/ = SubResource("AnimationLibrary_bj7e2")
 speed_scale = 0.4
 
 [node name="ghost_laughter" type="AudioStreamPlayer2D" parent="." unique_id=1545024895]
-stream = ExtResource("3_58kc7")
+stream = SubResource("AudioStreamRandomizer_j0oqr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

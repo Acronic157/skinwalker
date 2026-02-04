@@ -20,6 +20,7 @@ class_name Enemy
 # Audio
 @onready var enter_posession_sound: AudioStreamPlayer2D = $audio/enter_posession_sound
 @onready var walking_sound: AudioStreamPlayer2D = $audio/walking_sound
+@onready var dying_sound: AudioStreamPlayer2D = $audio/dying_sound
 
 
 # Navigation
@@ -35,6 +36,8 @@ class_name Enemy
 @onready var hitbox_shape: CollisionShape2D = $hitbox/enemy_hitbox/CollisionShape2D
 @onready var interest_area: Area2D = $hitbox/interest_area
 @onready var interest_area_shape: CollisionShape2D = $hitbox/interest_area/interest_area_shape
+@onready var interact_area: Area2D = $hitbox/interact_area
+@onready var interact_area_shape: CollisionShape2D = $hitbox/interact_area/interact_area_shape
 
 
 # Raycasts
@@ -104,6 +107,7 @@ func enter_posession():
 		interest_area_shape.disabled = false
 		enter_posession_sound.play()
 		posessed_particles.emitting = true
+		interact_area_shape.disabled = false
 		if drain_life_timer.time_left == 0.0 and not is_dead:
 			drain_life_timer.start()
 		else:
@@ -126,6 +130,7 @@ func exit_posession():
 	interest_area_shape.disabled = true
 	enter_posession_sound.play()
 	posessed_particles.emitting = false
+	interact_area_shape.disabled = true
 	if not is_dead:
 		posess_cooldown_timer.start()
 		drain_life_timer.paused = true
@@ -140,8 +145,9 @@ func _on_drain_life_timer_timeout() -> void:
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("trap"):
-		
 		subtract_time(3.0)
+	if area.is_in_group("chandelier"):
+		subtract_time(10.0)
 	
 	if area.is_in_group("interest_area") and is_posessed:
 		is_interested = true

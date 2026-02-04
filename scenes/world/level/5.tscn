@@ -1,0 +1,64 @@
+[gd_scene format=4 uid="uid://dt4sakdbm7bp"]
+
+[ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_7hrtb"]
+[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_c6tgw"]
+[ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="3_c6tgw"]
+[ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="4_yen7x"]
+
+[sub_resource type="Gradient" id="Gradient_rncmc"]
+offsets = PackedFloat32Array(0, 0.63829786)
+colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pv8ck"]
+gradient = SubResource("Gradient_rncmc")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Template" unique_id=315252252 instance=ExtResource("1_7hrtb")]
+
+[node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
+tile_map_data = PackedByteArray("AAD8//r/AQAGAAQAAAD8//v/AQAGAAUAAAD8//z/AQAGAAYAAAD8//3/AQAGAAcAAAD9//r/AQAHAAQAAAD9//v/AQAHAAUAAAD9//z/AQAHAAYAAAD9//3/AQAHAAcAAAD+//r/AQAIAAQAAAD+//v/AQAIAAUAAAD+//z/AQAIAAYAAAD+//3/AQAIAAcAAAD///r/AQAJAAQAAAD///v/AQAJAAUAAAD///z/AQAJAAYAAAD///3/AQAJAAcAAAAAAPr/AQAGAAQAAAAAAPv/AQAGAAUAAAAAAPz/AQAGAAYAAAAAAP3/AQAGAAcAAAABAPr/AQAHAAQAAAABAPv/AQAHAAUAAAABAPz/AQAHAAYAAAABAP3/AQAHAAcAAAACAPr/AQAIAAQAAAACAPv/AQAIAAUAAAACAPz/AQAIAAYAAAACAP3/AQAIAAcAAAADAPr/AQAJAAQAAAADAPv/AQAJAAUAAAADAPz/AQAJAAYAAAADAP3/AQAJAAcAAAD8/wIAAQAGAAQAAAD8/wMAAQAGAAUAAAD8/wQAAQAGAAYAAAD8/wUAAQAGAAcAAAD9/wIAAQAHAAQAAAD9/wMAAQAHAAUAAAD9/wQAAQAHAAYAAAD9/wUAAQAHAAcAAAD+/wIAAQAIAAQAAAD+/wMAAQAIAAUAAAD+/wQAAQAIAAYAAAD+/wUAAQAIAAcAAAD//wIAAQAJAAQAAAD//wMAAQAJAAUAAAD//wQAAQAJAAYAAAD//wUAAQAJAAcAAAAAAAIAAQAGAAQAAAAAAAMAAQAGAAUAAAAAAAQAAQAGAAYAAAAAAAUAAQAGAAcAAAABAAIAAQAHAAQAAAABAAMAAQAHAAUAAAABAAQAAQAHAAYAAAABAAUAAQAHAAcAAAACAAIAAQAIAAQAAAACAAMAAQAIAAUAAAACAAQAAQAIAAYAAAACAAUAAQAIAAcAAAADAAIAAQAJAAQAAAADAAMAAQAJAAUAAAADAAQAAQAJAAYAAAADAAUAAQAJAAcAAAD+//7/AQABAAAAAAD+/wEAAQABAAIAAAD///7/AQABAAAAAAD//wEAAQABAAIAAAAAAP7/AQABAAAAAAAAAAEAAQABAAIAAAABAP7/AQABAAAAAAABAAEAAQABAAIAAAAEAPr/AQAAAAEAAAAEAPv/AQAAAAEAAAAEAPz/AQAAAAEAAAAEAP3/AQAAAAEAAAAEAAIAAQAAAAEAAAAEAAMAAQAAAAEAAAAEAAQAAQAAAAEAAAAEAAUAAQAAAAEAAAD8//n/AQABAAIAAAD9//n/AQABAAIAAAD+//n/AQABAAIAAAD///n/AQABAAIAAAAAAPn/AQABAAIAAAABAPn/AQABAAIAAAACAPn/AQABAAIAAAADAPn/AQABAAIAAAD7//r/AQACAAEAAAD7//v/AQACAAEAAAD7//z/AQACAAEAAAD7//3/AQACAAEAAAD7/wIAAQACAAEAAAD7/wMAAQACAAEAAAD7/wQAAQACAAEAAAD7/wUAAQACAAEAAAD8/wYAAQABAAAAAAD9/wYAAQABAAAAAAD+/wYAAQABAAAAAAD//wYAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAD8/wEAAQABAAIAAAADAAEAAQABAAIAAAD8//7/AQABAAAAAAADAP7/AQABAAAAAAD9//7/AQABAAAAAAACAP7/AQABAAAAAAD9/wEAAQABAAIAAAACAAEAAQABAAIAAAD7/wYAAQAEAAEAAAAEAAYAAQAFAAEAAAAEAAEAAQAFAAAAAAD7/wEAAQAEAAAAAAD7//n/AQAEAAAAAAAEAPn/AQAFAAAAAAAEAP7/AQAFAAEAAAD7//7/AQAEAAEAAAA=")
+
+[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_c6tgw")]
+position = Vector2(-31, -75)
+
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1081834381 instance=ExtResource("2_c6tgw")]
+position = Vector2(35, -74)
+
+[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=1901913482 instance=ExtResource("2_c6tgw")]
+position = Vector2(2, -72)
+
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=740210008 instance=ExtResource("2_c6tgw")]
+position = Vector2(-56, 40)
+
+[node name="PointLight2D2" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="0" unique_id=137281088]
+self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
+position = Vector2(63, 33)
+scale = Vector2(3.7834268, 3.7834268)
+energy = 3.44
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pv8ck")
+
+[node name="PointLight2D3" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="1" unique_id=2053879597]
+self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
+position = Vector2(-63, -33)
+scale = Vector2(3.7834268, 3.7834268)
+energy = 3.44
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pv8ck")
+
+[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(34, -106)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=864535041 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(-32, -106)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=1665890774 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(2, -106)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=1408692222 instance=ExtResource("4_yen7x")]
+position = Vector2(-1, 63)

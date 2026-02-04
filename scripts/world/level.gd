@@ -9,6 +9,10 @@ extends Node2D
 
 @onready var player_first_posession := false
 
+var health_tween: Tween
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = true
@@ -38,8 +42,9 @@ func _process(delta: float) -> void:
 	elif not Globals.player_posessing and player_life_timer.time_left == 0.0:
 		player_life_timer.start()
 
-
-	player_life_bar.value = Globals.player_health
+	if player_life_bar.value != Globals.player_health:
+		update_bar_smooth()
+	
 	if Globals.player_health <= 0:
 		Globals.game_over = true
 	
@@ -48,6 +53,11 @@ func _process(delta: float) -> void:
 		next_level_menu.visible = true
 		Globals.level_complete = true
 
+	print(Levelmanager.current_level)
+	# Tutorial Level Mechanic
+	if Levelmanager.current_level == 1:
+		if Globals.player_health < 50:
+			Globals.player_health += 10
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "enter_level":
@@ -68,6 +78,7 @@ func _on_restart_level():
 	print("restart signal")
 	#get_tree().paused = true
 	game_over.visible = false
+	Globals.game_over = false
 	animation_player.play("restart_level")
 	
 func _restart_level():
@@ -90,7 +101,9 @@ func reset_variables():
 	Globals.game_paused = false
 	get_tree().paused = false
 	player_first_posession = false
+	Globals.level_complete = false
 	player_life_bar.max_value = player_life_timer.wait_time
+	Globals.player_health = 100
 	player_life_timer.stop()
 
 func _on_level_complete():
@@ -112,3 +125,10 @@ func _on_player_life_timer_timeout() -> void:
 		Globals.player_health -= 10
 		player_life_timer.start()
 	
+func update_bar_smooth():
+	if health_tween:
+		health_tween.kill()
+	health_tween = create_tween()
+	health_tween.tween_property(player_life_bar, "value", Globals.player_health, 0.25)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)

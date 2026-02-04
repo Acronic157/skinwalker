@@ -7,10 +7,12 @@ func Enter():
 	enemy.animation_player.play("idle")
 	enemy.phantom_camera.priority = 2
 	enemy.vision_cone.visible = false
+	
 
 	
 func Exit():
 	enemy.phantom_camera.priority = 0
+	enemy.walking_sound.playing = false
 	if not enemy.is_dead:
 		enemy.vision_cone.visible = true
 
@@ -28,13 +30,30 @@ func Physics_Update(delta: float):
 
 	# 2. Geschwindigkeit basierend auf der Richtung setzen
 	if direction != Vector2.ZERO:
+		if not enemy.walking_sound.playing:
+			enemy.walking_sound.playing = true
 		enemy.velocity = direction * enemy.running_speed
+	
+		# Animation
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				enemy.animation_player.play("right")
+			else:
+				enemy.animation_player.play("left")
+		else:
+			if direction.y > 0:
+				enemy.animation_player.play("down")
+			else:
+				enemy.animation_player.play("up")
+				
+		enemy.velocity = direction * enemy.running_speed
+		
 	else:
 		# Sanftes Abbremsen, wenn keine Taste gedrückt wird
 		enemy.velocity = enemy.velocity.move_toward(Vector2.ZERO, enemy.running_speed)
-
-
-	
+		enemy.walking_sound.playing = false
+		enemy.animation_player.play("idle")
+			
 	# State Transitions
 	if enemy.is_dead:
 		EnemyTransitioned.emit(self, "dying")

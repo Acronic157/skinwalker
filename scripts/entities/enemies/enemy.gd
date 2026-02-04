@@ -9,12 +9,17 @@ class_name Enemy
 @onready var lifebar: ProgressBar = $visuals/lifebar
 @onready var phantom_camera: PhantomCamera2D = $camera/PhantomCamera2D
 @onready var posess_cooldown_bar: ProgressBar = $visuals/posess_cooldown_bar
+@onready var posessed_particles: GPUParticles2D = $visuals/posessed_particles
 
 # Timer
 @onready var drain_life_timer: Timer = $timer/drain_life_timer
 @onready var posess_cooldown_timer: Timer = $timer/posess_cooldown_timer
 @onready var delete_node_timer: Timer = $timer/delete_node_timer
 @onready var wander_timer: Timer = $timer/wander_timer
+
+# Audio
+@onready var enter_posession_sound: AudioStreamPlayer2D = $audio/enter_posession_sound
+@onready var walking_sound: AudioStreamPlayer2D = $audio/walking_sound
 
 
 # Navigation
@@ -90,13 +95,15 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			
 func enter_posession():
 	if can_be_posessed and not Globals.player_posessing:
+		Globals.enter_enemy.emit()
 		Globals.player_posessing = true
 		is_posessed = true
 		lifebar.visible = true
 		vision_cone_collider.disabled = true
 		set_collision_mask_value(6, false)
 		interest_area_shape.disabled = false
-		
+		enter_posession_sound.play()
+		posessed_particles.emitting = true
 		if drain_life_timer.time_left == 0.0 and not is_dead:
 			drain_life_timer.start()
 		else:
@@ -111,11 +118,14 @@ func _on_posess_cooldown_timer_timeout() -> void:
 	posess_cooldown_bar.visible = false
 	
 func exit_posession():
+	Globals.exit_enemy.emit()
 	Globals.player_posessing = false
 	is_posessed = false
 	lifebar.visible = false
 	can_be_posessed = false
 	interest_area_shape.disabled = true
+	enter_posession_sound.play()
+	posessed_particles.emitting = false
 	if not is_dead:
 		posess_cooldown_timer.start()
 		drain_life_timer.paused = true
@@ -156,3 +166,9 @@ func subtract_time(amount: float):
 	else:
 		# Timer mit der verbleibenden Zeit neu starten
 		drain_life_timer.start(new_time)
+
+func get_bounce_direction() -> Vector2:
+	if get_slide_collision_count() > 0:
+		var collision = get_last_slide_collision()
+		return collision.get_normal()
+	return Vector2.ZERO

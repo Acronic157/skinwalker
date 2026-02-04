@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2m37eyg0sqsi"
+path="res://.godot/imported/Posses Sfx.mp3-41c8dc396dc19f7c2415904788171e76.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/ghost/Posses Sfx.mp3"
+dest_files=["res://.godot/imported/Posses Sfx.mp3-41c8dc396dc19f7c2415904788171e76.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

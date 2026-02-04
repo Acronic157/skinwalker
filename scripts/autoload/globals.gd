@@ -5,7 +5,8 @@ extends Node
 signal restart_level
 signal enter_main_menu
 signal next_level
-
+signal enter_enemy
+signal exit_enemy
 
 
 # Variables

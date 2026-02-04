@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b23v5qaa1q81x" path="res://scripts/menus/main_menu/main_menu.gd" id="1_cn3qn"]
 [ext_resource type="AudioStream" uid="uid://djk5low2ma8ad" path="res://assets/sfx/main_menu/The Catacombs Menu Music.mp3" id="1_spp5w"]
-[ext_resource type="PackedScene" uid="uid://b57c7rfor71vr" path="res://scenes/world/level/1.tscn" id="2_6anyo"]
+[ext_resource type="PackedScene" uid="uid://b57c7rfor71vr" path="res://scenes/world/level/2.tscn" id="2_6anyo"]
+[ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="4_6bivr"]
 
 [node name="MainMenu" type="Control" unique_id=506208621]
 layout_mode = 3
@@ -46,5 +47,8 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1722005133]
 layout_mode = 2
 text = "Play"
+
+[node name="player" parent="." unique_id=1096445309 instance=ExtResource("4_6bivr")]
+position = Vector2(0, 185)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

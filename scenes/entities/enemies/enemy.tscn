@@ -8,13 +8,51 @@
 [ext_resource type="Script" uid="uid://b01yesh44e8ml" path="res://scripts/entities/enemies/states/dying.gd" id="5_wyqsp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_j3iiu"]
 [ext_resource type="Script" uid="uid://g4jka2s1ia1r" path="res://scripts/entities/enemies/states/wandering.gd" id="6_w6k81"]
-[ext_resource type="Texture2D" uid="uid://bs1y2pllcxcl3" path="res://assets/entities/enemies/pixil-layer-1.png" id="7_w6k81"]
+[ext_resource type="Texture2D" uid="uid://rrluo7a13566" path="res://assets/entities/enemies/enemies.png" id="7_27tcs"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="9_w6k81"]
 [ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="10_fu215"]
+[ext_resource type="AudioStream" uid="uid://b2m37eyg0sqsi" path="res://assets/sfx/ghost/Posses Sfx.mp3" id="12_27tcs"]
+[ext_resource type="AudioStream" uid="uid://dlp1dya54ymgo" path="res://assets/sfx/enemies/Catacombs_walk.mp3" id="13_mag4a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20lqd"]
 radius = 8.0
 height = 24.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_27tcs"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_635qg"]
+offsets = PackedFloat32Array(0.20481928, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_27tcs"]
+gradient = SubResource("Gradient_635qg")
+width = 4
+height = 4
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_635qg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3648649, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_58kc7"]
+curve = SubResource("Curve_635qg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mag4a"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(6, 10, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -100.0
+linear_accel_max = 99.99999
+tangential_accel_min = -100.0
+tangential_accel_max = 99.99999
+scale_curve = SubResource("CurveTexture_58kc7")
 
 [sub_resource type="Animation" id="Animation_j3iiu"]
 length = 0.001
@@ -29,6 +67,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mag4a"]
+resource_name = "down"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_bii57"]
@@ -47,10 +102,65 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_0kssi"]
+resource_name = "left"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ljcf0"]
+resource_name = "right"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_8tbu6"]
+resource_name = "up"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uu37f"]
 _data = {
 &"RESET": SubResource("Animation_j3iiu"),
-&"idle": SubResource("Animation_bii57")
+&"down": SubResource("Animation_mag4a"),
+&"idle": SubResource("Animation_bii57"),
+&"left": SubResource("Animation_0kssi"),
+&"right": SubResource("Animation_ljcf0"),
+&"up": SubResource("Animation_8tbu6")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3iiu"]
@@ -135,12 +245,28 @@ metadata/_custom_type_script = "uid://g4jka2s1ia1r"
 
 [node name="visuals" type="Node2D" parent="." unique_id=1488476576]
 
+[node name="posessed_particles" type="GPUParticles2D" parent="visuals" unique_id=1079286812]
+self_modulate = Color(0.14855774, 0.6568491, 2.2241454, 1)
+material = SubResource("CanvasItemMaterial_27tcs")
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_27tcs")
+explosiveness = 0.15
+randomness = 0.04
+fixed_fps = 0
+interpolate = false
+fract_delta = false
+trail_sections = 2
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_mag4a")
+
 [node name="animation" type="Sprite2D" parent="visuals" unique_id=85223138]
-texture = ExtResource("7_w6k81")
+texture = ExtResource("7_27tcs")
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=2000535181]
 libraries/ = SubResource("AnimationLibrary_uu37f")
-speed_scale = 0.4
+speed_scale = 0.1
 
 [node name="lifebar" type="ProgressBar" parent="visuals" unique_id=611345573]
 visible = false
@@ -267,6 +393,15 @@ target_position = Vector2(0, -7)
 [node name="wall_raycast2" type="RayCast2D" parent="raycasts" unique_id=1976456407]
 position = Vector2(0, 12)
 target_position = Vector2(0, 7)
+
+[node name="audio" type="Node2D" parent="." unique_id=451086412]
+
+[node name="enter_posession_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=1602528237]
+stream = ExtResource("12_27tcs")
+
+[node name="walking_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=588080935]
+stream = ExtResource("13_mag4a")
+parameters/looping = true
 
 [connection signal="EnemyTransitioned" from="state_machine/dying" to="state_machine/dying" method="_on_enemy_transitioned"]
 [connection signal="input_event" from="hitbox/cursor_hitbox" to="." method="_on_area_2d_input_event"]

@@ -78,7 +78,7 @@ hframes = 10
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2045815541]
 libraries/ = SubResource("AnimationLibrary_txdif")
 autoplay = &"default"
-speed_scale = 0.4
+speed_scale = 0.6
 
 [node name="hitbox_area" type="Area2D" parent="." unique_id=408395601 groups=["trap"]]
 collision_layer = 64

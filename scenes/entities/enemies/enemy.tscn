@@ -8,8 +8,11 @@
 [ext_resource type="Script" uid="uid://b01yesh44e8ml" path="res://scripts/entities/enemies/states/dying.gd" id="5_wyqsp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_j3iiu"]
 [ext_resource type="Script" uid="uid://g4jka2s1ia1r" path="res://scripts/entities/enemies/states/wandering.gd" id="6_w6k81"]
+[ext_resource type="Script" uid="uid://du7wq8v1tk07" path="res://scripts/entities/enemies/states/screaming.gd" id="7_8tbu6"]
 [ext_resource type="Texture2D" uid="uid://rrluo7a13566" path="res://assets/entities/enemies/enemies.png" id="7_27tcs"]
 [ext_resource type="Texture2D" uid="uid://d2136r828y2ae" path="res://assets/entities/enemies/enemy_dying.png" id="8_0kssi"]
+[ext_resource type="Script" uid="uid://b31svvy03cpit" path="res://scripts/entities/enemies/states/followscream.gd" id="8_jokyc"]
+[ext_resource type="Shader" uid="uid://byt60w75rjjfd" path="res://scripts/entities/enemies/shader/shockwave.gdshader" id="9_ljcf0"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="9_w6k81"]
 [ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="10_fu215"]
 [ext_resource type="AudioStream" uid="uid://b2m37eyg0sqsi" path="res://assets/sfx/ghost/Posses Sfx.mp3" id="12_27tcs"]
@@ -29,8 +32,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_27tcs"]
 gradient = SubResource("Gradient_635qg")
-width = 4
-height = 4
+width = 6
+height = 6
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -383,6 +386,84 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w6k81"]
 polygon = PackedVector2Array(0, 0, -4, 0, -4, 3, 4, 3, 4, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tbu6"]
+shader = ExtResource("9_ljcf0")
+shader_parameter/strength = 0.08
+shader_parameter/center = Vector2(0.465, 0.505)
+shader_parameter/radius = 0.0
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.04
+shader_parameter/feather = 0.135
+
+[sub_resource type="Animation" id="Animation_k75k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_45afl"]
+resource_name = "shockwave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_aaa10"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39959997),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_whmns"]
+resource_name = "scream"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shockwave:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39959997),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aaa10"]
+_data = {
+&"RESET": SubResource("Animation_k75k7"),
+&"enter": SubResource("Animation_45afl"),
+&"exit": SubResource("Animation_aaa10"),
+&"scream": SubResource("Animation_whmns")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm80n"]
 radius = 21.587032
 
@@ -433,11 +514,22 @@ script = ExtResource("6_w6k81")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://g4jka2s1ia1r"
 
+[node name="screaming" type="Node" parent="state_machine" unique_id=2039971409 node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_8tbu6")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://du7wq8v1tk07"
+
+[node name="follow_scream" type="Node" parent="state_machine" unique_id=588361719 node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_jokyc")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://b31svvy03cpit"
+
 [node name="visuals" type="Node2D" parent="." unique_id=1488476576]
 
 [node name="posessed_particles" type="GPUParticles2D" parent="visuals" unique_id=1079286812]
 self_modulate = Color(0.14855774, 0.6568491, 2.2241454, 1)
 material = SubResource("CanvasItemMaterial_27tcs")
+position = Vector2(0, -7)
 emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_27tcs")
@@ -483,12 +575,32 @@ show_percentage = false
 self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
 position = Vector2(0, -4.7683716e-07)
 scale = Vector2(1.2871405, 1.2871405)
-shadow_enabled = true
 texture = SubResource("GradientTexture2D_w6k81")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="visuals" unique_id=1506378588]
 position = Vector2(0, 12)
 occluder = SubResource("OccluderPolygon2D_w6k81")
+
+[node name="shockwave" type="ColorRect" parent="visuals" unique_id=730121235]
+z_index = -1
+material = SubResource("ShaderMaterial_8tbu6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -306.0
+offset_right = 403.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 200)
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="shockwave_animation" type="AnimationPlayer" parent="visuals" unique_id=2055767773]
+libraries/ = SubResource("AnimationLibrary_aaa10")
 
 [node name="hitbox" type="Node2D" parent="." unique_id=503361873]
 
@@ -500,9 +612,10 @@ shape = SubResource("CircleShape2D_pm80n")
 
 [node name="enemy_hitbox" type="Area2D" parent="hitbox" unique_id=2374039]
 collision_layer = 0
-collision_mask = 196
+collision_mask = 708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/enemy_hitbox" unique_id=1316249083]
+visible = false
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_w6k81")
 
@@ -512,6 +625,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="interest_area_shape" type="CollisionShape2D" parent="hitbox/interest_area" unique_id=1867438526]
+visible = false
 shape = SubResource("CircleShape2D_w6k81")
 disabled = true
 
@@ -520,6 +634,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="interact_area_shape" type="CollisionShape2D" parent="hitbox/interact_area" unique_id=1313876120]
+visible = false
 shape = SubResource("CircleShape2D_0kssi")
 disabled = true
 
@@ -553,11 +668,20 @@ one_shot = true
 
 [node name="wander_timer" type="Timer" parent="timer" unique_id=88191743]
 
+[node name="follow_scream_timer" type="Timer" parent="timer" unique_id=414259119]
+wait_time = 3.0
+one_shot = true
+
+[node name="scream_duration_timer" type="Timer" parent="timer" unique_id=790473070]
+wait_time = 3.0
+one_shot = true
+
 [node name="navigation" type="Node2D" parent="." unique_id=839525353]
 
 [node name="Marker2D" type="Marker2D" parent="navigation" unique_id=145877369]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation/Marker2D" unique_id=1937308786]
+debug_enabled = true
 
 [node name="cones" type="Node2D" parent="." unique_id=1381131483]
 
@@ -580,6 +704,29 @@ collision_mask = 16
 [node name="VisionConeCollider" type="CollisionPolygon2D" parent="cones/VisionCone2D/VisionConeArea" unique_id=1042350354]
 
 [node name="DebugDraw" type="Node2D" parent="cones/VisionCone2D" unique_id=1073092814]
+script = ExtResource("10_fu215")
+
+[node name="screaming_cone" type="Node2D" parent="cones" unique_id=952638232 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") groups=["scream_area"]]
+visible = false
+script = ExtResource("9_w6k81")
+max_distance = 300.0
+collision_layer_mask = 1
+write_collision_polygon = NodePath("screaming_cone_area/VisionConeCollider")
+write_polygon2d = NodePath("VisionConeRenderer")
+
+[node name="VisionConeRenderer" type="Polygon2D" parent="cones/screaming_cone" unique_id=2130816239]
+visible = false
+color = Color(0.97061235, 0.3759331, 0.63321, 0.34509805)
+
+[node name="screaming_cone_area" type="Area2D" parent="cones/screaming_cone" unique_id=2129806399 groups=["scream_area"]]
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+
+[node name="VisionConeCollider" type="CollisionPolygon2D" parent="cones/screaming_cone/screaming_cone_area" unique_id=1086729845]
+disabled = true
+
+[node name="DebugDraw" type="Node2D" parent="cones/screaming_cone" unique_id=1024056069]
 script = ExtResource("10_fu215")
 
 [node name="raycasts" type="Node2D" parent="." unique_id=650296243]
@@ -614,3 +761,5 @@ stream = ExtResource("15_ljcf0")
 [connection signal="timeout" from="timer/drain_life_timer" to="." method="_on_drain_life_timer_timeout"]
 [connection signal="timeout" from="timer/posess_cooldown_timer" to="." method="_on_posess_cooldown_timer_timeout"]
 [connection signal="timeout" from="timer/delete_node_timer" to="state_machine/dying" method="_on_delete_node_timer_timeout"]
+[connection signal="timeout" from="timer/follow_scream_timer" to="state_machine/follow_scream" method="_on_follow_scream_timer_timeout"]
+[connection signal="timeout" from="timer/scream_duration_timer" to="state_machine/screaming" method="_on_scream_duration_timer_timeout"]

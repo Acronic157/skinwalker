@@ -3,11 +3,15 @@ class_name EnemyWandering
 
 @export var enemy: CharacterBody2D
 
+
+
 var wander_direction: Vector2 = Vector2.ZERO
 var wander_timer: float = 0.0
 
 # NEU: Ein kleiner Timer, der verhindert, dass wir sofort wieder abprallen
 var wall_collision_cooldown: float = 0.0 
+
+
 
 func Enter():
 	enemy.animation_player.play("idle")
@@ -71,8 +75,10 @@ func Physics_Update(delta: float):
 	# State Transitions
 	if enemy.is_dead:
 		EnemyTransitioned.emit(self, "dying")
-	if enemy.is_posessed:
+	if enemy.is_posessed and not enemy.is_dead:
 		EnemyTransitioned.emit(self, "posessed")
+	if not enemy.is_dead and enemy.following_scream:
+		EnemyTransitioned.emit(self, "follow_scream")
 
 func pick_new_direction():
 	# 1. Priorität: Wände vermeiden

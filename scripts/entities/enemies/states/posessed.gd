@@ -3,18 +3,24 @@ class_name EnemyPosessed
 
 @export var enemy: CharacterBody2D
 
+
+@onready var vision_cone_collider: CollisionPolygon2D = $"../../cones/screaming_cone/screaming_cone_area/VisionConeCollider"
+
+
 func Enter():
 	enemy.animation_player.play("idle")
 	enemy.phantom_camera.priority = 2
 	enemy.vision_cone.visible = false
-	
+	#vision_cone_collider.disabled = false
 
 	
 func Exit():
 	enemy.phantom_camera.priority = 0
 	enemy.walking_sound.playing = false
+	#vision_cone_collider.disabled = false
 	if not enemy.is_dead:
 		enemy.vision_cone.visible = true
+		
 
 
 
@@ -58,4 +64,4 @@ func Physics_Update(delta: float):
 	if enemy.is_dead:
 		EnemyTransitioned.emit(self, "dying")
 	if not enemy.is_posessed or Globals.game_over:
-		EnemyTransitioned.emit(self, "wandering")
+		EnemyTransitioned.emit(self, "screaming")

@@ -74,8 +74,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	
 		
 func _on_restart_level():
-	print("restart signal")
-	#get_tree().paused = true
 	game_over.visible = false
 	Globals.game_over = false
 	animation_player.play("restart_level")

@@ -37,7 +37,6 @@ position = Vector2(-33, 94)
 [node name="PointLight2D2" type="PointLight2D" parent="lights" parent_id_path=PackedInt32Array(1297583905) index="0" unique_id=1205930587]
 self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
 scale = Vector2(3.7834268, 3.7834268)
-energy = 3.44
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_rulv6")
 

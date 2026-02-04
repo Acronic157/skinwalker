@@ -157,6 +157,10 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	
 	if area.is_in_group("interest_area") and is_posessed:
 		is_interested = true
+	
+	if area.is_in_group("radar"):
+		print("radar")
+		can_be_posessed = false
 		
 	if area.is_in_group("scream_area"):
 		interest_target_position = area.global_position
@@ -174,6 +178,8 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.is_in_group("interest_area"):
 		is_interested = false
+	if area.is_in_group("radar"):
+		can_be_posessed = true
 		
 func subtract_time(amount: float):
 	var new_time = drain_life_timer.time_left - amount

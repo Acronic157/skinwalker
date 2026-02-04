@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd7yrercntq35"
-path="res://.godot/imported/ghhost_spawn.png-52f055c4b156461c19629a82d88ea329.ctex"
+uid="uid://ch6887deaqxdi"
+path="res://.godot/imported/cursor.png-45d00ea3d428d19bc22cc02dd98dd02c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/player/ghhost_spawn.png"
-dest_files=["res://.godot/imported/ghhost_spawn.png-52f055c4b156461c19629a82d88ea329.ctex"]
+source_file="res://assets/entities/player/cursor.png"
+dest_files=["res://.godot/imported/cursor.png-45d00ea3d428d19bc22cc02dd98dd02c.ctex"]
 
 [params]
 

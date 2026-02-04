@@ -119,7 +119,7 @@ func _enter_next_level():
 
 func _on_player_life_timer_timeout() -> void:
 	if not Globals.level_complete:
-		Globals.player_health -= 10
+		Globals.player_health -= 10.0
 		player_life_timer.start()
 	
 func update_bar_smooth():

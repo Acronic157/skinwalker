@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_apa6x"]
 [ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_nrcs6"]
 [ext_resource type="PackedScene" uid="uid://bu4m6ktdawuf6" path="res://scenes/world/misc/trap_1.tscn" id="3_e3lw7"]
+[ext_resource type="PackedScene" uid="uid://c5l5t8s5sy6gk" path="res://scenes/world/misc/lava.tscn" id="4_nrcs6"]
 
 [node name="4" unique_id=315252252 instance=ExtResource("1_apa6x")]
 
@@ -16,7 +17,7 @@ visible = false
 position = Vector2(-99, -39)
 
 [node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1027292428 instance=ExtResource("2_nrcs6")]
-position = Vector2(31, -100)
+position = Vector2(-32, -100)
 
 [node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=829441975 instance=ExtResource("2_nrcs6")]
 position = Vector2(96, 28)
@@ -35,3 +36,27 @@ position = Vector2(-8, 8)
 
 [node name="Trap4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=85349632 instance=ExtResource("3_e3lw7")]
 position = Vector2(8, 8)
+
+[node name="lava" parent="." index="9" unique_id=26846776 instance=ExtResource("4_nrcs6")]
+position = Vector2(-40, 104)
+
+[node name="lava2" parent="." index="10" unique_id=780187986 instance=ExtResource("4_nrcs6")]
+position = Vector2(-24, 104)
+
+[node name="lava3" parent="." index="11" unique_id=1448528562 instance=ExtResource("4_nrcs6")]
+position = Vector2(-40, 89)
+
+[node name="lava4" parent="." index="12" unique_id=860933526 instance=ExtResource("4_nrcs6")]
+position = Vector2(-24, 89)
+
+[node name="lava5" parent="." index="13" unique_id=958886975 instance=ExtResource("4_nrcs6")]
+position = Vector2(88, -24)
+
+[node name="lava6" parent="." index="14" unique_id=1467194906 instance=ExtResource("4_nrcs6")]
+position = Vector2(104, -24)
+
+[node name="lava7" parent="." index="15" unique_id=959080605 instance=ExtResource("4_nrcs6")]
+position = Vector2(88, -39)
+
+[node name="lava8" parent="." index="16" unique_id=1457571799 instance=ExtResource("4_nrcs6")]
+position = Vector2(104, -39)

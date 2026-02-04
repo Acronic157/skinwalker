@@ -28,6 +28,8 @@ window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/mode=2
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://ch6887deaqxdi"
+mouse_cursor/custom_image_hotspot=Vector2(5, 5)
 
 [editor_plugins]
 
@@ -41,6 +43,7 @@ interest_area=""
 vision_cone=""
 chandelier=""
 scream_area=""
+radar=""
 
 [input]
 
@@ -88,6 +91,11 @@ lmb={
 2d_physics/layer_9="interact area"
 2d_physics/layer_10="scream area"
 2d_physics/layer_11="enemy body"
+2d_physics/layer_12="radar area"
+
+[phantom_camera]
+
+tips/show_jitter_tips=false
 
 [physics]
 

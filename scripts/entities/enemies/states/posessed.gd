@@ -62,7 +62,6 @@ func Physics_Update(delta: float):
 		enemy.velocity = direction * enemy.running_speed
 		
 	else:
-		# Sanftes Abbremsen, wenn keine Taste gedrückt wird
 		enemy.velocity = enemy.velocity.move_toward(Vector2.ZERO, enemy.running_speed)
 		enemy.walking_sound.playing = false
 		enemy.animation_player.play("idle")

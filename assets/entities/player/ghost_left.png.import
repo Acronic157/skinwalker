@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df0xrty0mwjjq"
-path="res://.godot/imported/pixilart-sprite_32.png-70b76c5cfaf682909e120da22d52c9fd.ctex"
+uid="uid://bcdfrrpymgjh8"
+path="res://.godot/imported/ghost_left.png-51e1dd3d09e305dc740814e636443197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/player/pixilart-sprite_32.png"
-dest_files=["res://.godot/imported/pixilart-sprite_32.png-70b76c5cfaf682909e120da22d52c9fd.ctex"]
+source_file="res://assets/entities/player/ghost_left.png"
+dest_files=["res://.godot/imported/ghost_left.png-51e1dd3d09e305dc740814e636443197.ctex"]
 
 [params]
 

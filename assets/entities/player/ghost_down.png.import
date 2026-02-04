@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nxti1lnc5ix0"
-path="res://.godot/imported/ghost_directions.png-4ba935da540d271b2b6428b1d3cb040d.ctex"
+uid="uid://d2x1k3i2e3bcg"
+path="res://.godot/imported/ghost_down.png-2a2576ba7cbbb5e31826f94758bd4e8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/player/ghost_directions.png"
-dest_files=["res://.godot/imported/ghost_directions.png-4ba935da540d271b2b6428b1d3cb040d.ctex"]
+source_file="res://assets/entities/player/ghost_down.png"
+dest_files=["res://.godot/imported/ghost_down.png-2a2576ba7cbbb5e31826f94758bd4e8d.ctex"]
 
 [params]
 

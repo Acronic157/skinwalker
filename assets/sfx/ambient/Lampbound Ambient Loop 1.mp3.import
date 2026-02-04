@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vyihxidwntn7"
+path="res://.godot/imported/Lampbound Ambient Loop 1.mp3-309f4aacf661a89bcf3f6a4d8b84bad2.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/ambient/Lampbound Ambient Loop 1.mp3"
+dest_files=["res://.godot/imported/Lampbound Ambient Loop 1.mp3-309f4aacf661a89bcf3f6a4d8b84bad2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

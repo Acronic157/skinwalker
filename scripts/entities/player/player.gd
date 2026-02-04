@@ -4,12 +4,14 @@ extends Node2D
 @onready var white_trail: GPUParticles2D = $ghost/white_trail
 
 @onready var ghost_laughter: AudioStreamPlayer2D = $ghost_laughter
+@onready var ghost_death: AudioStreamPlayer2D = $ghost_death
 
 @onready var ghost: Sprite2D = $ghost
 @export var ghost_speed := 1.0
 @export var offset: Vector2 = Vector2(70, 70)
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var local_player_posessing := false
+var played_once := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Signals
@@ -27,6 +29,9 @@ func _process(delta: float) -> void:
 	ghost.global_position = ghost.global_position.lerp(target_pos, ghost_speed * delta)
 	var movement_vector = ghost.global_position - old_pos
 	update_ghost_animation(movement_vector)
+	
+	if Globals.game_over and not ghost_death.playing and not played_once:
+		ghost_death.playing = true
 
 
 func _on_enter_enemy():
@@ -66,9 +71,11 @@ func update_ghost_animation(dir: Vector2):
 		if dir.length() > move_threshold or current_anim != "idle":
 			if abs(dir.x) > abs(dir.y) * 1.4:
 				if dir.x > 0:
-					animation_player.play("right")
+					animation_player.play("left")
+					ghost.flip_h = true
 				else:
 					animation_player.play("left")
+					ghost.flip_h = false
 			else:
 				if dir.y > 0:
 					animation_player.play("down")
@@ -78,3 +85,7 @@ func update_ghost_animation(dir: Vector2):
 		# Er ist langsam genug für Idle
 		if animation_player.has_animation("idle") and current_anim != "idle":
 			animation_player.play("idle")
+
+
+func _on_ghost_death_finished() -> void:
+	played_once = true

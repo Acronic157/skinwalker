@@ -5,10 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://6x3dwhfu26em" path="res://assets/world/tilemaps/chapter_1/button_pressed.png" id="3_n6nrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxgbr"]
-size = Vector2(12, 12)
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdt7f"]
+size = Vector2(16, 16)
 
 [node name="chandelier_button" type="Node2D" unique_id=1408692222]
 script = ExtResource("1_sdt7f")
+
+[node name="button" type="Sprite2D" parent="." unique_id=1508412361]
+texture = ExtResource("2_qdcdf")
+
+[node name="button_pressed" type="Sprite2D" parent="." unique_id=376616592]
+visible = false
+texture = ExtResource("3_n6nrj")
 
 [node name="interact_area" type="Area2D" parent="." unique_id=539289930 groups=["trap"]]
 collision_layer = 0
@@ -17,12 +27,13 @@ collision_mask = 256
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=1293781948]
 shape = SubResource("RectangleShape2D_sxgbr")
 
-[node name="button" type="Sprite2D" parent="." unique_id=1508412361]
-texture = ExtResource("2_qdcdf")
-
-[node name="button_pressed" type="Sprite2D" parent="." unique_id=376616592]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1341071736]
 visible = false
-texture = ExtResource("3_n6nrj")
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=949125662]
+shape = SubResource("RectangleShape2D_sdt7f")
 
 [connection signal="area_entered" from="interact_area" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="interact_area" to="." method="_on_interact_area_area_exited"]

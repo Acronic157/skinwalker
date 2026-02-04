@@ -593,7 +593,7 @@ shape = SubResource("CircleShape2D_pm80n")
 
 [node name="enemy_hitbox" type="Area2D" parent="hitbox" unique_id=2374039]
 collision_layer = 0
-collision_mask = 708
+collision_mask = 2756
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox/enemy_hitbox" unique_id=1316249083]
 visible = false
@@ -637,6 +637,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="timer" type="Node2D" parent="." unique_id=1726808757]
 
 [node name="drain_life_timer" type="Timer" parent="timer" unique_id=1501155153]
+wait_time = 2.0
 one_shot = true
 
 [node name="posess_cooldown_timer" type="Timer" parent="timer" unique_id=750247667]
@@ -662,7 +663,8 @@ one_shot = true
 [node name="Marker2D" type="Marker2D" parent="navigation" unique_id=145877369]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation/Marker2D" unique_id=1937308786]
-debug_enabled = true
+target_desired_distance = 20.0
+simplify_path = true
 
 [node name="cones" type="Node2D" parent="." unique_id=1381131483]
 
@@ -670,7 +672,7 @@ debug_enabled = true
 script = ExtResource("9_w6k81")
 angle_deg = 35
 ray_count = 10
-max_distance = 55.0
+max_distance = 50.0
 collision_layer_mask = 1
 write_collision_polygon = NodePath("VisionConeArea/VisionConeCollider")
 write_polygon2d = NodePath("VisionConeRenderer")
@@ -688,16 +690,16 @@ collision_mask = 16
 script = ExtResource("10_fu215")
 
 [node name="screaming_cone" type="Node2D" parent="cones" unique_id=952638232 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") groups=["scream_area"]]
-visible = false
 script = ExtResource("9_w6k81")
-max_distance = 75.0
+ray_count = 36
+max_distance = 80.0
 collision_layer_mask = 1
 write_collision_polygon = NodePath("screaming_cone_area/VisionConeCollider")
 write_polygon2d = NodePath("VisionConeRenderer")
 debug_shape = true
 
 [node name="VisionConeRenderer" type="Polygon2D" parent="cones/screaming_cone" unique_id=2130816239]
-color = Color(0.97061235, 0.3759331, 0.63321, 0.34509805)
+color = Color(0.972549, 0.3764706, 0.6313726, 0)
 
 [node name="screaming_cone_area" type="Area2D" parent="cones/screaming_cone" unique_id=2129806399 groups=["scream_area"]]
 collision_layer = 512

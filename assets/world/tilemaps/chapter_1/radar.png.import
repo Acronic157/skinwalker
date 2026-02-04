@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byauqn67o6asm"
-path="res://.godot/imported/ghost_idle.png-dada52a31b9845cdb49f458e5da5994b.ctex"
+uid="uid://cw5grpnsryntc"
+path="res://.godot/imported/radar.png-3738e088f7e9d6d7022011215b8afa2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/player/ghost_idle.png"
-dest_files=["res://.godot/imported/ghost_idle.png-dada52a31b9845cdb49f458e5da5994b.ctex"]
+source_file="res://assets/world/tilemaps/chapter_1/radar.png"
+dest_files=["res://.godot/imported/radar.png-3738e088f7e9d6d7022011215b8afa2a.ctex"]
 
 [params]
 

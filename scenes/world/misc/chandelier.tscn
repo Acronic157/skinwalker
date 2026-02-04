@@ -415,6 +415,16 @@ _data = {
 &"swinging": SubResource("Animation_l3rm7")
 }
 
+[sub_resource type="Gradient" id="Gradient_qsx67"]
+colors = PackedColorArray(1, 0.60784316, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_heulk"]
+gradient = SubResource("Gradient_qsx67")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Gradient" id="Gradient_xbbxw"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.5816733, 0.6533865)
@@ -453,12 +463,17 @@ position = Vector2(0, -16)
 texture = ExtResource("2_xbbxw")
 
 [node name="base" type="Sprite2D" parent="textur" unique_id=305139500]
+self_modulate = Color(1.4369954, 1.4369954, 1.4369954, 1)
 texture = ExtResource("3_qsx67")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="textur" unique_id=1239615876]
 libraries/ = SubResource("AnimationLibrary_ex5ec")
 autoplay = &"swinging"
 speed_scale = 0.3
+
+[node name="PointLight2D" type="PointLight2D" parent="textur" unique_id=2021436597]
+scale = Vector2(3.0457087, 1.7198215)
+texture = SubResource("GradientTexture2D_heulk")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=55694397]
 self_modulate = Color(1.6197081, 1.6197081, 1.6197081, 1)

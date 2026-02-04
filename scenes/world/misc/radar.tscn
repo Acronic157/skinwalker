@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bb2txcgv5em6k"]
+
+[ext_resource type="Texture2D" uid="uid://cw5grpnsryntc" path="res://assets/world/tilemaps/chapter_1/radar.png" id="1_yystc"]
+
+[sub_resource type="Gradient" id="Gradient_1tht7"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.6294821, 0.6613546, 0.69721115)
+colors = PackedColorArray(0, 1, 0, 0.12941177, 0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3jxw"]
+gradient = SubResource("Gradient_1tht7")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_1ibcs"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.08366534, 0.119521916, 0.15139443, 1)
+colors = PackedColorArray(0.38431373, 1, 0, 0, 0.38431373, 1, 0, 1, 0.38431373, 1, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmawg"]
+gradient = SubResource("Gradient_1ibcs")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r61g2"]
+atlas = ExtResource("1_yystc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejg8d"]
+atlas = ExtResource("1_yystc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqqxn"]
+atlas = ExtResource("1_yystc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuqb8"]
+atlas = ExtResource("1_yystc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypd4f"]
+atlas = ExtResource("1_yystc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bps0"]
+atlas = ExtResource("1_yystc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgy2w"]
+atlas = ExtResource("1_yystc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqmgq"]
+atlas = ExtResource("1_yystc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkscv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r61g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejg8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqqxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuqb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypd4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bps0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgy2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqmgq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7f1ws"]
+radius = 61.13101
+
+[sub_resource type="Animation" id="Animation_1n23s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2ps0i"]
+resource_name = "default"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yf3m1"]
+_data = {
+&"RESET": SubResource("Animation_1n23s"),
+&"default": SubResource("Animation_2ps0i")
+}
+
+[node name="radar" type="Node2D" unique_id=832316321]
+
+[node name="circle" type="Sprite2D" parent="." unique_id=391191279]
+texture = SubResource("GradientTexture2D_e3jxw")
+
+[node name="circle_textur" type="Sprite2D" parent="." unique_id=1726950746]
+visible = false
+texture = SubResource("GradientTexture2D_gmawg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=580163754]
+sprite_frames = SubResource("SpriteFrames_mkscv")
+autoplay = "default"
+frame_progress = 0.791369
+
+[node name="Area2D" type="Area2D" parent="." unique_id=345808941 groups=["radar"]]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=185411771]
+visible = false
+shape = SubResource("CircleShape2D_7f1ws")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1197283324]
+libraries/ = SubResource("AnimationLibrary_yf3m1")
+autoplay = &"default"

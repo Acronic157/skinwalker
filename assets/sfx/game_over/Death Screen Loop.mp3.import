@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct1q6jc4hl6jt"
+path="res://.godot/imported/Death Screen Loop.mp3-567d52ef9b6485d8cf5827cbe3dd4508.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/game_over/Death Screen Loop.mp3"
+dest_files=["res://.godot/imported/Death Screen Loop.mp3-567d52ef9b6485d8cf5827cbe3dd4508.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -691,7 +691,7 @@ script = ExtResource("10_fu215")
 [node name="screaming_cone" type="Node2D" parent="cones" unique_id=952638232 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d") groups=["scream_area"]]
 script = ExtResource("9_w6k81")
 ray_count = 36
-max_distance = 80.0
+max_distance = 95.0
 collision_layer_mask = 1
 write_collision_polygon = NodePath("screaming_cone_area/VisionConeCollider")
 write_polygon2d = NodePath("VisionConeRenderer")

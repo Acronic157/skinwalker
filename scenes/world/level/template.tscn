@@ -593,7 +593,7 @@ main_menu = ExtResource("3_v24f1")
 environment = SubResource("Environment_h87xw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="world_environment/WorldEnvironment" unique_id=472210911]
-color = Color(0.47788018, 0.47788018, 0.47788, 1)
+color = Color(0.44291073, 0.4429108, 0.4429106, 1)
 
 [node name="dust" type="GPUParticles2D" parent="world_environment" unique_id=1230781466]
 material = SubResource("CanvasItemMaterial_xvv5a")

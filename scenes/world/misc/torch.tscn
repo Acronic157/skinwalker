@@ -15,9 +15,10 @@ fill_from = Vector2(0.5, 0.5)
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1268901993]
 self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
 position = Vector2(0, -4.7683716e-07)
-scale = Vector2(1.0333304, 1.1366634)
+scale = Vector2(2.13617, 2.3497868)
 energy = 1.41
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
+shadow_filter = 1
 texture = SubResource("GradientTexture2D_ddgy7")

@@ -23,6 +23,7 @@ class_name Enemy
 @onready var enter_posession_sound: AudioStreamPlayer2D = $audio/enter_posession_sound
 @onready var walking_sound: AudioStreamPlayer2D = $audio/walking_sound
 @onready var dying_sound: AudioStreamPlayer2D = $audio/dying_sound
+@onready var ghost_death_sound: AudioStreamPlayer2D = $audio/ghost_death_sound
 
 
 # Navigation
@@ -172,6 +173,7 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 		return
 	elif is_posessed and area.is_in_group("vision_cone"):
 		Globals.game_over = true
+		ghost_death_sound.playing = true
 		
 	
 		

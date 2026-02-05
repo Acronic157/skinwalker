@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var ghost_laughter: AudioStreamPlayer2D = $ghost_laughter
 @onready var ghost_death: AudioStreamPlayer2D = $ghost_death
+@onready var point_light_2d: PointLight2D = $ghost/PointLight2D
 
 @onready var ghost: Sprite2D = $ghost
 @export var ghost_speed := 1.0
@@ -30,8 +31,7 @@ func _process(delta: float) -> void:
 	var movement_vector = ghost.global_position - old_pos
 	update_ghost_animation(movement_vector)
 	
-	if Globals.game_over and not ghost_death.playing and not played_once:
-		ghost_death.playing = true
+
 
 
 func _on_enter_enemy():
@@ -50,10 +50,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "enter":
 		mouse_trail.emitting = false
 		white_trail.emitting = false
+		point_light_2d.enabled = false
 	elif anim_name == "exit":
 		local_player_posessing = false
 		mouse_trail.emitting = true
 		white_trail.emitting = true
+		point_light_2d.enabled = true
 	
 func update_ghost_animation(dir: Vector2):
 	if local_player_posessing:
@@ -85,7 +87,3 @@ func update_ghost_animation(dir: Vector2):
 		# Er ist langsam genug für Idle
 		if animation_player.has_animation("idle") and current_anim != "idle":
 			animation_player.play("idle")
-
-
-func _on_ghost_death_finished() -> void:
-	played_once = true

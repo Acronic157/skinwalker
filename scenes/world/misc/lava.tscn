@@ -1,5 +1,13 @@
 [gd_scene format=3 uid="uid://c5l5t8s5sy6gk"]
 
+[ext_resource type="Shader" uid="uid://cx27gfimomsyb" path="res://scripts/other/lava.gdshader" id="1_d6yex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_60w4k"]
+shader = ExtResource("1_d6yex")
+shader_parameter/color_lava = Color(1, 0.3, 0, 1)
+shader_parameter/color_bright = Color(1, 0.6, 0, 1)
+shader_parameter/speed = 1.0
+
 [sub_resource type="Gradient" id="Gradient_fx3b4"]
 colors = PackedColorArray(1, 0.31229547, 0.24802625, 1, 1, 0.33551362, 0.2695955, 1)
 
@@ -72,9 +80,20 @@ _data = {
 &"default": SubResource("Animation_d6yex")
 }
 
+[sub_resource type="Gradient" id="Gradient_d6yex"]
+offsets = PackedFloat32Array(0, 0.63829786)
+colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_60w4k"]
+gradient = SubResource("Gradient_d6yex")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="lava" type="Node2D" unique_id=503389551]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=60574273]
+material = SubResource("ShaderMaterial_60w4k")
 texture = SubResource("GradientTexture2D_d6yex")
 region_rect = Rect2(95.87, -0.038, 16, 16)
 region_filter_clip_enabled = true
@@ -108,3 +127,13 @@ shape = SubResource("RectangleShape2D_txdif")
 root_node = NodePath("../GPUParticles2D")
 libraries/ = SubResource("AnimationLibrary_60w4k")
 autoplay = &"default"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1390093037]
+self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(1.0333304, 1.1366634)
+energy = 1.41
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_60w4k")

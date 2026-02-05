@@ -2,6 +2,7 @@ extends EnemyState
 class_name EnemyWandering
 
 @export var enemy: CharacterBody2D
+@onready var animation: Sprite2D = $"../../visuals/animation"
 
 
 
@@ -52,8 +53,10 @@ func Physics_Update(delta: float):
 		if abs(wander_direction.x) > abs(wander_direction.y):
 			if wander_direction.x > 0:
 				enemy.animation_player.play("right")
+				animation.flip_h = false
 			else:
-				enemy.animation_player.play("left")
+				enemy.animation_player.play("right")
+				animation.flip_h = true
 		else:
 			if wander_direction.y > 0:
 				enemy.animation_player.play("down")

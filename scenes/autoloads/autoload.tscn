@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c164g41iuqlv7"]
+
+[ext_resource type="AudioStream" uid="uid://vyihxidwntn7" path="res://assets/sfx/ambient/Lampbound Ambient Loop 1.mp3" id="1_24kdb"]
+[ext_resource type="Script" uid="uid://dfr7plbyeiexl" path="res://scripts/autoload/autoload.gd" id="1_5857v"]
+[ext_resource type="AudioStream" uid="uid://caw6xh7f662hc" path="res://assets/sfx/ambient/Lampbound Ambient Track 2.mp3" id="2_5857v"]
+
+[node name="Autoload" type="Node2D" unique_id=1603643223]
+script = ExtResource("1_5857v")
+
+[node name="audio" type="Node2D" parent="." unique_id=461035464]
+
+[node name="ambient_1" type="AudioStreamPlayer2D" parent="audio" unique_id=455790631]
+stream = ExtResource("1_24kdb")
+parameters/looping = true
+
+[node name="ambient_2" type="AudioStreamPlayer2D" parent="audio" unique_id=223777433]
+stream = ExtResource("2_5857v")
+parameters/looping = true
+
+[node name="game_over_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=380244874]

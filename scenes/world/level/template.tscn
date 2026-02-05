@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_h87xw"]
 [ext_resource type="PackedScene" uid="uid://dlg7d572k6q78" path="res://scenes/menus/game_over.tscn" id="3_v24f1"]
 [ext_resource type="PackedScene" uid="uid://btxcovvnrqwbe" path="res://scenes/menus/next_level_menu.tscn" id="4_8l7pl"]
-[ext_resource type="Texture2D" uid="uid://bbwfg5txmiyyy" path="res://assets/world/tilemaps/chapter_1/dungeon_.png" id="4_e33qf"]
+[ext_resource type="Texture2D" uid="uid://bbwfg5txmiyyy" path="res://assets/world/tilemaps/chapter_1/tilemap_1.png" id="4_e33qf"]
 [ext_resource type="PackedScene" uid="uid://b5sdr1lm46yf7" path="res://scenes/other/barriers/wall.tscn" id="4_xvv5a"]
+[ext_resource type="AudioStream" uid="uid://3jiynp5slm0" path="res://assets/sfx/ghost/Ghost Death Non Shot.mp3" id="11_24q3u"]
 
 [sub_resource type="Environment" id="Environment_h87xw"]
 background_mode = 3
@@ -409,13 +410,9 @@ texture = ExtResource("4_e33qf")
 13:3/0 = 0
 14:3/0 = 0
 0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
-3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
 4:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_24q3u")
 5:4/0 = 0
@@ -434,13 +431,9 @@ texture = ExtResource("4_e33qf")
 13:4/0 = 0
 14:4/0 = 0
 0:5/0 = 0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:5/0 = 0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:5/0 = 0
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
 4:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_24q3u")
 5:5/0 = 0
@@ -461,7 +454,6 @@ texture = ExtResource("4_e33qf")
 0:6/animation_frame_2/duration = 0.1
 0:6/animation_frame_3/duration = 0.1
 0:6/0 = 0
-0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/0 = 0
 4:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_24q3u")
 5:6/0 = 0
@@ -582,11 +574,9 @@ texture = ExtResource("4_e33qf")
 14:11/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ul342"]
-occlusion_layer_0/light_mask = 1
+occlusion_layer_0/light_mask = 3
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
-physics_layer_1/collision_layer = 0
-physics_layer_1/collision_mask = 0
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_8l7pl")
 
@@ -603,7 +593,7 @@ main_menu = ExtResource("3_v24f1")
 environment = SubResource("Environment_h87xw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="world_environment/WorldEnvironment" unique_id=472210911]
-color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+color = Color(0.47788018, 0.47788018, 0.47788, 1)
 
 [node name="dust" type="GPUParticles2D" parent="world_environment" unique_id=1230781466]
 material = SubResource("CanvasItemMaterial_xvv5a")
@@ -684,7 +674,7 @@ scale = Vector2(1.7283291, 27.427654)
 [node name="player" type="Node2D" parent="." unique_id=1072154393]
 
 [node name="player" parent="player" unique_id=1096445309 instance=ExtResource("1_5tbc7")]
-position = Vector2(0, 390)
+position = Vector2(0, 252)
 
 [node name="entities" type="Node2D" parent="." unique_id=2045071420]
 
@@ -692,7 +682,7 @@ position = Vector2(0, 390)
 
 [node name="Camera2D" type="Camera2D" parent="camera" unique_id=159240649]
 top_level = true
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.7, 0.7)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="camera/Camera2D" unique_id=1107344072]
@@ -705,7 +695,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 physics_interpolation_mode = 1
 script = ExtResource("1_n2qea")
 priority = 1
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.7, 0.7)
 snap_to_pixel = true
 tween_resource = SubResource("Resource_q2w1t")
 draw_limits = true
@@ -715,6 +705,11 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="misc" type="Node2D" parent="." unique_id=464257083]
 process_mode = 3
+
+[node name="audio" type="Node2D" parent="." unique_id=1620148689]
+
+[node name="ghost_death_sound_no_gun" type="AudioStreamPlayer2D" parent="audio" unique_id=2025848355]
+stream = ExtResource("11_24q3u")
 
 [connection signal="timeout" from="ui/CanvasLayer/player_life_bar/player_life_timer" to="." method="_on_player_life_timer_timeout"]
 [connection signal="animation_finished" from="ui/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://cfa114j1rh1ao"]
 
+[sub_resource type="Gradient" id="Gradient_d6yex"]
+offsets = PackedFloat32Array(0, 0.63829786)
+colors = PackedColorArray(0.9518514, 0.6398101, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ddgy7"]
+gradient = SubResource("Gradient_d6yex")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Torch" type="Node2D" unique_id=698666989]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1268901993]
+self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(1.0333304, 1.1366634)
+energy = 1.41
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ddgy7")

@@ -8,6 +8,7 @@ class_name EnemyPosessed
 @onready var screaming_cone: VisionCone2D = $"../../cones/screaming_cone"
 @onready var point_light_2d: PointLight2D = $"../../visuals/PointLight2D"
 @onready var light_occluder_2d: LightOccluder2D = $"../../visuals/LightOccluder2D"
+@onready var animation: Sprite2D = $"../../visuals/animation"
 
 
 func Enter():
@@ -51,8 +52,10 @@ func Physics_Update(delta: float):
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				enemy.animation_player.play("right")
+				animation.flip_h = false
 			else:
-				enemy.animation_player.play("left")
+				enemy.animation_player.play("right")
+				animation.flip_h = true
 		else:
 			if direction.y > 0:
 				enemy.animation_player.play("down")

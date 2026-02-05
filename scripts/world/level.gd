@@ -6,12 +6,13 @@ extends Node2D
 @onready var player_life_bar: ProgressBar = $ui/CanvasLayer/player_life_bar
 @onready var player_life_timer: Timer = $ui/CanvasLayer/player_life_bar/player_life_timer
 @onready var next_level_menu: Control = $ui/CanvasLayer/next_level_menu
+@onready var ghost_death_sound_no_gun: AudioStreamPlayer2D = $audio/ghost_death_sound_no_gun
 
 @onready var player_first_posession := false
 
 var health_tween: Tween
 
-
+var played_once := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,6 +48,9 @@ func _process(delta: float) -> void:
 	
 	if Globals.player_health <= 0:
 		Globals.game_over = true
+		if not ghost_death_sound_no_gun.playing and not played_once:
+			played_once = true
+			ghost_death_sound_no_gun.playing = true
 	
 	var enemies = get_tree().get_nodes_in_group("enemies").size()
 	if enemies == 0:

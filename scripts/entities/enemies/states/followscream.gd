@@ -14,7 +14,8 @@ func Enter():
 func Exit():
 	follow_scream_timer.stop()
 	enemy.following_scream = false
-	enemy.set_collision_mask_value(6, true)
+	if not enemy.is_posessed:
+		enemy.set_collision_mask_value(6, true)
 	enemy.interact_area_shape.disabled = true
 
 func Update(_delta: float):

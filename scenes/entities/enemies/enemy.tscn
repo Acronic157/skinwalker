@@ -8,15 +8,18 @@
 [ext_resource type="Script" uid="uid://b01yesh44e8ml" path="res://scripts/entities/enemies/states/dying.gd" id="5_wyqsp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_j3iiu"]
 [ext_resource type="Script" uid="uid://g4jka2s1ia1r" path="res://scripts/entities/enemies/states/wandering.gd" id="6_w6k81"]
-[ext_resource type="Texture2D" uid="uid://rrluo7a13566" path="res://assets/entities/enemies/enemies.png" id="7_27tcs"]
-[ext_resource type="Texture2D" uid="uid://d2136r828y2ae" path="res://assets/entities/enemies/enemy_dying.png" id="8_0kssi"]
+[ext_resource type="Texture2D" uid="uid://dyvueydxfnsp1" path="res://assets/entities/enemies/enemy_down.png" id="8_45afl"]
 [ext_resource type="Script" uid="uid://b31svvy03cpit" path="res://scripts/entities/enemies/states/followscream.gd" id="8_jokyc"]
+[ext_resource type="Texture2D" uid="uid://bje2msnyoxxtm" path="res://assets/entities/enemies/enemy_death.png" id="9_aaa10"]
 [ext_resource type="Shader" uid="uid://byt60w75rjjfd" path="res://scripts/entities/enemies/shader/shockwave.gdshader" id="9_ljcf0"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="9_w6k81"]
 [ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="10_fu215"]
+[ext_resource type="Texture2D" uid="uid://dtdy2liw8t5tb" path="res://assets/entities/enemies/enemy_right.png" id="10_whmns"]
+[ext_resource type="Texture2D" uid="uid://d3vjfgvojnni4" path="res://assets/entities/enemies/enemy_up.png" id="11_ae10g"]
 [ext_resource type="AudioStream" uid="uid://b2m37eyg0sqsi" path="res://assets/sfx/ghost/Posses Sfx.mp3" id="12_27tcs"]
 [ext_resource type="AudioStream" uid="uid://dlp1dya54ymgo" path="res://assets/sfx/enemies/Catacombs_walk.mp3" id="13_mag4a"]
 [ext_resource type="AudioStream" uid="uid://5xrt5jxkipd8" path="res://assets/sfx/enemies/Catacombs_Slice Sfx.mp3" id="15_ljcf0"]
+[ext_resource type="AudioStream" uid="uid://cfa2gtmwmx61h" path="res://assets/sfx/ghost/Ghost Death Scream + Gun Shots.mp3" id="18_jokyc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20lqd"]
 radius = 8.0
@@ -82,7 +85,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_27tcs")]
+"values": [ExtResource("8_45afl")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -94,53 +97,13 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [6]
 }
 
 [sub_resource type="Animation" id="Animation_mag4a"]
 resource_name = "down"
-length = 0.06667
+length = 0.20000334
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animation:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_27tcs")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("animation:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_jokyc"]
-resource_name = "dying"
-length = 0.40000334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,7 +114,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_0kssi")]
+"values": [ExtResource("8_45afl")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -163,7 +126,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [12]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -172,11 +135,53 @@ tracks/2/path = NodePath("animation:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+"values": [0, 1, 2, 3, 4, 5]
 }
+
+[sub_resource type="Animation" id="Animation_jokyc"]
+resource_name = "dying"
+length = 0.43333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_aaa10")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5a40m"]
 
 [sub_resource type="Animation" id="Animation_bii57"]
 resource_name = "idle"
@@ -184,34 +189,22 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("animation:frame")
+tracks/0/path = NodePath("animation:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [SubResource("CompressedTexture2D_5a40m")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("animation:texture")
+tracks/1/path = NodePath("animation:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_27tcs")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("animation:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -244,7 +237,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_27tcs")]
+"values": [SubResource("CompressedTexture2D_5a40m")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -261,84 +254,84 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ljcf0"]
 resource_name = "right"
-length = 0.06667
+length = 0.20000334
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("animation:frame")
+tracks/0/path = NodePath("animation:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6, 7]
+"values": [ExtResource("10_whmns")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("animation:texture")
+tracks/1/path = NodePath("animation:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_27tcs")]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("animation:hframes")
+tracks/2/path = NodePath("animation:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_8tbu6"]
 resource_name = "up"
-length = 0.06667
+length = 0.20000334
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("animation:frame")
+tracks/0/path = NodePath("animation:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2, 3]
+"values": [ExtResource("11_ae10g")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("animation:texture")
+tracks/1/path = NodePath("animation:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_27tcs")]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("animation:hframes")
+tracks/2/path = NodePath("animation:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uu37f"]
@@ -372,18 +365,19 @@ bg_color = Color(0.003921569, 0.59607846, 1, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_uu37f")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_wyqsp")
 
-[sub_resource type="Gradient" id="Gradient_e33qf"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w6k81"]
+cull_mode = 2
+polygon = PackedVector2Array(-4, 4, -4, 3, 4, 3, 4, 4)
+
+[sub_resource type="Gradient" id="Gradient_45afl"]
 offsets = PackedFloat32Array(0, 0.63829786)
 colors = PackedColorArray(1, 0.54901963, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_w6k81"]
-gradient = SubResource("Gradient_e33qf")
+gradient = SubResource("Gradient_45afl")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w6k81"]
-polygon = PackedVector2Array(0, 0, -4, 0, -4, 3, 4, 3, 4, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8tbu6"]
 shader = ExtResource("9_ljcf0")
@@ -457,7 +451,7 @@ height = 18.0
 radius = 229.00218
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kssi"]
-radius = 17.117243
+radius = 11.0
 
 [sub_resource type="Resource" id="Resource_bii57"]
 script = ExtResource("6_j3iiu")
@@ -470,6 +464,7 @@ collision_mask = 1057
 script = ExtResource("1_yfmsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241668343]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_20lqd")
 
@@ -521,12 +516,14 @@ trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_mag4a")
 
 [node name="animation" type="Sprite2D" parent="visuals" unique_id=85223138]
-texture = ExtResource("7_27tcs")
-hframes = 8
+light_mask = 3
+visibility_layer = 2
+texture = ExtResource("8_45afl")
+hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="visuals" unique_id=2000535181]
 libraries/ = SubResource("AnimationLibrary_uu37f")
-speed_scale = 0.1
+speed_scale = 0.4
 
 [node name="lifebar" type="ProgressBar" parent="visuals" unique_id=611345573]
 visible = false
@@ -549,18 +546,20 @@ theme = SubResource("Theme_w6k81")
 rounded = true
 show_percentage = false
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="visuals" unique_id=1506378588]
+z_index = -1
+position = Vector2(0, 11)
+occluder = SubResource("OccluderPolygon2D_w6k81")
+
 [node name="PointLight2D" type="PointLight2D" parent="visuals" unique_id=158944309]
 visible = false
 self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
-position = Vector2(0, -4.7683716e-07)
+position = Vector2(0, -6.9999995)
 scale = Vector2(3.5625, 3.91875)
 energy = 2.08
 shadow_enabled = true
+shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_w6k81")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="visuals" unique_id=1506378588]
-position = Vector2(0, 12)
-occluder = SubResource("OccluderPolygon2D_w6k81")
 
 [node name="shockwave" type="ColorRect" parent="visuals" unique_id=730121235]
 z_index = -1
@@ -615,7 +614,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="interact_area_shape" type="CollisionShape2D" parent="hitbox/interact_area" unique_id=1313876120]
-visible = false
+position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_0kssi")
 disabled = true
 
@@ -735,6 +734,10 @@ parameters/looping = true
 
 [node name="dying_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=812143486]
 stream = ExtResource("15_ljcf0")
+
+[node name="ghost_death_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=1354626325]
+stream = ExtResource("18_jokyc")
+volume_db = 3.49
 
 [connection signal="EnemyTransitioned" from="state_machine/dying" to="state_machine/dying" method="_on_enemy_transitioned"]
 [connection signal="input_event" from="hitbox/cursor_hitbox" to="." method="_on_area_2d_input_event"]

@@ -21,6 +21,8 @@ Globals="*uid://ptoj0kadrfh4"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 Levelmanager="*uid://cepfcv1vel8su"
 InputHelper="*uid://cholww48njaeh"
+Autoload="*uid://c164g41iuqlv7"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
 
@@ -33,7 +35,7 @@ mouse_cursor/custom_image_hotspot=Vector2(5, 5)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_input_icons/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/vision_cone_2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_input_icons/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/vision_cone_2d/plugin.cfg")
 
 [global_group]
 
@@ -77,6 +79,10 @@ lmb={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(196, 15),"global_position":Vector2(205, 63),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/intro.dialogue")
 
 [layer_names]
 

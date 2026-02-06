@@ -54,6 +54,7 @@ class_name Enemy
 @onready var is_posessed := false
 @onready var can_be_posessed := true
 @export var posess_cooldown_time := 3.0
+@onready var already_played_death_sound := false
 
 # Movement
 @export var running_speed := 35.0
@@ -86,6 +87,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Globals.game_over:
 		lifebar.visible = false
+		if is_posessed:
+			exit_posession()
 	
 	
 
@@ -181,7 +184,8 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 		return
 	elif is_posessed and area.is_in_group("vision_cone"):
 		Globals.game_over = true
-		ghost_death_sound.playing = true
+		if not already_played_death_sound:
+			ghost_death_sound.playing = true
 		
 	
 		

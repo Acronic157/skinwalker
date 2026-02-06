@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://btxcovvnrqwbe"]
 
+[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_bcbl7"]
 [ext_resource type="Script" uid="uid://cgi0n1bx20oca" path="res://scripts/menus/next_level_menu/next_level_menu.gd" id="1_dy38m"]
 
 [node name="next_level_menu" type="Control" unique_id=243500270]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bcbl7")
 script = ExtResource("1_dy38m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1347463012]

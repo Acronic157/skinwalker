@@ -1,0 +1,26 @@
+[gd_resource type="Theme" format=3 uid="uid://cg67qjox6btjy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50h1w"]
+bg_color = Color(0.8901961, 0.6862745, 0.43137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euy4r"]
+bg_color = Color(0.6627451, 0.42745098, 0.2784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bre17"]
+bg_color = Color(0.8901961, 0.6862745, 0.43137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88kup"]
+bg_color = Color(0.4745098, 0.28235295, 0.21960784, 1)
+
+[resource]
+Button/colors/font_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Button/colors/font_focus_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Button/colors/font_hover_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Button/colors/font_hover_pressed_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Button/colors/font_pressed_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_50h1w")
+Button/styles/hover = SubResource("StyleBoxFlat_euy4r")
+Button/styles/normal = SubResource("StyleBoxFlat_bre17")
+Button/styles/pressed = SubResource("StyleBoxFlat_88kup")
+Label/colors/font_color = Color(0.40392157, 0.99607843, 0.8901961, 1)
+Label/colors/font_shadow_color = Color(0.4745098, 0.28235295, 0.21960784, 1)

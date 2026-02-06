@@ -3,6 +3,7 @@ class_name EnemyFollowScream
 
 @export var enemy: CharacterBody2D
 @onready var follow_scream_timer: Timer = $"../../timer/follow_scream_timer"
+@onready var animation: Sprite2D = $"../../visuals/animation"
 
 func Enter():
 	enemy.navigation_agent_2d.target_position = enemy.interest_target_position
@@ -48,16 +49,24 @@ func Physics_Update(delta: float):
 	update_animation(direction)
 
 func update_animation(dir: Vector2):
-	if abs(dir.x) > abs(dir.y):
-		if dir.x > 0:
-			enemy.animation_player.play("right")
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+	# 2. Geschwindigkeit basierend auf der Richtung setzen
+	if direction != Vector2.ZERO:
+		if abs(dir.x) > abs(dir.y):
+			if dir.x > 0:
+				enemy.animation_player.play("right")
+				animation.flip_h = false
+			else:
+				enemy.animation_player.play("right")
+				animation.flip_h = true
 		else:
-			enemy.animation_player.play("left")
+			if dir.y > 0:
+				enemy.animation_player.play("down")
+			else:
+				enemy.animation_player.play("up")
 	else:
-		if dir.y > 0:
-			enemy.animation_player.play("down")
-		else:
-			enemy.animation_player.play("up")
+		enemy.animation_player.play("idle")
 
 func _on_follow_scream_timer_timeout() -> void:
 	EnemyTransitioned.emit(self, "wandering")

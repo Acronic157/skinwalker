@@ -7,7 +7,7 @@ extends Node2D
 @onready var player_life_timer: Timer = $ui/CanvasLayer/player_life_bar/player_life_timer
 @onready var next_level_menu: Control = $ui/CanvasLayer/next_level_menu
 @onready var ghost_death_sound_no_gun: AudioStreamPlayer2D = $audio/ghost_death_sound_no_gun
-@onready var pause_menu: Control = $ui/pause_menu
+@onready var pause_menu: Control = $ui/CanvasLayer/pause_menu
 @onready var game_over_sound: AudioStreamPlayer2D = $audio/game_over_sound
 
 @onready var player_first_posession := false
@@ -33,10 +33,10 @@ func _process(delta: float) -> void:
 	# Game Over Mechanic
 	if Globals.game_over:
 		game_over.visible = true
-		game_over_sound.playing = true
+		if not game_over_sound.playing:
+			game_over_sound.playing = true
 	else:
 		game_over.visible = false
-		game_over_sound.playing = false
 		get_tree().paused = false
 	
 	
@@ -117,6 +117,7 @@ func reset_variables():
 	Globals.player_posessing = false
 	Globals.game_paused = false
 	Globals.player_health = 100
+	game_over_sound.playing = false
 	player_life_bar.max_value = player_life_timer.wait_time
 	player_life_timer.stop()
 

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://m0eq7fgmsb35"
+path="res://.godot/imported/midgame.dialogue-3ae769bdf5c25084db4ad8c76d7b727c.tres"
+
+[deps]
+
+source_file="res://dialogues/midgame.dialogue"
+dest_files=["res://.godot/imported/midgame.dialogue-3ae769bdf5c25084db4ad8c76d7b727c.tres"]
+
+[params]
+
+defaults=true

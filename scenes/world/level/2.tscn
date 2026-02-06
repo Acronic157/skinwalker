@@ -114,6 +114,9 @@ position = Vector2(40, -73)
 [node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=2142463152 instance=ExtResource("2_thn3b")]
 position = Vector2(-56, 58)
 
+[node name="Camera2D" parent="camera" parent_id_path=PackedInt32Array(138761699) index="0" unique_id=159240649]
+physics_interpolation_mode = 1
+
 [node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=503389551 instance=ExtResource("3_rncmc")]
 position = Vector2(-40, 56)
 
@@ -126,11 +129,11 @@ position = Vector2(40, -39)
 [node name="lava2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=1440134494 instance=ExtResource("4_25rob")]
 position = Vector2(56, -55)
 
-[node name="Torch" parent="." index="10" unique_id=698666989 instance=ExtResource("8_n2qrl")]
+[node name="Torch" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=698666989 instance=ExtResource("8_n2qrl")]
 position = Vector2(-56, -72)
 
-[node name="Torch2" parent="." index="11" unique_id=1708860636 instance=ExtResource("8_n2qrl")]
+[node name="Torch2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=1708860636 instance=ExtResource("8_n2qrl")]
 position = Vector2(-56, 24)
 
-[node name="Torch3" parent="." index="12" unique_id=1635897659 instance=ExtResource("8_n2qrl")]
+[node name="Torch3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=1635897659 instance=ExtResource("8_n2qrl")]
 position = Vector2(56, 24)

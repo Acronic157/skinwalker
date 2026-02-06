@@ -1,90 +1,88 @@
-[gd_scene format=3 uid="uid://s44ccn8xpxhi"]
+[gd_scene format=3 uid="uid://bjc1goi2okjjt"]
 
-[ext_resource type="Script" uid="uid://b23v5qaa1q81x" path="res://scripts/menus/main_menu/main_menu.gd" id="1_cn3qn"]
-[ext_resource type="AudioStream" uid="uid://djk5low2ma8ad" path="res://assets/sfx/main_menu/The Catacombs Menu Music.mp3" id="1_spp5w"]
-[ext_resource type="PackedScene" uid="uid://b57c7rfor71vr" path="res://scenes/world/level/3.tscn" id="2_6anyo"]
-[ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="4_6bivr"]
-[ext_resource type="Texture2D" uid="uid://cjgv5hp8d4agq" path="res://assets/cover_art/banner.png" id="4_50h1w"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_8r73w"]
-[ext_resource type="Texture2D" uid="uid://djjflwo100re2" path="res://assets/cover_art/wonderlamp.png" id="5_euy4r"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_1hnlc"]
-[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="6_euy4r"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_50h1w"]
+[ext_resource type="AudioStream" uid="uid://djk5low2ma8ad" path="res://assets/sfx/main_menu/The Catacombs Menu Music.mp3" id="3_t4c2h"]
+[ext_resource type="Texture2D" uid="uid://cjgv5hp8d4agq" path="res://assets/cover_art/banner.png" id="4_gju74"]
+[ext_resource type="Texture2D" uid="uid://djjflwo100re2" path="res://assets/cover_art/wonderlamp.png" id="5_fhhfx"]
+[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="6_qsjtt"]
+[ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="7_r5bng"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_ay100"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_jg682"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_uwujm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bre17"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(0, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88kup"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(140, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh4e2"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(280, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3w8rc"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(420, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxao6"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(560, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr0hv"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(700, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3hrp"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(840, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25m6f"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(980, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkawv"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1120, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w32d4"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1260, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_287l7"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1400, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hoqd"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1540, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_555wk"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1680, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_awvna"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1820, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jygr6"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(1960, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8vdk"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(2100, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6imgi"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(2240, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hq2q"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(2380, 0, 140, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxcro"]
-atlas = ExtResource("5_euy4r")
+atlas = ExtResource("5_fhhfx")
 region = Rect2(2520, 0, 140, 140)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4gey"]
@@ -190,9 +188,9 @@ scale_curve = SubResource("CurveTexture_e33qf")
 turbulence_enabled = true
 
 [sub_resource type="Resource" id="Resource_euy4r"]
-script = ExtResource("7_50h1w")
+script = ExtResource("10_uwujm")
 
-[node name="MainMenu" type="Control" unique_id=506208621]
+[node name="credits" type="Control" unique_id=506208621]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,8 +200,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-script = ExtResource("1_cn3qn")
-level = ExtResource("2_6anyo")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=102599335]
 layout_mode = 0
@@ -214,13 +210,13 @@ color = Color(0, 0, 0, 0.72156864)
 [node name="Node2D" type="Node2D" parent="." unique_id=218430871]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D" unique_id=1922921368]
-stream = ExtResource("1_spp5w")
+stream = ExtResource("3_t4c2h")
 autoplay = true
 parameters/looping = true
 
 [node name="LampboundCover2" type="Sprite2D" parent="." unique_id=1196291358]
 position = Vector2(0, -120)
-texture = ExtResource("4_50h1w")
+texture = ExtResource("4_gju74")
 
 [node name="wonderlamp" type="AnimatedSprite2D" parent="." unique_id=1233406679]
 position = Vector2(0, 78)
@@ -242,12 +238,12 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1722005133]
+[node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1722005133]
 layout_mode = 2
-theme = ExtResource("6_euy4r")
-text = "Play"
+theme = ExtResource("6_qsjtt")
+text = "Main Menu"
 
-[node name="player" parent="." unique_id=1096445309 instance=ExtResource("4_6bivr")]
+[node name="player" parent="." unique_id=1096445309 instance=ExtResource("7_r5bng")]
 position = Vector2(0, 185)
 
 [node name="dust" type="GPUParticles2D" parent="." unique_id=1437500613]
@@ -268,14 +264,34 @@ editor_draw_limits = true
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1146661857]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("5_8r73w")
+script = ExtResource("8_ay100")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1649853788]
-script = ExtResource("6_1hnlc")
+script = ExtResource("9_jg682")
 zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_euy4r")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Label" type="Label" parent="." unique_id=1274022220]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 142.0
+offset_right = 121.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_qsjtt")
+text = "Thanks for playing!
+
+Contributers
+Pixel Sensei - Fatal - Fabian_157"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_button_pressed"]

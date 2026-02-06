@@ -1,38 +1,55 @@
-[gd_scene format=4 uid="uid://cogkixmwbkruj"]
+[gd_scene format=4 uid="uid://dt4sakdbm7bp"]
 
-[ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_g5n2g"]
-[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_bcipg"]
-[ext_resource type="PackedScene" uid="uid://bu4m6ktdawuf6" path="res://scenes/world/misc/trap_1.tscn" id="3_yvl7j"]
-[ext_resource type="PackedScene" uid="uid://c5l5t8s5sy6gk" path="res://scenes/world/misc/lava.tscn" id="4_c0g68"]
-[ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="5_c0g68"]
-[ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="6_nvq7d"]
+[ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_7hrtb"]
+[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_c6tgw"]
+[ext_resource type="PackedScene" uid="uid://bb2txcgv5em6k" path="res://scenes/world/misc/radar.tscn" id="3_2xoks"]
+[ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="3_c6tgw"]
+[ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="4_yen7x"]
+[ext_resource type="AudioStream" uid="uid://vyihxidwntn7" path="res://assets/sfx/ambient/Lampbound Ambient Loop 1.mp3" id="6_iiggn"]
 
-[node name="7" unique_id=315252252 instance=ExtResource("1_g5n2g")]
+[node name="6" unique_id=315252252 instance=ExtResource("1_7hrtb")]
 
 [node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
-tile_map_data = PackedByteArray("AAAYAP3/AQAAAAQAAAAZAP3/AQAAAAYAAAAaAP3/AQACAAQAAAAbAP3/AQADAAQAAAAUAP3/AQAAAAQAAAAVAP3/AQABAAQAAAAWAP3/AQACAAQAAAAXAP3/AQADAAQAAAAQAP3/AQAAAAQAAAARAP3/AQABAAQAAAASAP3/AQAAAAYAAAATAP3/AQADAAQAAAAQAP7/AQAGAAQAAAAQAP//AQAGAAUAAAAQAAAAAQAGAAgAAAAQAAEAAQAGAAkAAAARAP7/AQAHAAQAAAARAP//AQAHAAUAAAARAAAAAQAHAAgAAAARAAEAAQAHAAkAAAASAP7/AQAEAAoAAAASAP//AQAIAAUAAAASAAAAAQAIAAYAAAASAAEAAQAIAAcAAAATAP7/AQAJAAQAAAATAP//AQAJAAUAAAATAAAAAQAJAAYAAAATAAEAAQAJAAcAAAAUAP7/AQAGAAQAAAAUAP//AQAGAAUAAAAUAAAAAQAGAAYAAAAUAAEAAQAGAAcAAAAVAP7/AQAHAAQAAAAVAP//AQAHAAUAAAAVAAAAAQAHAAYAAAAVAAEAAQAHAAcAAAAWAP7/AQAIAAQAAAAWAP//AQAGAAgAAAAWAAAAAQAGAAkAAAAWAAEAAQAIAAcAAAAXAP7/AQAJAAQAAAAXAP//AQAHAAgAAAAXAAAAAQAHAAkAAAAXAAEAAQAJAAcAAAAYAP7/AQAGAAQAAAAYAP//AQAGAAUAAAAYAAAAAQAGAAYAAAAYAAEAAQAGAAcAAAAZAP7/AQAHAAQAAAAZAP//AQAHAAUAAAAZAAAAAQAHAAYAAAAZAAEAAQAHAAcAAAAaAP7/AQAIAAQAAAAaAP//AQAIAAUAAAAaAAAAAQAIAAYAAAAaAAEAAQAIAAcAAAAbAP7/AQAJAAQAAAAbAP//AQAEAAoAAAAbAAAAAQAJAAYAAAAbAAEAAQAJAAcAAAAQAPz/AQABAAIAAAARAPz/AQABAAIAAAASAPz/AQABAAIAAAATAPz/AQABAAIAAAAUAPz/AQABAAIAAAAVAPz/AQABAAIAAAAWAPz/AQABAAIAAAAXAPz/AQABAAIAAAAYAPz/AQABAAIAAAAZAPz/AQABAAIAAAAaAPz/AQABAAIAAAAbAPz/AQABAAIAAAAcAPz/AQAFAAAAAAAcAP3/AQAAAAEAAAAcAP7/AQAAAAEAAAAcAP//AQAAAAEAAAAcAAAAAQAAAAEAAAAcAAEAAQAAAAEAAAAQAAIAAQABAAAAAAARAAIAAQABAAAAAAASAAIAAQABAAAAAAATAAIAAQABAAAAAAAUAAIAAQABAAAAAAAVAAIAAQABAAAAAAAWAAIAAQABAAAAAAAXAAIAAQABAAAAAAAYAAIAAQABAAAAAAAZAAIAAQABAAAAAAAaAAIAAQABAAAAAAAbAAIAAQABAAAAAAAPAP7/AQACAAEAAAAPAP//AQACAAEAAAAPAAAAAQACAAEAAAAPAAEAAQACAAEAAAAPAP3/AQACAAEAAAAPAPz/AQAEAAAAAAAPAAIAAQAEAAEAAAAcAAIAAQAFAAEAAAApAPz/AQABAAIAAAApAP3/AQABAAQAAAApAP7/AQAHAAQAAAApAP//AQAHAAUAAAApAAAAAQAHAAYAAAApAAEAAQAHAAcAAAApAAIAAQABAAAAAAAqAPz/AQABAAIAAAAqAP3/AQAAAAYAAAAqAP7/AQAIAAQAAAAqAP//AQAIAAUAAAAqAAAAAQAIAAYAAAAqAAEAAQAIAAcAAAAqAAIAAQABAAAAAAArAPz/AQABAAIAAAArAP3/AQADAAQAAAArAP7/AQAJAAQAAAArAP//AQAJAAUAAAArAAAAAQAJAAYAAAArAAEAAQAJAAcAAAArAAIAAQABAAAAAAAsAPz/AQABAAIAAAAsAP3/AQAAAAQAAAAsAP7/AQAGAAQAAAAsAP//AQAGAAUAAAAsAAAAAQAGAAYAAAAsAAEAAQAGAAcAAAAsAAIAAQABAAAAAAAtAPz/AQABAAIAAAAtAP3/AQAAAAYAAAAtAP7/AQAHAAQAAAAtAP//AQAHAAUAAAAtAAAAAQAHAAYAAAAtAAEAAQAHAAcAAAAtAAIAAQABAAAAAAAuAPz/AQABAAIAAAAuAP3/AQACAAQAAAAuAP7/AQAIAAQAAAAuAP//AQAIAAUAAAAuAAAAAQAIAAYAAAAuAAEAAQAIAAcAAAAuAAIAAQABAAAAAAAvAPz/AQABAAIAAAAvAP3/AQADAAQAAAAvAP7/AQAJAAQAAAAvAP//AQAJAAUAAAAvAAAAAQAJAAYAAAAvAAEAAQAJAAcAAAAvAAIAAQABAAAAAAAwAPz/AQAFAAAAAAAwAP3/AQAAAAEAAAAwAP7/AQAAAAEAAAAwAP//AQAAAAEAAAAwAAAAAQAAAAEAAAAwAAEAAQAAAAEAAAAwAAIAAQAFAAEAAAAnAPz/AQAEAAAAAAAnAP3/AQACAAEAAAAnAP7/AQACAAEAAAAnAP//AQACAAEAAAAnAAAAAQACAAEAAAAnAAEAAQACAAEAAAAnAAIAAQAEAAEAAAAoAPz/AQABAAIAAAAoAP3/AQAAAAQAAAAoAP7/AQAGAAQAAAAoAP//AQAGAAUAAAAoAAAAAQAGAAYAAAAoAAEAAQAGAAcAAAAoAAIAAQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8//v/AQAGAAUAAAD8//z/AQAGAAcAAAD9//v/AQAHAAUAAAD9//z/AQAHAAcAAAD+//v/AQAIAAUAAAD+//z/AQAIAAcAAAD///v/AQAJAAUAAAD///z/AQAJAAcAAAAAAPv/AQAGAAUAAAAAAPz/AQAGAAcAAAABAPv/AQAHAAUAAAABAPz/AQAHAAcAAAACAPv/AQAIAAUAAAACAPz/AQAIAAcAAAADAPv/AQAJAAUAAAADAPz/AQAJAAcAAAD8/wIAAQABAAIAAAD8/wMAAQAGAAUAAAD8/wQAAQAGAAYAAAD8/wUAAQABAAAAAAD9/wIAAQABAAIAAAD9/wMAAQAHAAUAAAD9/wQAAQAHAAYAAAD9/wUAAQABAAAAAAD+/wIAAQABAAIAAAD+/wMAAQAIAAUAAAD+/wQAAQAIAAYAAAD+/wUAAQABAAAAAAD//wIAAQABAAIAAAD//wMAAQAJAAUAAAD//wQAAQAJAAYAAAD//wUAAQABAAAAAAAAAAIAAQABAAIAAAAAAAMAAQAGAAUAAAAAAAQAAQAGAAYAAAAAAAUAAQABAAAAAAABAAIAAQABAAIAAAABAAMAAQAHAAUAAAABAAQAAQAHAAYAAAABAAUAAQABAAAAAAACAAIAAQABAAIAAAACAAMAAQAIAAUAAAACAAQAAQAIAAYAAAACAAUAAQABAAAAAAADAAIAAQABAAIAAAADAAMAAQAJAAUAAAADAAQAAQAJAAYAAAADAAUAAQABAAAAAAAEAPv/AQAAAAEAAAAEAPz/AQAAAAEAAAD7//v/AQACAAEAAAD7//z/AQACAAEAAAD7/wIAAQAEAAAAAAD7/wMAAQACAAEAAAD7/wQAAQACAAEAAAD7/wUAAQAEAAEAAAAGAAMAAQAAAAEAAAAGAAQAAQAAAAEAAAAGAAIAAQAFAAAAAAAGAAUAAQAFAAEAAAAEAAIAAQABAAIAAAAFAAIAAQABAAIAAAAEAAUAAQABAAAAAAAFAAUAAQABAAAAAAAEAAMAAQAHAAUAAAAEAAQAAQAHAAYAAAAFAAMAAQAIAAUAAAAFAAQAAQAIAAYAAAD7//3/AQAEAAEAAAD8//3/AQABAAAAAAD9//3/AQABAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQABAAAAAAACAP3/AQABAAAAAAADAP3/AQABAAAAAAAEAP3/AQAFAAEAAAD7//n/AQAEAAAAAAD7//r/AQACAAEAAAD8//n/AQABAAIAAAD8//r/AQAGAAQAAAD9//n/AQABAAIAAAD9//r/AQAHAAQAAAD+//n/AQABAAIAAAD+//r/AQAIAAQAAAD///n/AQABAAIAAAD///r/AQAJAAQAAAAAAPn/AQABAAIAAAAAAPr/AQAGAAQAAAABAPn/AQABAAIAAAABAPr/AQAHAAQAAAACAPn/AQABAAIAAAACAPr/AQAIAAQAAAADAPn/AQABAAIAAAADAPr/AQAJAAQAAAAEAPn/AQAFAAAAAAAEAPr/AQAAAAEAAAA=")
 
-[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_bcipg")]
-position = Vector2(274, -8)
+[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_c6tgw")]
+position = Vector2(-31, -75)
 
-[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1656763710 instance=ExtResource("2_bcipg")]
-position = Vector2(654, -24)
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1081834381 instance=ExtResource("2_c6tgw")]
+position = Vector2(35, -74)
 
-[node name="lava" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=434246095 instance=ExtResource("4_c0g68")]
-position = Vector2(697, 24)
+[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=1901913482 instance=ExtResource("2_c6tgw")]
+position = Vector2(2, -72)
 
-[node name="lava2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=121121948 instance=ExtResource("4_c0g68")]
-position = Vector2(713, 24)
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=740210008 instance=ExtResource("2_c6tgw")]
+position = Vector2(-53, 56)
 
-[node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=503389551 instance=ExtResource("3_yvl7j")]
-position = Vector2(696, 8)
+[node name="enemy6" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="4" unique_id=1463347258 instance=ExtResource("2_c6tgw")]
+position = Vector2(84, 59)
 
-[node name="Trap2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=1075278576 instance=ExtResource("3_yvl7j")]
-position = Vector2(696, -25)
+[node name="radar" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="5" unique_id=832316321 instance=ExtResource("3_2xoks")]
+position = Vector2(-56, 63)
 
-[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("5_c0g68")]
-position = Vector2(421, -38)
+[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(34, -106)
 button = NodePath("../chandelier_button")
 
-[node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=1408692222 instance=ExtResource("6_nvq7d")]
-position = Vector2(664, 9)
+[node name="chandelier2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=864535041 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(-32, -106)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=1665890774 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(2, -106)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=1883882835 node_paths=PackedStringArray("button") instance=ExtResource("3_c6tgw")]
+position = Vector2(12, 24)
+button = NodePath("../chandelier_button")
+
+[node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=1408692222 instance=ExtResource("4_yen7x")]
+position = Vector2(-33, 63)
+
+[node name="music" type="Node2D" parent="." index="9" unique_id=1848536422]
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="music" index="0" unique_id=1074948032]
+stream = ExtResource("6_iiggn")

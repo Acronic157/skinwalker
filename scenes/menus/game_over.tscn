@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dlg7d572k6q78"]
 
+[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_asori"]
 [ext_resource type="Script" uid="uid://bx7wsjrwfem0a" path="res://scripts/menus/game_over/game_over.gd" id="1_uo6ik"]
 
 [node name="GameOver" type="Control" unique_id=1272790776]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_asori")
 script = ExtResource("1_uo6ik")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1409923995]

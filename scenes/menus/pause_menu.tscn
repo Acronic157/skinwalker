@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b437d07uldg7v"]
 
+[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_7unhi"]
 [ext_resource type="Script" uid="uid://ckl2ywhvic3hy" path="res://scripts/menus/pause_menu/pause_menu.gd" id="1_fwndu"]
 
 [node name="pause_menu" type="Control" unique_id=142356417]
@@ -10,7 +11,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7unhi")
 script = ExtResource("1_fwndu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1843023361]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72156864)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=639508065]
 layout_mode = 1
@@ -25,6 +36,10 @@ offset_right = 54.5
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="pause_menu" type="Label" parent="VBoxContainer" unique_id=651314141]
+layout_mode = 2
+text = "Pause Menu"
 
 [node name="continue" type="Button" parent="VBoxContainer" unique_id=1588655334]
 layout_mode = 2

@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		else:
 			ambient_1.playing = false
 			
-		if Levelmanager.current_level >= 5 and Levelmanager.current_level < 10:
+		if Levelmanager.current_level >= 5: #and Levelmanager.current_level < 10:
 			if not ambient_2.playing:
 				ambient_2.playing = true
 		else:

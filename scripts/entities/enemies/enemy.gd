@@ -113,6 +113,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func enter_posession():
 	if can_be_posessed and not Globals.player_posessing:
 		#screaming_cone.ray_count = 0
+		
+		# Just a test --- maybe delete again
+		hitbox_shape.disabled = false
+		# ------------------------------
+		
 		Globals.enter_enemy.emit()
 		Globals.player_posessing = true
 		is_posessed = true
@@ -139,6 +144,11 @@ func _on_posess_cooldown_timer_timeout() -> void:
 	
 func exit_posession():
 	#screaming_cone.ray_count = 36
+	
+	# Just a test --- maybe delete again
+	hitbox_shape.disabled = true
+	# ------------------------------
+	
 	Globals.exit_enemy.emit()
 	Globals.player_posessing = false
 	is_posessed = false

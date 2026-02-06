@@ -8,11 +8,12 @@ func Enter():
 	enemy.set_collision_mask_value(6, false)
 	enemy.dying_sound.playing = true
 	enemy.delete_node_timer.start()
-	enemy.exit_posession()
+	if enemy.is_posessed:
+		enemy.exit_posession()
 	enemy.vision_cone_area.monitoring = false
 	enemy.vision_cone_area.monitorable = false
 	enemy.vision_cone_collider.disabled = true
-	Globals.player_health += 20
+	Globals.player_health += 10
 func Exit():
 	pass
 

@@ -40,6 +40,7 @@ grow_vertical = 2
 [node name="pause_menu" type="Label" parent="VBoxContainer" unique_id=651314141]
 layout_mode = 2
 text = "Pause Menu"
+horizontal_alignment = 1
 
 [node name="continue" type="Button" parent="VBoxContainer" unique_id=1588655334]
 layout_mode = 2

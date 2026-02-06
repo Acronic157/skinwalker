@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b5sdr1lm46yf7" path="res://scenes/other/barriers/wall.tscn" id="4_xvv5a"]
 [ext_resource type="PackedScene" uid="uid://b437d07uldg7v" path="res://scenes/menus/pause_menu.tscn" id="5_5cgb2"]
 [ext_resource type="AudioStream" uid="uid://cf48cuv066pau" path="res://assets/sfx/ghost/Ghost Death Cry Deep 2.mp3" id="12_5cgb2"]
+[ext_resource type="AudioStream" uid="uid://ct1q6jc4hl6jt" path="res://assets/sfx/game_over/Death Screen Loop.mp3" id="13_x1h4v"]
 
 [sub_resource type="Environment" id="Environment_h87xw"]
 background_mode = 3
@@ -583,6 +584,8 @@ sources/1 = SubResource("TileSetAtlasSource_8l7pl")
 
 [sub_resource type="Resource" id="Resource_q2w1t"]
 script = ExtResource("2_5tbc7")
+duration = 1.5
+transition = 1
 
 [node name="Template" type="Node2D" unique_id=315252252]
 script = ExtResource("1_ubx2m")
@@ -714,6 +717,11 @@ process_mode = 3
 
 [node name="ghost_death_sound_no_gun" type="AudioStreamPlayer2D" parent="audio" unique_id=2025848355]
 stream = ExtResource("12_5cgb2")
+
+[node name="game_over_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=147027838]
+process_mode = 3
+stream = ExtResource("13_x1h4v")
+parameters/looping = true
 
 [connection signal="timeout" from="ui/CanvasLayer/player_life_bar/player_life_timer" to="." method="_on_player_life_timer_timeout"]
 [connection signal="animation_finished" from="ui/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

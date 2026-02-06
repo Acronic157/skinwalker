@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bcdfrrpymgjh8" path="res://assets/entities/player/ghost_left.png" id="3_1murt"]
 [ext_resource type="Texture2D" uid="uid://brcf5sapn5ewj" path="res://assets/entities/player/ghost_exit_animation.png" id="3_ovg4i"]
 [ext_resource type="Texture2D" uid="uid://b73ivw8wd85o7" path="res://assets/entities/player/ghost_up.png" id="4_5sj0x"]
-[ext_resource type="AudioStream" uid="uid://cc555clsp4153" path="res://assets/sfx/ghost/Ghost Laugh_1.mp3" id="5_1murt"]
-[ext_resource type="AudioStream" uid="uid://p6dwslfl8md8" path="res://assets/sfx/ghost/Ghost Laugh_2.mp3" id="6_5sj0x"]
-[ext_resource type="AudioStream" uid="uid://l81trn1i4g77" path="res://assets/sfx/ghost/Ghost Laugh_3.mp3" id="7_ovg4i"]
-[ext_resource type="AudioStream" uid="uid://dydgccybm4663" path="res://assets/sfx/ghost/Ghost Laugh_4.mp3" id="8_7wli1"]
-[ext_resource type="AudioStream" uid="uid://cfa2gtmwmx61h" path="res://assets/sfx/ghost/Ghost Death Scream + Gun Shots.mp3" id="9_5sj0x"]
+[ext_resource type="AudioStream" uid="uid://dmxi8cska3p41" path="res://assets/sfx/ghost/Ghost Laugh Deep 1.mp3" id="5_1murt"]
+[ext_resource type="AudioStream" uid="uid://cjloxey5oogoa" path="res://assets/sfx/ghost/Ghost Laugh Deep 2.mp3" id="6_5sj0x"]
+[ext_resource type="AudioStream" uid="uid://7868fq4qm154" path="res://assets/sfx/ghost/Ghost Laugh Deep 3.mp3" id="7_ovg4i"]
+[ext_resource type="AudioStream" uid="uid://cf48cuv066pau" path="res://assets/sfx/ghost/Ghost Death Cry Deep 2.mp3" id="8_7wli1"]
+[ext_resource type="AudioStream" uid="uid://b6smm8iti0cuq" path="res://assets/sfx/ghost/Death Cry Deep.mp3" id="9_5sj0x"]
 
 [sub_resource type="Gradient" id="Gradient_1murt"]
 offsets = PackedFloat32Array(0.20481928, 1)

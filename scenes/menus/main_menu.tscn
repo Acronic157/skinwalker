@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b23v5qaa1q81x" path="res://scripts/menus/main_menu/main_menu.gd" id="1_cn3qn"]
 [ext_resource type="AudioStream" uid="uid://djk5low2ma8ad" path="res://assets/sfx/main_menu/The Catacombs Menu Music.mp3" id="1_spp5w"]
-[ext_resource type="PackedScene" uid="uid://b57c7rfor71vr" path="res://scenes/world/level/2.tscn" id="2_6anyo"]
+[ext_resource type="PackedScene" uid="uid://bo3dpgl2jlo0n" path="res://scenes/world/level/3.tscn" id="2_6anyo"]
 [ext_resource type="Texture2D" uid="uid://bepganac3ox1g" path="res://assets/cover_art/lampbound_cover_2.png" id="4_1hnlc"]
 [ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="4_6bivr"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_8r73w"]
@@ -114,6 +114,7 @@ randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_8r73w")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1930946917]
+top_level = true
 position = Vector2(240, 135)
 zoom = Vector2(0.5, 0.5)
 editor_draw_limits = true

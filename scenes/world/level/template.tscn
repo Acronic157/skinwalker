@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://btxcovvnrqwbe" path="res://scenes/menus/next_level_menu.tscn" id="4_8l7pl"]
 [ext_resource type="Texture2D" uid="uid://bbwfg5txmiyyy" path="res://assets/world/tilemaps/chapter_1/tilemap_1.png" id="4_e33qf"]
 [ext_resource type="PackedScene" uid="uid://b5sdr1lm46yf7" path="res://scenes/other/barriers/wall.tscn" id="4_xvv5a"]
-[ext_resource type="AudioStream" uid="uid://3jiynp5slm0" path="res://assets/sfx/ghost/Ghost Death Non Shot.mp3" id="11_24q3u"]
+[ext_resource type="PackedScene" uid="uid://b437d07uldg7v" path="res://scenes/menus/pause_menu.tscn" id="5_5cgb2"]
+[ext_resource type="AudioStream" uid="uid://cf48cuv066pau" path="res://assets/sfx/ghost/Ghost Death Cry Deep 2.mp3" id="12_5cgb2"]
 
 [sub_resource type="Environment" id="Environment_h87xw"]
 background_mode = 3
@@ -646,6 +647,9 @@ process_mode = 3
 libraries/ = SubResource("AnimationLibrary_xvv5a")
 autoplay = &"enter_level"
 
+[node name="pause_menu" parent="ui" unique_id=142356417 instance=ExtResource("5_5cgb2")]
+visible = false
+
 [node name="tilemaps" type="Node2D" parent="." unique_id=605557829]
 
 [node name="ground" type="TileMapLayer" parent="tilemaps" unique_id=989808598]
@@ -709,7 +713,7 @@ process_mode = 3
 [node name="audio" type="Node2D" parent="." unique_id=1620148689]
 
 [node name="ghost_death_sound_no_gun" type="AudioStreamPlayer2D" parent="audio" unique_id=2025848355]
-stream = ExtResource("11_24q3u")
+stream = ExtResource("12_5cgb2")
 
 [connection signal="timeout" from="ui/CanvasLayer/player_life_bar/player_life_timer" to="." method="_on_player_life_timer_timeout"]
 [connection signal="animation_finished" from="ui/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -7,6 +7,7 @@ extends Node2D
 @onready var player_life_timer: Timer = $ui/CanvasLayer/player_life_bar/player_life_timer
 @onready var next_level_menu: Control = $ui/CanvasLayer/next_level_menu
 @onready var ghost_death_sound_no_gun: AudioStreamPlayer2D = $audio/ghost_death_sound_no_gun
+@onready var pause_menu: Control = $ui/pause_menu
 
 @onready var player_first_posession := false
 
@@ -14,12 +15,13 @@ var health_tween: Tween
 
 var played_once := false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = true
 	Globals.restart_level.connect(_on_restart_level)
 	Globals.enter_main_menu.connect(_on_enter_main_menu)
-	#Globals.level_complete.connect(_on_level_complete)
+	Globals.level_completed = false
 	Globals.next_level.connect(_enter_next_level)
 	
 	player_life_bar.max_value = Globals.player_max_health
@@ -55,12 +57,19 @@ func _process(delta: float) -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies").size()
 	if enemies == 0:
 		next_level_menu.visible = true
-		Globals.level_complete = true
+		Globals.level_completed = true
 
-	# Tutorial Level Mechanic
-	if Levelmanager.current_level == 1:
-		if Globals.player_health < 50:
-			Globals.player_health += 10
+		# Pause Menu
+	if Input.is_action_just_pressed("pause_menu"):
+		Globals.game_paused = !Globals.game_paused
+	if Globals.game_paused:
+		Globals.game_paused = true
+		get_tree().paused = true
+		pause_menu.visible = true
+	if not Globals.game_paused:
+		Globals.game_paused = false
+		get_tree().paused = false
+		pause_menu.visible = false
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "enter_level":
@@ -80,6 +89,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_restart_level():
 	game_over.visible = false
 	Globals.game_over = false
+	reset_variables()
 	animation_player.play("restart_level")
 	
 func _restart_level():
@@ -97,14 +107,14 @@ func _enter_main_menu():
 	reset_variables()
 	
 func reset_variables():
+	get_tree().paused = false
+	player_first_posession = false
+	Globals.level_completed = false
 	Globals.game_over = false
 	Globals.player_posessing = false
 	Globals.game_paused = false
-	get_tree().paused = false
-	player_first_posession = false
-	Globals.level_complete = false
-	player_life_bar.max_value = player_life_timer.wait_time
 	Globals.player_health = 100
+	player_life_bar.max_value = player_life_timer.wait_time
 	player_life_timer.stop()
 
 func _on_level_complete():
@@ -122,7 +132,7 @@ func _enter_next_level():
 	reset_variables()
 
 func _on_player_life_timer_timeout() -> void:
-	if not Globals.level_complete:
+	if not Globals.level_completed:
 		Globals.player_health -= 10.0
 		player_life_timer.start()
 	

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7868fq4qm154"
+path="res://.godot/imported/Ghost Laugh Deep 3.mp3-6c7cbc16c556c5a7c5dc358638f6fd3d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/ghost/Ghost Laugh Deep 3.mp3"
+dest_files=["res://.godot/imported/Ghost Laugh Deep 3.mp3-6c7cbc16c556c5a7c5dc358638f6fd3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

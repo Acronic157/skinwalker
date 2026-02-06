@@ -33,6 +33,7 @@ class_name Enemy
 @onready var vision_cone: VisionCone2D = $cones/VisionCone2D
 @onready var vision_cone_area: Area2D = $cones/VisionCone2D/VisionConeArea
 @onready var vision_cone_collider: CollisionPolygon2D = $cones/VisionCone2D/VisionConeArea/VisionConeCollider
+@onready var screaming_cone: VisionCone2D = $cones/screaming_cone
 
 
 # Hitbox
@@ -86,6 +87,11 @@ func _physics_process(delta: float) -> void:
 	if Globals.game_over:
 		lifebar.visible = false
 	
+	
+
+	
+	
+	
 	# Debug
 	#print(lifebar.value)
 	
@@ -103,6 +109,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			
 func enter_posession():
 	if can_be_posessed and not Globals.player_posessing:
+		#screaming_cone.ray_count = 0
 		Globals.enter_enemy.emit()
 		Globals.player_posessing = true
 		is_posessed = true
@@ -128,6 +135,7 @@ func _on_posess_cooldown_timer_timeout() -> void:
 	posess_cooldown_bar.visible = false
 	
 func exit_posession():
+	#screaming_cone.ray_count = 36
 	Globals.exit_enemy.emit()
 	Globals.player_posessing = false
 	is_posessed = false

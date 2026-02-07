@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b437d07uldg7v" path="res://scenes/menus/pause_menu.tscn" id="5_5cgb2"]
 [ext_resource type="AudioStream" uid="uid://cf48cuv066pau" path="res://assets/sfx/ghost/Ghost Death Cry Deep 2.mp3" id="12_5cgb2"]
 [ext_resource type="AudioStream" uid="uid://ct1q6jc4hl6jt" path="res://assets/sfx/game_over/Death Screen Loop.mp3" id="13_x1h4v"]
+[ext_resource type="AudioStream" uid="uid://d1drjphctoq1p" path="res://assets/sfx/level_complete/Level Complete.mp3" id="14_hq7uc"]
 
 [sub_resource type="Environment" id="Environment_h87xw"]
 background_mode = 3
@@ -651,7 +652,7 @@ autoplay = &"enter_level"
 light_mask = 3
 tile_set = SubResource("TileSet_ul342")
 
-[node name="walls" type="TileMapLayer" parent="tilemaps" unique_id=323050180]
+[node name="one_way" type="TileMapLayer" parent="tilemaps" unique_id=323050180]
 
 [node name="barriers" type="Node2D" parent="." unique_id=507976491]
 
@@ -714,6 +715,10 @@ stream = ExtResource("12_5cgb2")
 [node name="game_over_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=147027838]
 process_mode = 3
 stream = ExtResource("13_x1h4v")
+parameters/looping = true
+
+[node name="level_completed_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=185256653]
+stream = ExtResource("14_hq7uc")
 parameters/looping = true
 
 [connection signal="timeout" from="ui/CanvasLayer/player_life_bar/player_life_timer" to="." method="_on_player_life_timer_timeout"]

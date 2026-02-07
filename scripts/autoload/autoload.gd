@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var ambient_1: AudioStreamPlayer2D = $audio/ambient_1
 @onready var ambient_2: AudioStreamPlayer2D = $audio/ambient_2
+@onready var ambient_3: AudioStreamPlayer2D = $audio/ambient_3
 @onready var game_over_sound: AudioStreamPlayer2D = $audio/game_over_sound
 
 
@@ -20,13 +21,21 @@ func _process(delta: float) -> void:
 		else:
 			ambient_1.playing = false
 			
-		if Levelmanager.current_level >= 5: #and Levelmanager.current_level < 10:
+		if Levelmanager.current_level >= 5 and Levelmanager.current_level < 14:
 			if not ambient_2.playing:
 				ambient_2.playing = true
 		else:
 			ambient_2.playing = false
+		
+		if Levelmanager.current_level >= 14 and Levelmanager.current_level < 20:
+			if not ambient_2.playing:
+				ambient_3.playing = true
+		else:
+			ambient_3.playing = false
+		
 	else:
 		ambient_1.playing = false
 		ambient_2.playing = false
+		ambient_3.playing = false
 		if not game_over_sound.playing:
 			game_over_sound.playing = true

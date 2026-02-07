@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://vyihxidwntn7" path="res://assets/sfx/ambient/Lampbound Ambient Loop 1.mp3" id="1_24kdb"]
 [ext_resource type="Script" uid="uid://dfr7plbyeiexl" path="res://scripts/autoload/autoload.gd" id="1_5857v"]
 [ext_resource type="AudioStream" uid="uid://caw6xh7f662hc" path="res://assets/sfx/ambient/Lampbound Ambient Track 2.mp3" id="2_5857v"]
+[ext_resource type="AudioStream" uid="uid://bihjx17sr8wwy" path="res://assets/sfx/ambient/Lampbound Final Level.mp3" id="4_533f8"]
 
 [node name="Autoload" type="Node2D" unique_id=1603643223]
 script = ExtResource("1_5857v")
@@ -18,3 +19,7 @@ stream = ExtResource("2_5857v")
 parameters/looping = true
 
 [node name="game_over_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=380244874]
+
+[node name="ambient_3" type="AudioStreamPlayer2D" parent="audio" unique_id=1068756678]
+stream = ExtResource("4_533f8")
+parameters/looping = true

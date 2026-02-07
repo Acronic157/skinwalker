@@ -9,12 +9,14 @@ extends Node2D
 @onready var ghost_death_sound_no_gun: AudioStreamPlayer2D = $audio/ghost_death_sound_no_gun
 @onready var pause_menu: Control = $ui/CanvasLayer/pause_menu
 @onready var game_over_sound: AudioStreamPlayer2D = $audio/game_over_sound
+@onready var level_completed_sound: AudioStreamPlayer2D = $audio/level_completed_sound
 
 @onready var player_first_posession := false
 
 var health_tween: Tween
 
 var played_once := false
+var completed_played_once := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +42,9 @@ func _process(delta: float) -> void:
 		get_tree().paused = false
 	
 	
+		
+	
+	
 	# Lifebar Mechanic
 	if Globals.player_posessing:
 		player_life_timer.stop()
@@ -61,6 +66,12 @@ func _process(delta: float) -> void:
 	if enemies == 0:
 		next_level_menu.visible = true
 		Globals.level_completed = true
+		if not completed_played_once:
+			level_completed_sound.playing = true
+			completed_played_once = true
+	else:
+		level_completed_sound.playing = false
+		
 
 		# Pause Menu
 	if Input.is_action_just_pressed("pause_menu"):
@@ -120,6 +131,7 @@ func reset_variables():
 	game_over_sound.playing = false
 	player_life_bar.max_value = player_life_timer.wait_time
 	player_life_timer.stop()
+	completed_played_once = false
 
 func _on_level_complete():
 	_enter_next_level()

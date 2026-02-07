@@ -1,42 +1,84 @@
-[gd_scene format=3 uid="uid://dhi68gw6mdsuj"]
+[gd_scene format=4 uid="uid://dvukri1vuli0c"]
 
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_5yxmx"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_6ysmt"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_pfprs"]
-[ext_resource type="PackedScene" uid="uid://2w38dcq44k0y" path="res://scenes/menus/dialogue.tscn" id="4_j636r"]
-[ext_resource type="Resource" uid="uid://bi13cg48n1ii" path="res://dialogues/endgame.dialogue" id="5_6ysmt"]
+[ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_s21qs"]
+[ext_resource type="PackedScene" uid="uid://cfa114j1rh1ao" path="res://scenes/world/misc/torch.tscn" id="2_6ysmt"]
+[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_pfprs"]
+[ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="3_pfprs"]
+[ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="4_j636r"]
+[ext_resource type="PackedScene" uid="uid://bb2txcgv5em6k" path="res://scenes/world/misc/radar.tscn" id="5_5d2q4"]
 
-[sub_resource type="Resource" id="Resource_uh46f"]
-script = ExtResource("3_pfprs")
+[node name="11" unique_id=315252252 instance=ExtResource("1_s21qs")]
 
-[node name="endgame" type="Node2D" unique_id=626099290]
+[node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
+tile_map_data = PackedByteArray("AAD7/wAAAQAGAAgAAAD7/wEAAQAGAAkAAAD8/wAAAQAHAAgAAAD8/wEAAQAHAAkAAAD//wAAAQAGAAYAAAD//wEAAQAGAAcAAAAAAAAAAQAHAAYAAAAAAAEAAQAHAAcAAAADAAAAAQAIAAgAAAADAAEAAQAIAAkAAAAEAAAAAQAJAAgAAAAEAAEAAQAJAAkAAAD6/wEAAQACAAEAAAD6/wAAAQACAAEAAAD+/wEAAQACAAEAAAD+/wAAAQACAAEAAAACAAEAAQACAAEAAAACAAAAAQACAAEAAAAFAAEAAQAAAAEAAAAFAAAAAQAAAAEAAAABAAEAAQAAAAEAAAABAAAAAQAAAAEAAAD9/wEAAQAAAAEAAAD9/wAAAQAAAAEAAAD7/wIAAQABAAAAAAD8/wIAAQABAAAAAAD//wIAAQABAAAAAAAAAAIAAQABAAAAAAADAAIAAQABAAAAAAAEAAIAAQABAAAAAAAFAAIAAQAFAAEAAAABAAIAAQAFAAEAAAD9/wIAAQAFAAEAAAD6/wIAAQAEAAEAAAD+/wIAAQAEAAEAAAACAAIAAQAEAAEAAAD///n/AQAGAAgAAAD///r/AQAGAAkAAAAAAPn/AQAHAAgAAAAAAPr/AQAHAAkAAAD7//n/AQAGAAQAAAD7//r/AQAGAAUAAAD8//n/AQAHAAQAAAD8//r/AQAHAAUAAAADAPn/AQAIAAQAAAADAPr/AQAIAAUAAAAEAPn/AQAJAAQAAAAEAPr/AQAJAAUAAAD6//n/AQACAAEAAAD6//r/AQACAAEAAAD+//n/AQACAAEAAAD+//r/AQACAAEAAAACAPn/AQACAAEAAAACAPr/AQACAAEAAAAFAPn/AQAAAAEAAAAFAPr/AQAAAAEAAAABAPn/AQAAAAEAAAABAPr/AQAAAAEAAAD9//n/AQAAAAEAAAD9//r/AQAAAAEAAAD7//v/AQABAAAAAAD8//v/AQABAAAAAAD///v/AQABAAAAAAAAAPv/AQABAAAAAAADAPv/AQABAAAAAAAEAPv/AQABAAAAAAD6//v/AQAEAAEAAAD+//v/AQAEAAEAAAACAPv/AQAEAAEAAAAFAPv/AQAFAAEAAAABAPv/AQAFAAEAAAD9//v/AQAFAAEAAAD6//f/AQAEAAAAAAD7//f/AQABAAIAAAD8//f/AQABAAIAAAD9//f/AQAFAAAAAAD+//f/AQAEAAAAAAD///f/AQABAAIAAAAAAPf/AQABAAIAAAABAPf/AQAFAAAAAAACAPf/AQAEAAAAAAADAPf/AQABAAIAAAAEAPf/AQABAAIAAAAFAPf/AQAFAAAAAAD6//7/AQAEAAAAAAD7//7/AQABAAIAAAD8//7/AQABAAIAAAD9//7/AQAFAAAAAAD+//7/AQAEAAAAAAD///7/AQABAAIAAAAAAP7/AQABAAIAAAABAP7/AQAFAAAAAAACAP7/AQAEAAAAAAADAP7/AQABAAIAAAAEAP7/AQABAAIAAAAFAP7/AQAFAAAAAAD6////AQACAAEAAAD6//j/AQACAAEAAAD+//j/AQACAAEAAAACAPj/AQACAAEAAAACAP//AQACAAEAAAD+////AQACAAEAAAD9////AQAAAAEAAAD9//j/AQAAAAEAAAABAPj/AQAAAAEAAAAFAPj/AQAAAAEAAAAFAP//AQAAAAEAAAABAP//AQAAAAEAAAD7////AQAAAAYAAAD8////AQABAAQAAAADAPj/AQAAAAQAAAAEAPj/AQABAAQAAAADAP//AQAAAAYAAAAEAP//AQADAAQAAAD///j/AQACAAQAAAAAAPj/AQADAAQAAAD/////AQAAAAYAAAAAAP//AQACAAQAAAD7//j/AQABAAQAAAD8//j/AQACAAQAAAA=")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=68978019]
-top_level = true
-zoom = Vector2(0.5, 0.5)
-editor_draw_limits = true
+[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_pfprs")]
+position = Vector2(-63, -108)
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=629265040]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("1_5yxmx")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
+[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=309470076 instance=ExtResource("2_pfprs")]
+position = Vector2(0, -106)
 
-[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=480286241]
-script = ExtResource("2_6ysmt")
-zoom = Vector2(0.5, 0.5)
-tween_resource = SubResource("Resource_uh46f")
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=1619309917 instance=ExtResource("2_pfprs")]
+position = Vector2(65, -110)
 
-[node name="Control" type="Control" parent="." unique_id=39663525]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=1279040930 instance=ExtResource("2_pfprs")]
+position = Vector2(-65, 4)
 
-[node name="dialogue" parent="Control" unique_id=241437731 instance=ExtResource("4_j636r")]
-dialogue_resource = ExtResource("5_6ysmt")
+[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="4" unique_id=1956582997 instance=ExtResource("2_pfprs")]
+position = Vector2(1, 4)
+
+[node name="enemy6" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="5" unique_id=517318034 instance=ExtResource("2_pfprs")]
+position = Vector2(64, 0)
+
+[node name="Torch" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=698666989 instance=ExtResource("2_6ysmt")]
+position = Vector2(-72, -8)
+
+[node name="Torch2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=462134292 instance=ExtResource("2_6ysmt")]
+position = Vector2(-8, -8)
+
+[node name="Torch3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=1286716199 instance=ExtResource("2_6ysmt")]
+position = Vector2(56, -8)
+
+[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("3_pfprs")]
+position = Vector2(-64, -136)
+button = NodePath("../button_middle")
+
+[node name="chandelier2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=1167128016 node_paths=PackedStringArray("button") instance=ExtResource("3_pfprs")]
+position = Vector2(0, -136)
+button = NodePath("../button_left")
+
+[node name="chandelier3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=1989852576 node_paths=PackedStringArray("button") instance=ExtResource("3_pfprs")]
+position = Vector2(64, -136)
+button = NodePath("../button_right")
+
+[node name="chandelier4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=941966429 instance=ExtResource("3_pfprs")]
+position = Vector2(-64, -24)
+
+[node name="chandelier5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="7" unique_id=436505405 node_paths=PackedStringArray("button") instance=ExtResource("3_pfprs")]
+position = Vector2(0, -24)
+button = NodePath("../button_right")
+
+[node name="chandelier6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="8" unique_id=228328331 node_paths=PackedStringArray("button") instance=ExtResource("3_pfprs")]
+position = Vector2(64, -24)
+button = NodePath("../button_left")
+
+[node name="button_left" parent="misc" parent_id_path=PackedInt32Array(464257083) index="9" unique_id=1408692222 instance=ExtResource("4_j636r")]
+position = Vector2(-64, 16)
+
+[node name="button_middle" parent="misc" parent_id_path=PackedInt32Array(464257083) index="10" unique_id=471335667 instance=ExtResource("4_j636r")]
+position = Vector2(0, 16)
+
+[node name="button_right" parent="misc" parent_id_path=PackedInt32Array(464257083) index="11" unique_id=314361099 instance=ExtResource("4_j636r")]
+position = Vector2(64, 16)
+
+[node name="radar" parent="misc" parent_id_path=PackedInt32Array(464257083) index="12" unique_id=832316321 instance=ExtResource("5_5d2q4")]
+position = Vector2(-63, -96)
+scale = Vector2(0.5221447, 0.5221447)
+
+[node name="radar2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="13" unique_id=574888391 instance=ExtResource("5_5d2q4")]
+position = Vector2(0, -96)
+scale = Vector2(0.4978558, 0.4978558)
+
+[node name="radar3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="14" unique_id=1977031688 instance=ExtResource("5_5d2q4")]
+position = Vector2(63, -96)
+scale = Vector2(0.51798147, 0.51798147)

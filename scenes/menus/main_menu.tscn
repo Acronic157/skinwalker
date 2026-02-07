@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_8r73w"]
 [ext_resource type="Texture2D" uid="uid://djjflwo100re2" path="res://assets/cover_art/wonderlamp.png" id="5_euy4r"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_1hnlc"]
-[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="6_euy4r"]
+[ext_resource type="Texture2D" uid="uid://5xgokm88q0ib" path="res://assets/ui/play.png" id="6_euy4r"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_50h1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bre17"]
@@ -152,6 +152,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bre17"]
+texture = ExtResource("6_euy4r")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88kup"]
+texture = ExtResource("6_euy4r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bh4e2"]
+texture = ExtResource("6_euy4r")
+
+[sub_resource type="Theme" id="Theme_3w8rc"]
+Button/styles/hover = SubResource("StyleBoxTexture_bre17")
+Button/styles/normal = SubResource("StyleBoxTexture_88kup")
+Button/styles/pressed = SubResource("StyleBoxTexture_bh4e2")
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6bivr"]
 blend_mode = 1
 
@@ -244,8 +259,8 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1722005133]
 layout_mode = 2
-theme = ExtResource("6_euy4r")
-text = "Play"
+theme = SubResource("Theme_3w8rc")
+text = " "
 
 [node name="player" parent="." unique_id=1096445309 instance=ExtResource("4_6bivr")]
 position = Vector2(0, 185)

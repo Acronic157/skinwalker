@@ -17,6 +17,7 @@ var wall_collision_cooldown: float = 0.0
 func Enter():
 	enemy.animation_player.play("idle")
 	pick_new_direction()
+	enemy.hitbox_shape.disabled = false
 
 func Exit():
 	pass

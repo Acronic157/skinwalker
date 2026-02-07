@@ -652,8 +652,6 @@ autoplay = &"enter_level"
 light_mask = 3
 tile_set = SubResource("TileSet_ul342")
 
-[node name="one_way" type="TileMapLayer" parent="tilemaps" unique_id=323050180]
-
 [node name="barriers" type="Node2D" parent="." unique_id=507976491]
 
 [node name="up" parent="barriers" unique_id=1757259369 instance=ExtResource("4_xvv5a")]
@@ -719,7 +717,6 @@ parameters/looping = true
 
 [node name="level_completed_sound" type="AudioStreamPlayer2D" parent="audio" unique_id=185256653]
 stream = ExtResource("14_hq7uc")
-parameters/looping = true
 
 [connection signal="timeout" from="ui/CanvasLayer/player_life_bar/player_life_timer" to="." method="_on_player_life_timer_timeout"]
 [connection signal="animation_finished" from="ui/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -18,6 +18,7 @@ func Enter():
 	vision_cone_collider.disabled = false
 	point_light_2d.visible = true
 	light_occluder_2d.visible = false
+	enemy.hitbox_shape.disabled = false
 
 	
 func Exit():
@@ -26,6 +27,7 @@ func Exit():
 	vision_cone_collider.disabled = true
 	point_light_2d.visible = false
 	light_occluder_2d.visible = true
+	enemy.hitbox_shape.disabled = true
 	if not enemy.is_dead:
 		enemy.vision_cone.visible = true
 		

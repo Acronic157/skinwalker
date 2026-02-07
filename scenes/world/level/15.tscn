@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cs0btdlyy1iqd" path="res://dialogues/outro.dialogue" id="5_ocl08"]
 [ext_resource type="Script" uid="uid://cr1iiiun31ojc" path="res://dialogues/outrogd.gd" id="6_3ab4g"]
 [ext_resource type="Texture2D" uid="uid://2m7p7eu5d8ft" path="res://assets/wonderlamp/wonderlamp_faindg.png" id="6_nj5e8"]
+[ext_resource type="Texture2D" uid="uid://cxrc10hhg46hm" path="res://assets/wonderlamp/sarco_big.png" id="8_kvcch"]
 
 [sub_resource type="GDScript" id="GDScript_nj5e8"]
 script/source = "extends Node2D
@@ -279,7 +280,11 @@ script = ExtResource("6_3ab4g")
 dialogue_resource = ExtResource("5_ocl08")
 
 [node name="lamp" type="AnimatedSprite2D" parent="." unique_id=134717211]
-position = Vector2(0, -122)
+position = Vector2(116, -122)
 sprite_frames = SubResource("SpriteFrames_ml8fc")
+
+[node name="SarcoBig" type="Sprite2D" parent="." unique_id=652625648]
+position = Vector2(-93, -119)
+texture = ExtResource("8_kvcch")
 
 [connection signal="animation_finished" from="lamp" to="Control/dialogue" method="_on_lamp_animation_finished"]

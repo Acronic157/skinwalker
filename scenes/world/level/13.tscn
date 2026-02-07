@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dhi68gw6mdsuj"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_5yxmx"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_6ysmt"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_pfprs"]
+[ext_resource type="PackedScene" uid="uid://2w38dcq44k0y" path="res://scenes/menus/dialogue.tscn" id="4_j636r"]
+[ext_resource type="Resource" uid="uid://bi13cg48n1ii" path="res://dialogues/endgame.dialogue" id="5_6ysmt"]
+
+[sub_resource type="Resource" id="Resource_uh46f"]
+script = ExtResource("3_pfprs")
+
+[node name="endgame" type="Node2D" unique_id=626099290]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=68978019]
+top_level = true
+zoom = Vector2(0.5, 0.5)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=629265040]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_5yxmx")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=480286241]
+script = ExtResource("2_6ysmt")
+zoom = Vector2(0.5, 0.5)
+tween_resource = SubResource("Resource_uh46f")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Control" type="Control" parent="." unique_id=39663525]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="dialogue" parent="Control" unique_id=241437731 instance=ExtResource("4_j636r")]
+dialogue_resource = ExtResource("5_6ysmt")

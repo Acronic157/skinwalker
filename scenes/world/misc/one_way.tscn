@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ou30urry6roq"]
+
+[ext_resource type="Shader" uid="uid://dnam8fgdrn7yw" path="res://scripts/world/misc/one_way.gdshader" id="1_hc6lt"]
+[ext_resource type="Texture2D" uid="uid://72t8rfxvtpew" path="res://assets/world/tilemaps/chapter_1/oneway.png" id="2_lo3qu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc6lt"]
+shader = ExtResource("1_hc6lt")
+shader_parameter/shine_color = Color(1, 0.9, 0.5, 0.5)
+shader_parameter/cycle_speed = 2.400000114
+shader_parameter/shine_size = 0.3200000152
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvfjw"]
+size = Vector2(16, 16)
+
+[node name="OneWay" type="Node2D" unique_id=1137109248]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=200319309]
+material = SubResource("ShaderMaterial_hc6lt")
+texture = ExtResource("2_lo3qu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2103983008]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2088093207]
+shape = SubResource("RectangleShape2D_bvfjw")
+one_way_collision = true

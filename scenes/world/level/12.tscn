@@ -1,5 +1,56 @@
-[gd_scene format=3 uid="uid://b6640vkckbhri"]
+[gd_scene format=4 uid="uid://b6640vkckbhri"]
 
 [ext_resource type="PackedScene" uid="uid://ctdq0fvbn07dq" path="res://scenes/world/level/template.tscn" id="1_nb011"]
+[ext_resource type="PackedScene" uid="uid://bjfvx7a5di8nk" path="res://scenes/entities/enemies/enemy.tscn" id="2_uqwsr"]
+[ext_resource type="PackedScene" uid="uid://bu4m6ktdawuf6" path="res://scenes/world/misc/trap_1.tscn" id="3_8q4a0"]
+[ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="4_5teta"]
+[ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="5_lebgp"]
+[ext_resource type="PackedScene" uid="uid://cfa114j1rh1ao" path="res://scenes/world/misc/torch.tscn" id="6_lebgp"]
 
 [node name="12" unique_id=315252252 instance=ExtResource("1_nb011")]
+
+[node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
+tile_map_data = PackedByteArray("AADz/wYAAQAGAAgAAADz/wcAAQAGAAkAAAD0/wYAAQAHAAgAAAD0/wcAAQAHAAkAAADz/wQAAQAGAAgAAADz/wUAAQAGAAkAAAD0/wQAAQAHAAgAAAD0/wUAAQAHAAkAAADz/wIAAQAGAAgAAADz/wMAAQAGAAkAAAD0/wIAAQAHAAgAAAD0/wMAAQAHAAkAAAD5/wIAAQAGAAQAAAD5/wMAAQAGAAUAAAD6/wIAAQAHAAQAAAD6/wMAAQAHAAUAAAD5/wQAAQAGAAQAAAD5/wUAAQAGAAUAAAD6/wQAAQAHAAQAAAD6/wUAAQAHAAUAAAD5/wYAAQAGAAQAAAD5/wcAAQABAAAAAAD6/wYAAQAHAAQAAAD6/wcAAQABAAAAAAD4/wYAAQACAAEAAAD4/wUAAQACAAEAAAD4/wQAAQACAAEAAAD4/wMAAQACAAEAAAD4/wIAAQACAAEAAAD5/wEAAQAAAAQAAAD6/wEAAQAAAAYAAADz/wAAAQAAAAYAAAD0/wAAAQADAAQAAADz/wEAAQAEAAQAAAD0/wEAAQAEAAQAAADy/wcAAQACAAEAAADy/wYAAQACAAEAAADy/wUAAQACAAEAAADy/wQAAQACAAEAAADy/wMAAQACAAEAAADy/wIAAQACAAEAAADy/wEAAQACAAEAAADy/wAAAQACAAEAAADz////AQABAAIAAAD0////AQABAAIAAAD1/wAAAQAAAAEAAAD1/wEAAQAAAAEAAAD1/wIAAQAAAAEAAAD1/wMAAQAAAAEAAAD1/wQAAQAAAAEAAAD1/wUAAQAAAAEAAAD1/wYAAQAAAAEAAAD1/wcAAQAAAAEAAAD1/wgAAQAAAAEAAAD0/wkAAQABAAAAAADz/wkAAQABAAAAAADy/wgAAQACAAEAAADz/wgAAQAEAAkAAAD0/wgAAQAEAAkAAAD7/wYAAQAAAAEAAAD7/wUAAQAAAAEAAAD7/wQAAQAAAAEAAAD7/wMAAQAAAAEAAAD7/wIAAQAAAAEAAAD7/wEAAQAAAAEAAAD4/wEAAQACAAEAAAD5/wAAAQABAAIAAAD6/wAAAQABAAIAAAD4/wcAAQAEAAEAAADy/wkAAQAEAAEAAAD1/wkAAQAFAAEAAAD7/wcAAQAFAAEAAADy////AQAEAAAAAAD4/wAAAQAEAAAAAAD7/wAAAQAFAAAAAAD1////AQAFAAAAAAA=")
+
+[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_uqwsr")]
+position = Vector2(-192, 120)
+
+[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1689377533 instance=ExtResource("2_uqwsr")]
+position = Vector2(-96, 44)
+
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=1932050838 instance=ExtResource("2_uqwsr")]
+position = Vector2(-103, 30)
+
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=175191109 instance=ExtResource("2_uqwsr")]
+position = Vector2(-96, 80)
+
+[node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=503389551 instance=ExtResource("3_8q4a0")]
+position = Vector2(-200, 104)
+
+[node name="Trap2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=1030383536 instance=ExtResource("3_8q4a0")]
+position = Vector2(-184, 104)
+
+[node name="Trap5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=372185064 instance=ExtResource("3_8q4a0")]
+position = Vector2(-200, 56)
+
+[node name="Trap6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=210502542 instance=ExtResource("3_8q4a0")]
+position = Vector2(-184, 56)
+
+[node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=1408692222 instance=ExtResource("4_5teta")]
+position = Vector2(-192, 24)
+
+[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("5_lebgp")]
+position = Vector2(-96, 16)
+button = NodePath("../chandelier_button")
+
+[node name="Trap3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=52727840 instance=ExtResource("3_8q4a0")]
+position = Vector2(-104, 72)
+
+[node name="Trap4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="7" unique_id=1600708038 instance=ExtResource("3_8q4a0")]
+position = Vector2(-88, 72)
+
+[node name="Torch" parent="misc" parent_id_path=PackedInt32Array(464257083) index="8" unique_id=698666989 instance=ExtResource("6_lebgp")]
+position = Vector2(-200, 8)
+
+[node name="Torch2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="9" unique_id=1665286779 instance=ExtResource("6_lebgp")]
+position = Vector2(-88, 24)

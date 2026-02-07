@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5l5t8s5sy6gk" path="res://scenes/world/misc/lava.tscn" id="4_c0g68"]
 [ext_resource type="PackedScene" uid="uid://b23hg3glgieik" path="res://scenes/world/misc/chandelier.tscn" id="5_c0g68"]
 [ext_resource type="PackedScene" uid="uid://brscra4sg05di" path="res://scenes/world/misc/chandelier_button.tscn" id="6_nvq7d"]
+[ext_resource type="PackedScene" uid="uid://ou30urry6roq" path="res://scenes/world/misc/one_way.tscn" id="7_tx2pt"]
 
 [node name="7" unique_id=315252252 instance=ExtResource("1_g5n2g")]
 
@@ -36,3 +37,19 @@ button = NodePath("../chandelier_button")
 
 [node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=1408692222 instance=ExtResource("6_nvq7d")]
 position = Vector2(664, 9)
+
+[node name="OneWay" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=1137109248 instance=ExtResource("7_tx2pt")]
+position = Vector2(344, 24)
+rotation = -4.712389
+
+[node name="OneWay2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="7" unique_id=598779890 instance=ExtResource("7_tx2pt")]
+position = Vector2(344, 8)
+rotation = -4.712389
+
+[node name="OneWay3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="8" unique_id=2077453605 instance=ExtResource("7_tx2pt")]
+position = Vector2(344, -8)
+rotation = -4.712389
+
+[node name="OneWay4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="9" unique_id=1193119723 instance=ExtResource("7_tx2pt")]
+position = Vector2(344, -24)
+rotation = -4.712389

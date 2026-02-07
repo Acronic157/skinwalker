@@ -115,7 +115,7 @@ func enter_posession():
 		#screaming_cone.ray_count = 0
 		
 		# Just a test --- maybe delete again
-		hitbox_shape.disabled = false
+		#hitbox_shape.disabled = false
 		# ------------------------------
 		
 		Globals.enter_enemy.emit()
@@ -146,7 +146,7 @@ func exit_posession():
 	#screaming_cone.ray_count = 36
 	
 	# Just a test --- maybe delete again
-	hitbox_shape.disabled = true
+	#hitbox_shape.disabled = true
 	# ------------------------------
 	
 	Globals.exit_enemy.emit()

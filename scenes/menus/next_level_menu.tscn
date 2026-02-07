@@ -1,7 +1,39 @@
 [gd_scene format=3 uid="uid://btxcovvnrqwbe"]
 
-[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_bcbl7"]
 [ext_resource type="Script" uid="uid://cgi0n1bx20oca" path="res://scripts/menus/next_level_menu/next_level_menu.gd" id="1_dy38m"]
+[ext_resource type="Texture2D" uid="uid://dygnutq72uv3o" path="res://assets/ui/nextlevel.png" id="2_kaj6b"]
+[ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="3_h3lfh"]
+[ext_resource type="Texture2D" uid="uid://dck6k3ult2wae" path="res://assets/ui/levelcleared.png" id="4_ov72u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sssv6"]
+texture = ExtResource("2_kaj6b")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44287"]
+texture = ExtResource("2_kaj6b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpgsn"]
+texture = ExtResource("2_kaj6b")
+
+[sub_resource type="Theme" id="Theme_ttjiv"]
+Button/styles/hover = SubResource("StyleBoxTexture_sssv6")
+Button/styles/normal = SubResource("StyleBoxTexture_44287")
+Button/styles/pressed = SubResource("StyleBoxTexture_gpgsn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wx7j"]
+texture = ExtResource("3_h3lfh")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r6xs"]
+texture = ExtResource("3_h3lfh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cic4r"]
+texture = ExtResource("3_h3lfh")
+
+[sub_resource type="Theme" id="Theme_qm8w8"]
+Button/styles/hover = SubResource("StyleBoxTexture_7wx7j")
+Button/styles/normal = SubResource("StyleBoxTexture_4r6xs")
+Button/styles/pressed = SubResource("StyleBoxTexture_cic4r")
 
 [node name="next_level_menu" type="Control" unique_id=243500270]
 layout_mode = 3
@@ -10,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_bcbl7")
 script = ExtResource("1_dy38m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1347463012]
@@ -34,17 +65,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1065390750]
+visible = false
 layout_mode = 2
 text = "Level Complete"
 horizontal_alignment = 1
 
 [node name="next_level" type="Button" parent="VBoxContainer" unique_id=2077595833]
 layout_mode = 2
-text = "Next Level"
+theme = SubResource("Theme_ttjiv")
+text = " "
 
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1107844294]
 layout_mode = 2
-text = "Main Menu"
+theme = SubResource("Theme_qm8w8")
+text = " "
+
+[node name="Levelcleared" type="Sprite2D" parent="." unique_id=1465073750]
+position = Vector2(241, 75)
+texture = ExtResource("4_ov72u")
 
 [connection signal="pressed" from="VBoxContainer/next_level" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

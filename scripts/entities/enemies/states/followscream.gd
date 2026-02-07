@@ -12,7 +12,7 @@ func Enter():
 	enemy.interact_area_shape.disabled = false
 	
 	# Just a test --- maybe delete again
-	enemy.hitbox_shape.disabled = false
+	#enemy.hitbox_shape.disabled = true
 	# ------------------------------
 
 	
@@ -25,7 +25,7 @@ func Exit():
 	
 	
 	# Just a test --- maybe delete again
-	enemy.hitbox_shape.disabled = true
+	#enemy.hitbox_shape.disabled = false
 	# ------------------------------
 
 func Update(_delta: float):

@@ -1,7 +1,39 @@
 [gd_scene format=3 uid="uid://dlg7d572k6q78"]
 
-[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_asori"]
 [ext_resource type="Script" uid="uid://bx7wsjrwfem0a" path="res://scripts/menus/game_over/game_over.gd" id="1_uo6ik"]
+[ext_resource type="Texture2D" uid="uid://dux70bjc1p5s1" path="res://assets/ui/restart.png" id="2_gypcw"]
+[ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="3_vg4au"]
+[ext_resource type="Texture2D" uid="uid://bicqvb7smt4kj" path="res://assets/ui/gameover.png" id="4_vg4au"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gypcw"]
+texture = ExtResource("2_gypcw")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_djsq2"]
+texture = ExtResource("2_gypcw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vg4au"]
+texture = ExtResource("2_gypcw")
+
+[sub_resource type="Theme" id="Theme_0gvls"]
+Button/styles/hover = SubResource("StyleBoxTexture_gypcw")
+Button/styles/normal = SubResource("StyleBoxTexture_djsq2")
+Button/styles/pressed = SubResource("StyleBoxTexture_vg4au")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gvls"]
+texture = ExtResource("3_vg4au")
+modulate_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihysu"]
+texture = ExtResource("3_vg4au")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbnlo"]
+texture = ExtResource("3_vg4au")
+
+[sub_resource type="Theme" id="Theme_sbnlo"]
+Button/styles/hover = SubResource("StyleBoxTexture_0gvls")
+Button/styles/normal = SubResource("StyleBoxTexture_ihysu")
+Button/styles/pressed = SubResource("StyleBoxTexture_sbnlo")
 
 [node name="GameOver" type="Control" unique_id=1272790776]
 layout_mode = 3
@@ -10,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_asori")
 script = ExtResource("1_uo6ik")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1409923995]
@@ -34,17 +65,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1317846012]
+visible = false
 layout_mode = 2
 text = "Game Over"
 horizontal_alignment = 1
 
 [node name="restart_level" type="Button" parent="VBoxContainer" unique_id=1049481324]
 layout_mode = 2
-text = "Restart Level"
+theme = SubResource("Theme_0gvls")
+text = " "
 
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1035913347]
 layout_mode = 2
-text = "Main Menu"
+theme = SubResource("Theme_sbnlo")
+text = " "
+
+[node name="Gameover" type="Sprite2D" parent="VBoxContainer" unique_id=460949245]
+position = Vector2(61.5, -13.5)
+texture = ExtResource("4_vg4au")
 
 [connection signal="pressed" from="VBoxContainer/restart_level" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

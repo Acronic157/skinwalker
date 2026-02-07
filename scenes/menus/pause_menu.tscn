@@ -1,7 +1,58 @@
 [gd_scene format=3 uid="uid://b437d07uldg7v"]
 
-[ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="1_7unhi"]
 [ext_resource type="Script" uid="uid://ckl2ywhvic3hy" path="res://scripts/menus/pause_menu/pause_menu.gd" id="1_fwndu"]
+[ext_resource type="Texture2D" uid="uid://c5j4igqucpbus" path="res://assets/ui/continue.png" id="2_gh0u6"]
+[ext_resource type="Texture2D" uid="uid://dux70bjc1p5s1" path="res://assets/ui/restart.png" id="3_eyfc8"]
+[ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="4_xiui8"]
+[ext_resource type="Texture2D" uid="uid://brvj2lymhdmy7" path="res://assets/ui/pausemenu.png" id="5_gqhbq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dgi6y"]
+load_path = "res://.godot/imported/continue.png-c1d35df1a9520487fe8ab72d9b93144e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqjbd"]
+texture = SubResource("CompressedTexture2D_dgi6y")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opdvj"]
+texture = ExtResource("2_gh0u6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pf6lc"]
+texture = ExtResource("2_gh0u6")
+
+[sub_resource type="Theme" id="Theme_j7gms"]
+Button/styles/hover = SubResource("StyleBoxTexture_dqjbd")
+Button/styles/normal = SubResource("StyleBoxTexture_opdvj")
+Button/styles/pressed = SubResource("StyleBoxTexture_pf6lc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oey0u"]
+texture = ExtResource("3_eyfc8")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sy5ew"]
+texture = ExtResource("3_eyfc8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5beu"]
+texture = ExtResource("3_eyfc8")
+
+[sub_resource type="Theme" id="Theme_ty7ml"]
+Button/styles/hover = SubResource("StyleBoxTexture_oey0u")
+Button/styles/normal = SubResource("StyleBoxTexture_sy5ew")
+Button/styles/pressed = SubResource("StyleBoxTexture_w5beu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1onjl"]
+texture = ExtResource("4_xiui8")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4mgr"]
+texture = ExtResource("4_xiui8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_umr50"]
+texture = ExtResource("4_xiui8")
+
+[sub_resource type="Theme" id="Theme_0f518"]
+Button/styles/hover = SubResource("StyleBoxTexture_1onjl")
+Button/styles/normal = SubResource("StyleBoxTexture_h4mgr")
+Button/styles/pressed = SubResource("StyleBoxTexture_umr50")
 
 [node name="pause_menu" type="Control" unique_id=142356417]
 process_mode = 3
@@ -11,7 +62,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7unhi")
 script = ExtResource("1_fwndu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1843023361]
@@ -38,21 +88,29 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="pause_menu" type="Label" parent="VBoxContainer" unique_id=651314141]
+visible = false
 layout_mode = 2
 text = "Pause Menu"
 horizontal_alignment = 1
 
 [node name="continue" type="Button" parent="VBoxContainer" unique_id=1588655334]
 layout_mode = 2
-text = "Continue"
+theme = SubResource("Theme_j7gms")
+text = " "
 
 [node name="restart_level" type="Button" parent="VBoxContainer" unique_id=1196011734]
 layout_mode = 2
-text = "Restart Level"
+theme = SubResource("Theme_ty7ml")
+text = " "
 
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1307177670]
 layout_mode = 2
-text = "Main Menu"
+theme = SubResource("Theme_0f518")
+text = " "
+
+[node name="Pausemenu" type="Sprite2D" parent="VBoxContainer" unique_id=1094566049]
+position = Vector2(55.5, -12.5)
+texture = ExtResource("5_gqhbq")
 
 [connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/restart_level" to="." method="_on_restart_level_pressed"]

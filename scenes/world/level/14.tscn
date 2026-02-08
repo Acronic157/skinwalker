@@ -15,193 +15,163 @@
 [node name="12" unique_id=315252252 instance=ExtResource("1_nb011")]
 
 [node name="ground" parent="tilemaps" parent_id_path=PackedInt32Array(605557829) index="0" unique_id=989808598]
-tile_map_data = PackedByteArray("AADx//7/AQAEAAAAAADx////AQACAAEAAADx/wAAAQACAAEAAADx/wEAAQACAAEAAADx/wIAAQACAAEAAADx/wMAAQACAAEAAADx/wQAAQAEAAEAAADy//b/AQAEAAAAAADy//f/AQACAAEAAADy//j/AQACAAEAAADy//n/AQACAAEAAADy//r/AQACAAEAAADy//v/AQAEAAEAAADy//7/AQABAAIAAADy////AQAAAAYAAADy/wAAAQAGAAQAAADy/wEAAQAGAAUAAADy/wIAAQAGAAYAAADy/wMAAQAGAAcAAADy/wQAAQABAAAAAADz//b/AQABAAIAAADz//f/AQAAAAYAAADz//j/AQAGAAQAAADz//n/AQAGAAUAAADz//r/AQAGAAcAAADz//v/AQABAAAAAADz//7/AQABAAIAAADz////AQABAAQAAADz/wAAAQAHAAQAAADz/wEAAQAGAAgAAADz/wIAAQAGAAkAAADz/wMAAQAHAAcAAADz/wQAAQABAAAAAAD0//b/AQABAAIAAAD0//f/AQACAAQAAAD0//j/AQAIAAQAAAD0//n/AQAHAAgAAAD0//r/AQAIAAcAAAD0//v/AQABAAAAAAD0//7/AQABAAIAAAD0////AQACAAQAAAD0/wAAAQAIAAQAAAD0/wEAAQAHAAgAAAD0/wIAAQAHAAkAAAD0/wMAAQAIAAcAAAD0/wQAAQABAAAAAAD1//b/AQABAAIAAAD1//f/AQAAAAYAAAD1//j/AQAJAAQAAAD1//n/AQAJAAUAAAD1//r/AQAJAAcAAAD1//v/AQABAAAAAAD1//7/AQABAAIAAAD1////AQAAAAYAAAD1/wAAAQAJAAQAAAD1/wEAAQAJAAUAAAD1/wIAAQAJAAYAAAD1/wMAAQAJAAcAAAD1/wQAAQABAAAAAAD2//b/AQAFAAAAAAD2//f/AQAAAAEAAAD2//j/AQAAAAEAAAD2//n/AQAAAAEAAAD2//r/AQAAAAEAAAD2//v/AQAFAAEAAAD2//7/AQAFAAAAAAD2////AQAAAAEAAAD2/wAAAQAAAAEAAAD2/wEAAQAAAAEAAAD2/wIAAQAAAAEAAAD2/wMAAQAAAAEAAAD2/wQAAQAFAAEAAAD/////AQAAAAkAAAAAAP//AQABAAkAAAD+////AQAAAAYAAAABAP//AQAAAAYAAAD9////AQAAAAUAAAACAP//AQADAAUAAAD9//7/AQABAAIAAAD+//7/AQABAAIAAAD///7/AQABAAIAAAAAAP7/AQABAAIAAAABAP7/AQABAAIAAAACAP7/AQABAAIAAAD8//7/AQAEAAAAAAADAP7/AQAFAAAAAAD8////AQACAAEAAAD8/wAAAQACAAEAAAD8/wEAAQACAAEAAAD8/wIAAQACAAEAAAADAP//AQAAAAEAAAADAAAAAQAAAAEAAAADAAEAAQAAAAEAAAADAAIAAQAAAAEAAAD9/wAAAQAGAAgAAAD9/wEAAQAGAAkAAAD+/wAAAQAHAAgAAAD+/wEAAQAHAAkAAAD//wAAAQAIAAgAAAD//wEAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAABAAAAAQAIAAoAAAABAAEAAQAIAAsAAAACAAAAAQAJAAoAAAACAAEAAQAJAAsAAAD9/wIAAQAEAAsAAAD+/wIAAQAFAAsAAAD//wIAAQAEAAQAAAAAAAIAAQAFAAsAAAABAAIAAQAEAAsAAAACAAIAAQAFAAsAAAAUAAAAAQABAAIAAAATAAAAAQABAAIAAAASAAAAAQABAAIAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAASAAUAAQABAAAAAAATAAUAAQABAAAAAAAUAAUAAQABAAAAAAARAAAAAQAEAAAAAAARAAUAAQAEAAEAAAASAAEAAQAAAAQAAAATAAEAAQAAAAYAAAAUAAEAAQACAAQAAAASAAIAAQAGAAQAAAASAAMAAQAGAAUAAAATAAIAAQAHAAQAAAATAAMAAQAHAAUAAAASAAQAAQAEAAsAAAATAAQAAQAFAAsAAAAUAAQAAQAEAAkAAAAUAAIAAQAFAAkAAAAUAAMAAQAFAAoAAAACAPb/AQAAAAQAAAADAPb/AQABAAQAAAAEAPb/AQACAAQAAAAFAPb/AQAAAAYAAAAGAPb/AQAAAAQAAAAHAPb/AQABAAQAAAAIAPb/AQAAAAYAAAAJAPb/AQADAAQAAAAKAPb/AQAAAAQAAAALAPb/AQAAAAYAAAAMAPb/AQACAAQAAAANAPb/AQADAAQAAAAOAPb/AQAAAAQAAAACAPX/AQABAAIAAAADAPX/AQABAAIAAAAEAPX/AQABAAIAAAAFAPX/AQABAAIAAAAGAPX/AQABAAIAAAAHAPX/AQABAAIAAAAIAPX/AQABAAIAAAAJAPX/AQABAAIAAAAKAPX/AQABAAIAAAALAPX/AQABAAIAAAAMAPX/AQABAAIAAAANAPX/AQABAAIAAAAOAPX/AQABAAIAAAAPAPX/AQAFAAAAAAABAPX/AQAEAAAAAAABAPb/AQACAAEAAAABAPf/AQACAAEAAAABAPj/AQACAAEAAAABAPn/AQACAAEAAAABAPr/AQACAAEAAAABAPv/AQAEAAEAAAACAPv/AQABAAAAAAADAPv/AQABAAAAAAAEAPv/AQABAAAAAAAFAPv/AQABAAAAAAAGAPv/AQABAAAAAAAHAPv/AQAIAAIAAAAPAPb/AQAAAAEAAAAPAPf/AQAAAAEAAAAPAPj/AQAAAAEAAAAPAPn/AQAAAAEAAAAPAPr/AQAAAAEAAAAPAPv/AQAGAAMAAAACAPf/AQAGAAQAAAACAPj/AQAGAAUAAAACAPn/AQAGAAYAAAACAPr/AQAGAAcAAAADAPf/AQAHAAQAAAADAPj/AQAHAAUAAAADAPn/AQAHAAYAAAADAPr/AQAHAAcAAAAEAPf/AQAIAAQAAAAEAPj/AQAIAAUAAAAEAPn/AQAIAAYAAAAEAPr/AQAIAAcAAAAFAPf/AQAJAAQAAAAFAPj/AQAJAAUAAAAFAPn/AQAJAAYAAAAFAPr/AQAJAAcAAAAGAPf/AQAGAAQAAAAGAPj/AQAGAAUAAAAGAPn/AQAGAAYAAAAGAPr/AQAGAAcAAAAHAPf/AQAHAAQAAAAHAPj/AQAHAAUAAAAHAPn/AQAHAAYAAAAHAPr/AQAHAAcAAAAIAPf/AQAIAAQAAAAIAPj/AQAIAAUAAAAIAPn/AQAIAAYAAAAIAPr/AQAIAAcAAAAJAPf/AQAJAAQAAAAJAPj/AQAJAAUAAAAJAPn/AQAJAAYAAAAJAPr/AQAJAAcAAAAKAPf/AQAGAAQAAAAKAPj/AQAGAAUAAAAKAPn/AQAGAAYAAAAKAPr/AQAGAAcAAAALAPf/AQAHAAQAAAALAPj/AQAHAAUAAAALAPn/AQAHAAYAAAALAPr/AQAHAAcAAAAMAPf/AQAIAAQAAAAMAPj/AQAIAAUAAAAMAPn/AQAIAAYAAAAMAPr/AQAIAAcAAAANAPf/AQAJAAQAAAANAPj/AQAJAAUAAAANAPn/AQAJAAYAAAANAPr/AQAJAAcAAAAOAPf/AQAGAAQAAAAOAPj/AQAGAAUAAAAOAPn/AQAGAAYAAAAOAPr/AQAGAAcAAAAIAPv/AQABAAMAAAAIAPz/AQAAAAQAAAAIAP3/AQAGAAYAAAAIAP7/AQAGAAcAAAAJAPv/AQABAAMAAAAJAPz/AQAAAAYAAAAJAP3/AQAHAAYAAAAJAP7/AQAHAAcAAAAKAPv/AQACAAMAAAAKAPz/AQACAAQAAAAKAP3/AQAIAAYAAAAKAP7/AQAIAAcAAAALAPv/AQADAAMAAAALAPz/AQAAAAUAAAALAP3/AQAJAAYAAAALAP7/AQAJAAcAAAAIAP//AQAGAAQAAAAIAAAAAQAGAAUAAAAJAP//AQAHAAQAAAAJAAAAAQAHAAUAAAAKAP//AQAIAAQAAAAKAAAAAQAIAAUAAAALAP//AQAJAAQAAAALAAAAAQAJAAUAAAAMAPv/AQAAAAMAAAAMAPz/AQAAAAQAAAAMAP3/AQAGAAYAAAAMAP7/AQAGAAcAAAANAPv/AQABAAMAAAANAPz/AQAAAAYAAAANAP3/AQAHAAYAAAANAP7/AQAHAAcAAAAOAPv/AQABAAMAAAAOAPz/AQACAAQAAAAOAP3/AQAIAAYAAAAOAP7/AQAIAAcAAAAMAP//AQAGAAQAAAAMAAAAAQAGAAUAAAANAP//AQAHAAQAAAANAAAAAQAHAAUAAAAOAP//AQAIAAQAAAAOAAAAAQAIAAUAAAAHAPz/AQACAAEAAAAHAP3/AQACAAEAAAAHAP7/AQACAAEAAAAHAP//AQACAAEAAAAHAAAAAQACAAEAAAAHAAEAAQAEAAEAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAAPAAEAAQAFAAEAAAAPAPz/AQAAAAEAAAAPAP3/AQAAAAEAAAAPAP7/AQAAAAEAAAAPAP//AQAAAAEAAAAPAAAAAQAAAAEAAAD8/wUAAQAEAAEAAAD9/wUAAQABAAAAAAD+/wUAAQABAAAAAAD//wUAAQABAAAAAAAAAAUAAQABAAAAAAABAAUAAQABAAAAAAACAAUAAQABAAAAAAADAAUAAQAFAAEAAAABAAQAAQAGAAUAAAACAAQAAQAHAAUAAAACAAMAAQAHAAQAAAAAAAMAAQAEAAsAAAABAAMAAQAFAAsAAAAAAAQAAQAEAAkAAAD+/wMAAQAIAAgAAAD+/wQAAQAIAAkAAAD//wMAAQAJAAgAAAD//wQAAQAJAAkAAAD9/wMAAQAHAAYAAAD9/wQAAQAHAAcAAAADAAQAAQAAAAEAAAADAAMAAQAAAAEAAAD8/wQAAQACAAEAAAD8/wMAAQACAAEAAAAYAAAAAQAFAAAAAAAYAAEAAQAAAAEAAAAYAAIAAQAAAAEAAAAYAAMAAQAAAAEAAAAYAAQAAQAAAAEAAAAYAAUAAQAFAAEAAAAVAAEAAQABAAQAAAAWAAEAAQACAAQAAAAXAAEAAQADAAQAAAAVAAAAAQABAAIAAAAWAAAAAQABAAIAAAAXAAAAAQABAAIAAAAWAAMAAQAGAAYAAAAWAAQAAQAGAAcAAAAXAAMAAQAEAAoAAAAXAAQAAQAHAAcAAAAWAAIAAQAFAAkAAAAXAAIAAQAEAAkAAAAVAAUAAQABAAAAAAAWAAUAAQABAAAAAAAXAAUAAQABAAAAAAAnAAAAAQAEAAAAAAAnAAEAAQACAAEAAAAnAAIAAQACAAEAAAAnAAMAAQACAAEAAAAnAAQAAQACAAEAAAAnAAUAAQAEAAEAAAAoAAAAAQABAAIAAAAoAAEAAQAAAAQAAAAoAAIAAQAGAAQAAAAoAAMAAQAGAAUAAAAoAAQAAQAGAAYAAAAoAAUAAQABAAAAAAApAAAAAQABAAIAAAApAAEAAQABAAQAAAApAAIAAQAHAAQAAAApAAMAAQAHAAUAAAApAAQAAQAHAAYAAAApAAUAAQABAAAAAAAqAAAAAQABAAIAAAAqAAEAAQAAAAYAAAAqAAIAAQAIAAQAAAAqAAMAAQAIAAUAAAAqAAQAAQAEAAoAAAAqAAUAAQABAAAAAAArAAAAAQABAAIAAAArAAEAAQADAAQAAAArAAIAAQAJAAQAAAArAAMAAQAEAAoAAAArAAQAAQAJAAYAAAArAAUAAQABAAAAAAAsAAAAAQABAAIAAAAsAAEAAQAAAAQAAAAsAAIAAQAGAAQAAAAsAAMAAQAGAAUAAAAsAAQAAQAEAAoAAAAsAAUAAQABAAAAAAAtAAAAAQABAAIAAAAtAAEAAQAAAAYAAAAtAAIAAQAHAAQAAAAtAAMAAQAHAAUAAAAtAAQAAQAHAAYAAAAtAAUAAQABAAAAAAAuAAAAAQABAAIAAAAuAAEAAQACAAQAAAAuAAIAAQAEAAoAAAAuAAMAAQAIAAUAAAAuAAQAAQAIAAYAAAAuAAUAAQABAAAAAAAvAAAAAQABAAIAAAAvAAEAAQADAAQAAAAvAAIAAQAEAAoAAAAvAAMAAQAEAAoAAAAvAAQAAQAJAAYAAAAvAAUAAQABAAAAAAAwAAAAAQAFAAAAAAAwAAEAAQAAAAEAAAAwAAIAAQAAAAEAAAAwAAMAAQAAAAEAAAAwAAQAAQAAAAEAAAAwAAUAAQAFAAEAAAA=")
+tile_map_data = PackedByteArray("AADx//7/AQAEAAAAAADx////AQACAAEAAADx/wAAAQACAAEAAADx/wEAAQACAAEAAADx/wIAAQACAAEAAADx/wMAAQACAAEAAADx/wQAAQAEAAEAAADy//b/AQAEAAAAAADy//f/AQACAAEAAADy//j/AQACAAEAAADy//n/AQACAAEAAADy//r/AQACAAEAAADy//v/AQAEAAEAAADy//7/AQABAAIAAADy////AQADAAQAAADy/wAAAQAGAAQAAADy/wEAAQAGAAUAAADy/wIAAQAGAAYAAADy/wMAAQAGAAcAAADy/wQAAQABAAAAAADz//b/AQABAAIAAADz//f/AQAAAAQAAADz//j/AQAGAAQAAADz//n/AQAGAAUAAADz//r/AQAGAAcAAADz//v/AQABAAAAAADz//7/AQABAAIAAADz////AQABAAQAAADz/wAAAQAHAAQAAADz/wEAAQAGAAgAAADz/wIAAQAGAAkAAADz/wMAAQAHAAcAAADz/wQAAQABAAAAAAD0//b/AQABAAIAAAD0//f/AQACAAQAAAD0//j/AQAIAAQAAAD0//n/AQAHAAgAAAD0//r/AQAIAAcAAAD0//v/AQABAAAAAAD0//7/AQABAAIAAAD0////AQACAAQAAAD0/wAAAQAIAAQAAAD0/wEAAQAHAAgAAAD0/wIAAQAHAAkAAAD0/wMAAQAIAAcAAAD0/wQAAQABAAAAAAD1//b/AQABAAIAAAD1//f/AQADAAQAAAD1//j/AQAJAAQAAAD1//n/AQAJAAUAAAD1//r/AQAJAAcAAAD1//v/AQABAAAAAAD1//7/AQABAAIAAAD1////AQAAAAQAAAD1/wAAAQAJAAQAAAD1/wEAAQAJAAUAAAD1/wIAAQAJAAYAAAD1/wMAAQAJAAcAAAD1/wQAAQABAAAAAAD2//b/AQAFAAAAAAD2//f/AQAAAAEAAAD2//j/AQAAAAEAAAD2//n/AQAAAAEAAAD2//r/AQAAAAEAAAD2//v/AQAFAAEAAAD2//7/AQAFAAAAAAD2////AQAAAAEAAAD2/wAAAQAAAAEAAAD2/wEAAQAAAAEAAAD2/wIAAQAAAAEAAAD2/wMAAQAAAAEAAAD2/wQAAQAFAAEAAAD/////AQAAAAkAAAAAAP//AQABAAkAAAD+////AQAAAAYAAAABAP//AQAAAAYAAAD9////AQAAAAUAAAACAP//AQADAAUAAAD9//7/AQABAAIAAAD+//7/AQABAAIAAAD///7/AQABAAIAAAAAAP7/AQABAAIAAAABAP7/AQABAAIAAAACAP7/AQABAAIAAAD8//7/AQAEAAAAAAADAP7/AQAFAAAAAAD8////AQACAAEAAAD8/wAAAQACAAEAAAD8/wEAAQACAAEAAAD8/wIAAQACAAEAAAADAP//AQAAAAEAAAADAAAAAQAAAAEAAAADAAEAAQAAAAEAAAADAAIAAQAAAAEAAAD9/wAAAQAGAAgAAAD9/wEAAQAGAAkAAAD+/wAAAQAHAAgAAAD+/wEAAQAHAAkAAAD//wAAAQAIAAgAAAD//wEAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAABAAAAAQAIAAoAAAABAAEAAQAIAAsAAAACAAAAAQAJAAoAAAACAAEAAQAJAAsAAAD9/wIAAQAEAAsAAAD+/wIAAQAFAAsAAAD//wIAAQAEAAQAAAAAAAIAAQAFAAsAAAABAAIAAQAEAAsAAAACAAIAAQAFAAsAAAAUAAAAAQABAAIAAAATAAAAAQABAAIAAAASAAAAAQABAAIAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAASAAUAAQABAAAAAAATAAUAAQABAAAAAAAUAAUAAQABAAAAAAARAAAAAQAEAAAAAAARAAUAAQAEAAEAAAASAAEAAQAAAAQAAAATAAEAAQABAAQAAAAUAAEAAQACAAQAAAASAAIAAQAGAAQAAAASAAMAAQAGAAUAAAATAAIAAQAHAAQAAAATAAMAAQAHAAUAAAASAAQAAQAEAAsAAAATAAQAAQAFAAsAAAAUAAQAAQAEAAkAAAAUAAIAAQAFAAkAAAAUAAMAAQAFAAoAAAACAPb/AQAAAAQAAAADAPb/AQABAAQAAAAEAPb/AQACAAQAAAAFAPb/AQAAAAYAAAAGAPb/AQAAAAQAAAAHAPb/AQABAAQAAAAIAPb/AQADAAQAAAAJAPb/AQADAAQAAAAKAPb/AQAAAAQAAAALAPb/AQAAAAYAAAAMAPb/AQACAAQAAAANAPb/AQADAAQAAAAOAPb/AQAAAAQAAAACAPX/AQABAAIAAAADAPX/AQABAAIAAAAEAPX/AQABAAIAAAAFAPX/AQABAAIAAAAGAPX/AQABAAIAAAAHAPX/AQABAAIAAAAIAPX/AQABAAIAAAAJAPX/AQABAAIAAAAKAPX/AQABAAIAAAALAPX/AQABAAIAAAAMAPX/AQABAAIAAAANAPX/AQABAAIAAAAOAPX/AQABAAIAAAAPAPX/AQAFAAAAAAABAPX/AQAEAAAAAAABAPb/AQACAAEAAAABAPf/AQACAAEAAAABAPj/AQACAAEAAAABAPn/AQACAAEAAAABAPr/AQACAAEAAAABAPv/AQAEAAEAAAACAPv/AQABAAAAAAADAPv/AQABAAAAAAAEAPv/AQABAAAAAAAFAPv/AQABAAAAAAAGAPv/AQABAAAAAAAHAPv/AQAIAAIAAAAPAPb/AQAAAAEAAAAPAPf/AQAAAAEAAAAPAPj/AQAAAAEAAAAPAPn/AQAAAAEAAAAPAPr/AQAAAAEAAAAPAPv/AQAGAAMAAAACAPf/AQAGAAQAAAACAPj/AQAGAAUAAAACAPn/AQAGAAYAAAACAPr/AQAGAAcAAAADAPf/AQAHAAQAAAADAPj/AQAHAAUAAAADAPn/AQAHAAYAAAADAPr/AQAHAAcAAAAEAPf/AQAIAAQAAAAEAPj/AQAIAAUAAAAEAPn/AQAIAAYAAAAEAPr/AQAIAAcAAAAFAPf/AQAJAAQAAAAFAPj/AQAJAAUAAAAFAPn/AQAJAAYAAAAFAPr/AQAJAAcAAAAGAPf/AQAGAAQAAAAGAPj/AQAGAAUAAAAGAPn/AQAGAAYAAAAGAPr/AQAGAAcAAAAHAPf/AQAHAAQAAAAHAPj/AQAHAAUAAAAHAPn/AQAHAAYAAAAHAPr/AQAHAAcAAAAIAPf/AQAIAAQAAAAIAPj/AQAIAAUAAAAIAPn/AQAIAAYAAAAIAPr/AQAIAAcAAAAJAPf/AQAJAAQAAAAJAPj/AQAJAAUAAAAJAPn/AQAJAAYAAAAJAPr/AQAJAAcAAAAKAPf/AQAGAAQAAAAKAPj/AQAGAAUAAAAKAPn/AQAGAAYAAAAKAPr/AQAGAAcAAAALAPf/AQAHAAQAAAALAPj/AQAHAAUAAAALAPn/AQAHAAYAAAALAPr/AQAHAAcAAAAMAPf/AQAIAAQAAAAMAPj/AQAIAAUAAAAMAPn/AQAIAAYAAAAMAPr/AQAIAAcAAAANAPf/AQAJAAQAAAANAPj/AQAJAAUAAAANAPn/AQAJAAYAAAANAPr/AQAJAAcAAAAOAPf/AQAGAAQAAAAOAPj/AQAGAAUAAAAOAPn/AQAGAAYAAAAOAPr/AQAGAAcAAAAIAPv/AQABAAMAAAAIAPz/AQAAAAQAAAAIAP3/AQAGAAYAAAAIAP7/AQAGAAcAAAAJAPv/AQABAAMAAAAJAPz/AQAAAAYAAAAJAP3/AQAHAAYAAAAJAP7/AQAHAAcAAAAKAPv/AQACAAMAAAAKAPz/AQACAAQAAAAKAP3/AQAIAAYAAAAKAP7/AQAIAAcAAAALAPv/AQADAAMAAAALAPz/AQAAAAUAAAALAP3/AQAJAAYAAAALAP7/AQAJAAcAAAAIAP//AQAGAAQAAAAIAAAAAQAGAAUAAAAJAP//AQAHAAQAAAAJAAAAAQAHAAUAAAAKAP//AQAIAAQAAAAKAAAAAQAIAAUAAAALAP//AQAJAAQAAAALAAAAAQAJAAUAAAAMAPv/AQAAAAMAAAAMAPz/AQAAAAQAAAAMAP3/AQAGAAYAAAAMAP7/AQAGAAcAAAANAPv/AQABAAMAAAANAPz/AQAAAAYAAAANAP3/AQAHAAYAAAANAP7/AQAHAAcAAAAOAPv/AQABAAMAAAAOAPz/AQACAAQAAAAOAP3/AQAIAAYAAAAOAP7/AQAIAAcAAAAMAP//AQAGAAQAAAAMAAAAAQAGAAUAAAANAP//AQAHAAQAAAANAAAAAQAHAAUAAAAOAP//AQAIAAQAAAAOAAAAAQAIAAUAAAAHAPz/AQACAAEAAAAHAP3/AQACAAEAAAAHAP7/AQACAAEAAAAHAP//AQACAAEAAAAHAAAAAQACAAEAAAAHAAEAAQAEAAEAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAAPAAEAAQAFAAEAAAAPAPz/AQAAAAEAAAAPAP3/AQAAAAEAAAAPAP7/AQAAAAEAAAAPAP//AQAAAAEAAAAPAAAAAQAAAAEAAAD8/wUAAQAEAAEAAAD9/wUAAQABAAAAAAD+/wUAAQABAAAAAAD//wUAAQABAAAAAAAAAAUAAQABAAAAAAABAAUAAQABAAAAAAACAAUAAQABAAAAAAADAAUAAQAFAAEAAAABAAQAAQAGAAUAAAACAAQAAQAHAAUAAAACAAMAAQAHAAQAAAAAAAMAAQAEAAsAAAABAAMAAQAFAAsAAAAAAAQAAQAEAAkAAAD+/wMAAQAIAAgAAAD+/wQAAQAIAAkAAAD//wMAAQAJAAgAAAD//wQAAQAJAAkAAAD9/wMAAQAHAAYAAAD9/wQAAQAHAAcAAAADAAQAAQAAAAEAAAADAAMAAQAAAAEAAAD8/wQAAQACAAEAAAD8/wMAAQACAAEAAAAYAAAAAQAFAAAAAAAYAAEAAQAAAAEAAAAYAAIAAQAAAAEAAAAYAAMAAQAAAAEAAAAYAAQAAQAAAAEAAAAYAAUAAQAFAAEAAAAVAAEAAQABAAQAAAAWAAEAAQACAAQAAAAXAAEAAQADAAQAAAAVAAAAAQABAAIAAAAWAAAAAQABAAIAAAAXAAAAAQABAAIAAAAWAAMAAQAGAAYAAAAWAAQAAQAGAAcAAAAXAAMAAQAEAAoAAAAXAAQAAQAHAAcAAAAWAAIAAQAFAAkAAAAXAAIAAQAEAAkAAAAVAAUAAQABAAAAAAAWAAUAAQABAAAAAAAXAAUAAQABAAAAAAAnAAAAAQAEAAAAAAAnAAEAAQACAAEAAAAnAAIAAQACAAEAAAAnAAMAAQACAAEAAAAnAAQAAQACAAEAAAAnAAUAAQAEAAEAAAAoAAAAAQABAAIAAAAoAAEAAQAAAAQAAAAoAAIAAQAGAAQAAAAoAAMAAQAGAAUAAAAoAAQAAQAGAAYAAAAoAAUAAQABAAAAAAApAAAAAQABAAIAAAApAAEAAQABAAQAAAApAAIAAQAHAAQAAAApAAMAAQAHAAUAAAApAAQAAQAHAAYAAAApAAUAAQABAAAAAAAqAAAAAQABAAIAAAAqAAEAAQAAAAYAAAAqAAIAAQAIAAQAAAAqAAMAAQAIAAUAAAAqAAQAAQAEAAoAAAAqAAUAAQABAAAAAAArAAAAAQABAAIAAAArAAEAAQADAAQAAAArAAIAAQAJAAQAAAArAAMAAQAEAAoAAAArAAQAAQAJAAYAAAArAAUAAQABAAAAAAAsAAAAAQABAAIAAAAsAAEAAQAAAAQAAAAsAAIAAQAGAAQAAAAsAAMAAQAGAAUAAAAsAAQAAQAEAAoAAAAsAAUAAQABAAAAAAAtAAAAAQABAAIAAAAtAAEAAQABAAQAAAAtAAIAAQAHAAQAAAAtAAMAAQAHAAUAAAAtAAQAAQAHAAYAAAAtAAUAAQABAAAAAAAuAAAAAQABAAIAAAAuAAEAAQACAAQAAAAuAAIAAQAEAAoAAAAuAAMAAQAIAAUAAAAuAAQAAQAIAAYAAAAuAAUAAQABAAAAAAAvAAAAAQABAAIAAAAvAAEAAQADAAQAAAAvAAIAAQAEAAoAAAAvAAMAAQAEAAoAAAAvAAQAAQAJAAYAAAAvAAUAAQABAAAAAAAwAAAAAQAFAAAAAAAwAAEAAQAAAAEAAAAwAAIAAQAAAAEAAAAwAAMAAQAAAAEAAAAwAAQAAQAAAAEAAAAwAAUAAQAFAAEAAAA=")
 
-[node name="enemy" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=1364067840 instance=ExtResource("2_pgclj")]
-position = Vector2(-192, 40)
-
-[node name="enemy2" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1795010139 instance=ExtResource("2_pgclj")]
-position = Vector2(-183, -115)
-
-[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=696885583 instance=ExtResource("2_pgclj")]
+[node name="enemy3" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="0" unique_id=696885583 instance=ExtResource("2_pgclj")]
 position = Vector2(305, 53)
 
-[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=1706830509 instance=ExtResource("2_pgclj")]
+[node name="enemy4" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="1" unique_id=1706830509 instance=ExtResource("2_pgclj")]
 position = Vector2(656, 48)
 
-[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="4" unique_id=825478429 instance=ExtResource("2_pgclj")]
+[node name="enemy5" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="2" unique_id=825478429 instance=ExtResource("2_pgclj")]
 position = Vector2(200, -128)
 
-[node name="enemy6" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="5" unique_id=493475016 instance=ExtResource("2_pgclj")]
+[node name="enemy6" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="3" unique_id=493475016 instance=ExtResource("2_pgclj")]
 position = Vector2(56, -128)
 
-[node name="enemy7" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="6" unique_id=283347494 instance=ExtResource("2_pgclj")]
+[node name="enemy7" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="4" unique_id=283347494 instance=ExtResource("2_pgclj")]
 position = Vector2(160, -8)
 
-[node name="enemy8" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="7" unique_id=150820314 instance=ExtResource("2_pgclj")]
+[node name="enemy8" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="5" unique_id=150820314 instance=ExtResource("2_pgclj")]
 position = Vector2(216, -8)
 
-[node name="enemy9" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="8" unique_id=1958912322 instance=ExtResource("2_pgclj")]
+[node name="enemy9" parent="entities" parent_id_path=PackedInt32Array(2045071420) index="6" unique_id=1958912322 instance=ExtResource("2_pgclj")]
 position = Vector2(24, 40)
 
-[node name="chandelier_button" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=1408692222 instance=ExtResource("3_fokjb")]
-position = Vector2(-192, 18)
-
-[node name="Torch" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=698666989 instance=ExtResource("4_ft2uw")]
-position = Vector2(-216, -8)
-
-[node name="Torch2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=1976993879 instance=ExtResource("4_ft2uw")]
-position = Vector2(-168, -9)
-
-[node name="Torch3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=2127985154 instance=ExtResource("4_ft2uw")]
-position = Vector2(-168, -136)
-
-[node name="Torch4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=583469298 instance=ExtResource("4_ft2uw")]
-position = Vector2(-200, -138)
-
-[node name="lava" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=503389551 instance=ExtResource("5_6rbgy")]
-position = Vector2(-216, 56)
-
-[node name="lava2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=980162464 instance=ExtResource("5_6rbgy")]
-position = Vector2(-168, 56)
-
-[node name="chandelier" parent="misc" parent_id_path=PackedInt32Array(464257083) index="7" unique_id=397508775 node_paths=PackedStringArray("button") instance=ExtResource("6_7swj1")]
-position = Vector2(-183, -145)
-button = NodePath("../chandelier_button")
-
-[node name="Torch5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="8" unique_id=719127744 instance=ExtResource("4_ft2uw")]
+[node name="Torch5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="0" unique_id=719127744 instance=ExtResource("4_ft2uw")]
 position = Vector2(-23, -9)
 
-[node name="Torch6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="9" unique_id=126294762 instance=ExtResource("4_ft2uw")]
+[node name="Torch6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="1" unique_id=126294762 instance=ExtResource("4_ft2uw")]
 position = Vector2(24, -9)
 
-[node name="Torch7" parent="misc" parent_id_path=PackedInt32Array(464257083) index="10" unique_id=1163203860 instance=ExtResource("4_ft2uw")]
-position = Vector2(312, 24)
-
-[node name="chandelier2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="11" unique_id=643523696 node_paths=PackedStringArray("button") instance=ExtResource("6_7swj1")]
+[node name="chandelier2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="2" unique_id=643523696 node_paths=PackedStringArray("button") instance=ExtResource("6_7swj1")]
 position = Vector2(376, 19)
 button = NodePath("../chandelier_button2")
 
-[node name="chandelier_button2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="12" unique_id=695101024 instance=ExtResource("3_fokjb")]
+[node name="chandelier_button2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=695101024 instance=ExtResource("3_fokjb")]
 position = Vector2(744, 56)
 
-[node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="13" unique_id=404475823 instance=ExtResource("7_pgclj")]
+[node name="Trap1" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=404475823 instance=ExtResource("7_pgclj")]
 position = Vector2(680, 40)
 
-[node name="Trap2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="14" unique_id=484584886 instance=ExtResource("7_pgclj")]
+[node name="Trap2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="5" unique_id=484584886 instance=ExtResource("7_pgclj")]
 position = Vector2(680, 56)
 
-[node name="Trap3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="15" unique_id=387074151 instance=ExtResource("7_pgclj")]
+[node name="Trap3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="6" unique_id=387074151 instance=ExtResource("7_pgclj")]
 position = Vector2(680, 72)
 
-[node name="Torch8" parent="misc" parent_id_path=PackedInt32Array(464257083) index="16" unique_id=1578175885 instance=ExtResource("4_ft2uw")]
+[node name="Torch8" parent="misc" parent_id_path=PackedInt32Array(464257083) index="7" unique_id=1578175885 instance=ExtResource("4_ft2uw")]
 position = Vector2(680, 24)
 
-[node name="Torch9" parent="misc" parent_id_path=PackedInt32Array(464257083) index="17" unique_id=1461898745 instance=ExtResource("4_ft2uw")]
-position = Vector2(728, 24)
-
-[node name="Torch10" parent="misc" parent_id_path=PackedInt32Array(464257083) index="18" unique_id=772352982 instance=ExtResource("4_ft2uw")]
+[node name="Torch10" parent="misc" parent_id_path=PackedInt32Array(464257083) index="8" unique_id=772352982 instance=ExtResource("4_ft2uw")]
 position = Vector2(88, -152)
 
-[node name="Torch11" parent="misc" parent_id_path=PackedInt32Array(464257083) index="19" unique_id=428120871 instance=ExtResource("4_ft2uw")]
-position = Vector2(136, -152)
-
-[node name="Torch12" parent="misc" parent_id_path=PackedInt32Array(464257083) index="20" unique_id=2091231363 instance=ExtResource("4_ft2uw")]
+[node name="Torch12" parent="misc" parent_id_path=PackedInt32Array(464257083) index="9" unique_id=2091231363 instance=ExtResource("4_ft2uw")]
 position = Vector2(184, -152)
 
-[node name="lava3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="21" unique_id=1891613344 instance=ExtResource("5_6rbgy")]
+[node name="lava3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="10" unique_id=1891613344 instance=ExtResource("5_6rbgy")]
 position = Vector2(88, -88)
 
-[node name="lava4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="22" unique_id=1186233721 instance=ExtResource("5_6rbgy")]
+[node name="lava4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="11" unique_id=1186233721 instance=ExtResource("5_6rbgy")]
 position = Vector2(88, -104)
 
-[node name="lava5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="23" unique_id=196345428 instance=ExtResource("5_6rbgy")]
+[node name="lava5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="12" unique_id=196345428 instance=ExtResource("5_6rbgy")]
 position = Vector2(88, -120)
 
-[node name="lava6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="24" unique_id=1888237245 instance=ExtResource("5_6rbgy")]
+[node name="lava6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="13" unique_id=1888237245 instance=ExtResource("5_6rbgy")]
 position = Vector2(88, -136)
 
-[node name="radar" parent="misc" parent_id_path=PackedInt32Array(464257083) index="25" unique_id=832316321 instance=ExtResource("8_fokjb")]
+[node name="radar" parent="misc" parent_id_path=PackedInt32Array(464257083) index="14" unique_id=832316321 instance=ExtResource("8_fokjb")]
 position = Vector2(56, -120)
 
-[node name="radar2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="26" unique_id=1934768986 instance=ExtResource("8_fokjb")]
+[node name="radar2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="15" unique_id=1934768986 instance=ExtResource("8_fokjb")]
 position = Vector2(232, -8)
 
-[node name="chandelier3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="27" unique_id=948218167 node_paths=PackedStringArray("button") instance=ExtResource("6_7swj1")]
+[node name="chandelier3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="16" unique_id=948218167 node_paths=PackedStringArray("button") instance=ExtResource("6_7swj1")]
 position = Vector2(216, -39)
 button = NodePath("../chandelier_button3")
 
-[node name="Trap4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="28" unique_id=428527206 instance=ExtResource("7_pgclj")]
+[node name="Trap4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="17" unique_id=428527206 instance=ExtResource("7_pgclj")]
 position = Vector2(184, 8)
 
-[node name="Trap5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="29" unique_id=258310762 instance=ExtResource("7_pgclj")]
+[node name="Trap5" parent="misc" parent_id_path=PackedInt32Array(464257083) index="18" unique_id=258310762 instance=ExtResource("7_pgclj")]
 position = Vector2(184, -8)
 
-[node name="Trap6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="30" unique_id=893188396 instance=ExtResource("7_pgclj")]
+[node name="Trap6" parent="misc" parent_id_path=PackedInt32Array(464257083) index="19" unique_id=893188396 instance=ExtResource("7_pgclj")]
 position = Vector2(184, -24)
 
-[node name="Trap7" parent="misc" parent_id_path=PackedInt32Array(464257083) index="31" unique_id=861610408 instance=ExtResource("7_pgclj")]
+[node name="Trap7" parent="misc" parent_id_path=PackedInt32Array(464257083) index="20" unique_id=861610408 instance=ExtResource("7_pgclj")]
 position = Vector2(200, -24)
 
-[node name="Trap8" parent="misc" parent_id_path=PackedInt32Array(464257083) index="32" unique_id=436861856 instance=ExtResource("7_pgclj")]
+[node name="Trap8" parent="misc" parent_id_path=PackedInt32Array(464257083) index="21" unique_id=436861856 instance=ExtResource("7_pgclj")]
 position = Vector2(216, -24)
 
-[node name="Trap9" parent="misc" parent_id_path=PackedInt32Array(464257083) index="33" unique_id=403716739 instance=ExtResource("7_pgclj")]
+[node name="Trap9" parent="misc" parent_id_path=PackedInt32Array(464257083) index="22" unique_id=403716739 instance=ExtResource("7_pgclj")]
 position = Vector2(232, -24)
 
-[node name="Trap10" parent="misc" parent_id_path=PackedInt32Array(464257083) index="34" unique_id=113604895 instance=ExtResource("7_pgclj")]
+[node name="Trap10" parent="misc" parent_id_path=PackedInt32Array(464257083) index="23" unique_id=113604895 instance=ExtResource("7_pgclj")]
 position = Vector2(136, 8)
 
-[node name="Trap11" parent="misc" parent_id_path=PackedInt32Array(464257083) index="35" unique_id=847602863 instance=ExtResource("7_pgclj")]
+[node name="Trap11" parent="misc" parent_id_path=PackedInt32Array(464257083) index="24" unique_id=847602863 instance=ExtResource("7_pgclj")]
 position = Vector2(136, -8)
 
-[node name="Trap12" parent="misc" parent_id_path=PackedInt32Array(464257083) index="36" unique_id=710450005 instance=ExtResource("7_pgclj")]
+[node name="Trap12" parent="misc" parent_id_path=PackedInt32Array(464257083) index="25" unique_id=710450005 instance=ExtResource("7_pgclj")]
 position = Vector2(136, -24)
 
-[node name="Trap13" parent="misc" parent_id_path=PackedInt32Array(464257083) index="37" unique_id=191676075 instance=ExtResource("7_pgclj")]
+[node name="Trap13" parent="misc" parent_id_path=PackedInt32Array(464257083) index="26" unique_id=191676075 instance=ExtResource("7_pgclj")]
 position = Vector2(152, -24)
 
-[node name="Trap14" parent="misc" parent_id_path=PackedInt32Array(464257083) index="38" unique_id=617122122 instance=ExtResource("7_pgclj")]
+[node name="Trap14" parent="misc" parent_id_path=PackedInt32Array(464257083) index="27" unique_id=617122122 instance=ExtResource("7_pgclj")]
 position = Vector2(168, -24)
 
-[node name="Torch13" parent="misc" parent_id_path=PackedInt32Array(464257083) index="39" unique_id=731072837 instance=ExtResource("4_ft2uw")]
+[node name="Torch13" parent="misc" parent_id_path=PackedInt32Array(464257083) index="28" unique_id=731072837 instance=ExtResource("4_ft2uw")]
 position = Vector2(152, -56)
 
-[node name="Torch14" parent="misc" parent_id_path=PackedInt32Array(464257083) index="40" unique_id=475581947 instance=ExtResource("4_ft2uw")]
+[node name="Torch14" parent="misc" parent_id_path=PackedInt32Array(464257083) index="29" unique_id=475581947 instance=ExtResource("4_ft2uw")]
 position = Vector2(216, -56)
 
-[node name="chandelier_button3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="41" unique_id=1023729604 instance=ExtResource("3_fokjb")]
+[node name="chandelier_button3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="30" unique_id=1023729604 instance=ExtResource("3_fokjb")]
 position = Vector2(168, -120)
 
-[node name="ColorRect" type="ColorRect" parent="misc" parent_id_path=PackedInt32Array(464257083) index="42" unique_id=1060879244]
+[node name="Trap15" parent="misc" parent_id_path=PackedInt32Array(464257083) index="31" unique_id=503389551 instance=ExtResource("7_pgclj")]
+position = Vector2(328, 40)
+
+[node name="Trap16" parent="misc" parent_id_path=PackedInt32Array(464257083) index="32" unique_id=1904204128 instance=ExtResource("7_pgclj")]
+position = Vector2(328, 56)
+
+[node name="Trap17" parent="misc" parent_id_path=PackedInt32Array(464257083) index="33" unique_id=1052731476 instance=ExtResource("7_pgclj")]
+position = Vector2(328, 72)
+
+[node name="ColorRect" type="ColorRect" parent="misc" parent_id_path=PackedInt32Array(464257083) index="34" unique_id=1060879244]
 offset_left = -48.0
 offset_right = 48.0
 offset_bottom = 80.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.5058824)
 
-[node name="WonderlampTile" type="Sprite2D" parent="misc" parent_id_path=PackedInt32Array(464257083) index="43" unique_id=821639233]
+[node name="WonderlampTile" type="Sprite2D" parent="misc" parent_id_path=PackedInt32Array(464257083) index="35" unique_id=821639233]
 self_modulate = Color(1.6197081, 1.6197081, 1.6197081, 1)
 z_index = 2
 position = Vector2(23, 19)
 texture = ExtResource("9_usd8n")
 
-[node name="Sarco" type="Sprite2D" parent="misc" parent_id_path=PackedInt32Array(464257083) index="44" unique_id=91133834]
+[node name="Sarco" type="Sprite2D" parent="misc" parent_id_path=PackedInt32Array(464257083) index="36" unique_id=91133834]
 self_modulate = Color(1.6197081, 1.6197081, 1.6197081, 1)
 position = Vector2(-16, 40)
 texture = ExtResource("10_j0qmr")
 
-[node name="OneWay" parent="misc" parent_id_path=PackedInt32Array(464257083) index="45" unique_id=1137109248 instance=ExtResource("11_lrmt7")]
+[node name="OneWay" parent="misc" parent_id_path=PackedInt32Array(464257083) index="37" unique_id=1137109248 instance=ExtResource("11_lrmt7")]
 position = Vector2(344, 40)
 rotation = 1.5707964
 
-[node name="OneWay2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="46" unique_id=2065115553 instance=ExtResource("11_lrmt7")]
+[node name="OneWay2" parent="misc" parent_id_path=PackedInt32Array(464257083) index="38" unique_id=2065115553 instance=ExtResource("11_lrmt7")]
 position = Vector2(344, 56)
 rotation = 1.5707964
 
-[node name="OneWay3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="47" unique_id=896906955 instance=ExtResource("11_lrmt7")]
+[node name="OneWay3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="39" unique_id=896906955 instance=ExtResource("11_lrmt7")]
 position = Vector2(344, 72)
 rotation = 1.5707964
 
-[node name="radar3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="48" unique_id=876170441 instance=ExtResource("8_fokjb")]
+[node name="radar3" parent="misc" parent_id_path=PackedInt32Array(464257083) index="40" unique_id=876170441 instance=ExtResource("8_fokjb")]
 position = Vector2(368, 53)
 scale = Vector2(0.43238178, 0.43238178)

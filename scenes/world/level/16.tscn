@@ -2,8 +2,12 @@
 
 [ext_resource type="AudioStream" uid="uid://djk5low2ma8ad" path="res://assets/sfx/main_menu/The Catacombs Menu Music.mp3" id="3_t4c2h"]
 [ext_resource type="Texture2D" uid="uid://cjgv5hp8d4agq" path="res://assets/cover_art/banner.png" id="4_gju74"]
+[ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="4_ndh1m"]
 [ext_resource type="Texture2D" uid="uid://djjflwo100re2" path="res://assets/cover_art/wonderlamp.png" id="5_fhhfx"]
+[ext_resource type="Script" uid="uid://botmb51ujl2hn" path="res://scripts/module/button_effects_module.gd" id="5_k2sto"]
+[ext_resource type="AudioStream" uid="uid://cs8jsiw5as05t" path="res://assets/sfx/main_menu/Button Click SFX.mp3" id="6_a2vo8"]
 [ext_resource type="Theme" uid="uid://cg67qjox6btjy" path="res://themes/button_theme.tres" id="6_qsjtt"]
+[ext_resource type="AudioStream" uid="uid://bn5f08lbr8b21" path="res://assets/sfx/main_menu/Button Hover SFX.mp3" id="7_dtwlq"]
 [ext_resource type="PackedScene" uid="uid://bbhuwunhtg6qh" path="res://scenes/entities/player/player.tscn" id="7_r5bng"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_ay100"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_jg682"]
@@ -150,6 +154,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feehu"]
+texture = ExtResource("4_ndh1m")
+modulate_color = Color(0.6039216, 0.6039216, 0.6039216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dx2d"]
+texture = ExtResource("4_ndh1m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pawau"]
+texture = ExtResource("4_ndh1m")
+
+[sub_resource type="Theme" id="Theme_gndem"]
+Button/styles/hover = SubResource("StyleBoxTexture_feehu")
+Button/styles/normal = SubResource("StyleBoxTexture_3dx2d")
+Button/styles/pressed = SubResource("StyleBoxTexture_pawau")
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6bivr"]
 blend_mode = 1
 
@@ -240,8 +259,23 @@ grow_vertical = 2
 
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1722005133]
 layout_mode = 2
-theme = ExtResource("6_qsjtt")
-text = "Main Menu"
+theme = SubResource("Theme_gndem")
+text = " "
+
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/main_menu" unique_id=529042356 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("5_k2sto")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=516156299]
+position = Vector2(240, 135)
+stream = ExtResource("6_a2vo8")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=148479904]
+position = Vector2(240, 135)
+stream = ExtResource("7_dtwlq")
 
 [node name="player" parent="." unique_id=1096445309 instance=ExtResource("7_r5bng")]
 position = Vector2(0, 185)

@@ -38,7 +38,7 @@ position = Vector2(-23, -8)
 position = Vector2(24, -24)
 
 [node name="Trap4" parent="misc" parent_id_path=PackedInt32Array(464257083) index="3" unique_id=709959083 instance=ExtResource("2_nehya")]
-position = Vector2(24, -7)
+position = Vector2(24, -8)
 
 [node name="Torch" parent="misc" parent_id_path=PackedInt32Array(464257083) index="4" unique_id=698666989 instance=ExtResource("4_po3dr")]
 position = Vector2(56, -151)

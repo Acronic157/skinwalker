@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://ckl2ywhvic3hy" path="res://scripts/menus/pause_menu/pause_menu.gd" id="1_fwndu"]
 [ext_resource type="Texture2D" uid="uid://c5j4igqucpbus" path="res://assets/ui/continue.png" id="2_gh0u6"]
 [ext_resource type="Texture2D" uid="uid://dux70bjc1p5s1" path="res://assets/ui/restart.png" id="3_eyfc8"]
+[ext_resource type="Script" uid="uid://botmb51ujl2hn" path="res://scripts/module/button_effects_module.gd" id="3_gqhbq"]
+[ext_resource type="AudioStream" uid="uid://cs8jsiw5as05t" path="res://assets/sfx/main_menu/Button Click SFX.mp3" id="4_dgi6y"]
 [ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="4_xiui8"]
+[ext_resource type="AudioStream" uid="uid://bn5f08lbr8b21" path="res://assets/sfx/main_menu/Button Hover SFX.mp3" id="5_dqjbd"]
 [ext_resource type="Texture2D" uid="uid://brvj2lymhdmy7" path="res://assets/ui/pausemenu.png" id="5_gqhbq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dgi6y"]
@@ -98,15 +101,60 @@ layout_mode = 2
 theme = SubResource("Theme_j7gms")
 text = " "
 
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/continue" unique_id=1758616310 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("3_gqhbq")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/continue/ButtonEffectsModule" unique_id=1742317049]
+position = Vector2(240, 135)
+stream = ExtResource("4_dgi6y")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/continue/ButtonEffectsModule" unique_id=1357074250]
+position = Vector2(240, 135)
+stream = ExtResource("5_dqjbd")
+
 [node name="restart_level" type="Button" parent="VBoxContainer" unique_id=1196011734]
 layout_mode = 2
 theme = SubResource("Theme_ty7ml")
 text = " "
 
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/restart_level" unique_id=1439671996 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("3_gqhbq")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/restart_level/ButtonEffectsModule" unique_id=1046854426]
+position = Vector2(240, 135)
+stream = ExtResource("4_dgi6y")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/restart_level/ButtonEffectsModule" unique_id=1442877798]
+position = Vector2(240, 135)
+stream = ExtResource("5_dqjbd")
+
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1307177670]
 layout_mode = 2
 theme = SubResource("Theme_0f518")
 text = " "
+
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/main_menu" unique_id=140539951 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("3_gqhbq")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=1406090268]
+position = Vector2(240, 135)
+stream = ExtResource("4_dgi6y")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=280091026]
+position = Vector2(240, 135)
+stream = ExtResource("5_dqjbd")
 
 [node name="Pausemenu" type="Sprite2D" parent="VBoxContainer" unique_id=1094566049]
 position = Vector2(55.5, -12.5)

@@ -2,7 +2,7 @@ extends Node
 
 var current_level := 0
 var level_unlocked := 0
-var max_level := 14
+var max_level := 16
 
 func _unlock_level(level_to_unlock: int) -> void:
 	if level_to_unlock > level_unlocked:

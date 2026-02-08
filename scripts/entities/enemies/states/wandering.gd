@@ -70,7 +70,7 @@ func Physics_Update(delta: float):
 	if wander_direction != Vector2.ZERO:
 		# ACHTUNG: Godot nutzt Radianten. 300 wäre fast 50 Umdrehungen.
 		# Ich nehme an, du meinst 300 Grad Offset? Nutze deg_to_rad()!
-		var offset_radians = deg_to_rad(300) 
+		var offset_radians = deg_to_rad(-80) 
 		var target_angle = wander_direction.angle() + offset_radians
 		
 		# Langsameres Drehen: Faktor von 10.0 auf 2.0 oder 3.0 reduziert

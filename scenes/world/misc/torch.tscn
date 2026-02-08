@@ -6,6 +6,8 @@ colors = PackedColorArray(0.9518514, 0.6398101, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ddgy7"]
 gradient = SubResource("Gradient_d6yex")
+width = 32
+height = 32
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -15,7 +17,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1268901993]
 self_modulate = Color(2.5032542, 2.5032542, 2.5032542, 1)
 position = Vector2(0, -4.7683716e-07)
-scale = Vector2(2.13617, 2.3497868)
+scale = Vector2(6.16131, 6.7774405)
 energy = 1.41
 blend_mode = 2
 range_item_cull_mask = 3

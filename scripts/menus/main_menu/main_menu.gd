@@ -1,5 +1,7 @@
 extends Control
 
+@onready var timer: Timer = $Timer
+
 @export var level: PackedScene
 
 # Called when the node enters the scene tree for the first time.
@@ -13,7 +15,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	play()
+	timer.start()
+	
 
 
 
@@ -24,3 +27,7 @@ func play():
 	if level_to_load == "":
 		return
 	get_tree().call_deferred("change_scene_to_file", level_to_load)
+
+
+func _on_timer_timeout() -> void:
+	play()

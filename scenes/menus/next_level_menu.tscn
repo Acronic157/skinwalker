@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://cgi0n1bx20oca" path="res://scripts/menus/next_level_menu/next_level_menu.gd" id="1_dy38m"]
 [ext_resource type="Texture2D" uid="uid://dygnutq72uv3o" path="res://assets/ui/nextlevel.png" id="2_kaj6b"]
 [ext_resource type="Texture2D" uid="uid://d2kk2m0t3ye4w" path="res://assets/ui/mainmenu.png" id="3_h3lfh"]
+[ext_resource type="Script" uid="uid://botmb51ujl2hn" path="res://scripts/module/button_effects_module.gd" id="3_sssv6"]
+[ext_resource type="AudioStream" uid="uid://cs8jsiw5as05t" path="res://assets/sfx/main_menu/Button Click SFX.mp3" id="4_44287"]
 [ext_resource type="Texture2D" uid="uid://dck6k3ult2wae" path="res://assets/ui/levelcleared.png" id="4_ov72u"]
+[ext_resource type="AudioStream" uid="uid://bn5f08lbr8b21" path="res://assets/sfx/main_menu/Button Hover SFX.mp3" id="5_gpgsn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sssv6"]
 texture = ExtResource("2_kaj6b")
@@ -75,10 +78,40 @@ layout_mode = 2
 theme = SubResource("Theme_ttjiv")
 text = " "
 
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/next_level" unique_id=1490163510 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("3_sssv6")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/next_level/ButtonEffectsModule" unique_id=227201536]
+position = Vector2(240, 135)
+stream = ExtResource("4_44287")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/next_level/ButtonEffectsModule" unique_id=1249050949]
+position = Vector2(240, 135)
+stream = ExtResource("5_gpgsn")
+
 [node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1107844294]
 layout_mode = 2
 theme = SubResource("Theme_qm8w8")
 text = " "
+
+[node name="ButtonEffectsModule" type="Node" parent="VBoxContainer/main_menu" unique_id=1313354038 node_paths=PackedStringArray("sound_hovered", "sound_click")]
+script = ExtResource("3_sssv6")
+rotation_amount = 0.0
+sound_hovered = NodePath("sound_hover")
+sound_click = NodePath("sound_click")
+metadata/_custom_type_script = "uid://botmb51ujl2hn"
+
+[node name="sound_click" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=1660322257]
+position = Vector2(240, 135)
+stream = ExtResource("4_44287")
+
+[node name="sound_hover" type="AudioStreamPlayer2D" parent="VBoxContainer/main_menu/ButtonEffectsModule" unique_id=997129517]
+position = Vector2(240, 135)
+stream = ExtResource("5_gpgsn")
 
 [node name="Levelcleared" type="Sprite2D" parent="." unique_id=1465073750]
 position = Vector2(241, 75)

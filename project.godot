@@ -42,6 +42,7 @@ runtime/balloon_path="res://dialogues/ballons/balloon.tscn"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://ch6887deaqxdi"
 mouse_cursor/custom_image_hotspot=Vector2(5, 5)
@@ -132,6 +133,8 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
